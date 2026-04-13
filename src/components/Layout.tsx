@@ -201,26 +201,26 @@ export default function Layout() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-white pt-[120px] px-6 pb-24 md:hidden overflow-y-auto"
+            className="fixed inset-0 z-40 bg-white pt-[100px] px-6 pb-24 md:hidden overflow-y-auto"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-10">
+            <div className="grid grid-cols-2 gap-x-6 gap-y-12">
               {/* Column 1 */}
               <div className="flex flex-col gap-10">
                 <div>
-                  <h4 className="text-[13px] text-slate-400 font-medium mb-4 uppercase tracking-wider">Services</h4>
-                  <ul className="flex flex-col gap-4">
-                    <li><Link to="/solutions/automation" className="text-[16px] leading-[1.3] font-medium text-slate-800 hover:text-brand-blue" onClick={() => setMobileMenuOpen(false)}>AI & Automation</Link></li>
-                    <li><Link to="/solutions/security" className="text-[16px] leading-[1.3] font-medium text-slate-800 hover:text-brand-blue" onClick={() => setMobileMenuOpen(false)}>Cybersecurity</Link></li>
-                    <li><Link to="/solutions/ai-education" className="text-[16px] leading-[1.3] font-medium text-slate-800 hover:text-brand-blue" onClick={() => setMobileMenuOpen(false)}>AI Education</Link></li>
+                  <h4 className="text-[14px] text-slate-400 font-medium mb-3">Services</h4>
+                  <ul className="flex flex-col gap-5">
+                    <li><Link to="/solutions/automation" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>AI & Automation</Link></li>
+                    <li><Link to="/solutions/security" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Cybersecurity</Link></li>
+                    <li><Link to="/solutions/ai-education" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>AI Education</Link></li>
                   </ul>
                 </div>
                 
                 <div>
-                  <h4 className="text-[13px] text-slate-400 font-medium mb-4 uppercase tracking-wider">Industries</h4>
-                  <ul className="flex flex-col gap-4">
-                    <li><Link to="/" className="text-[16px] leading-[1.3] font-medium text-slate-800 hover:text-brand-blue" onClick={() => setMobileMenuOpen(false)}>Logistics & Healthcare</Link></li>
-                    <li><Link to="/" className="text-[16px] leading-[1.3] font-medium text-slate-800 hover:text-brand-blue" onClick={() => setMobileMenuOpen(false)}>Financial Services</Link></li>
-                    <li><Link to="/" className="text-[16px] leading-[1.3] font-medium text-slate-800 hover:text-brand-blue" onClick={() => setMobileMenuOpen(false)}>SMEs & Enterprises</Link></li>
+                  <h4 className="text-[14px] text-slate-400 font-medium mb-3">Industries</h4>
+                  <ul className="flex flex-col gap-5">
+                    <li><Link to="/" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Logistics & Healthcare</Link></li>
+                    <li><Link to="/" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Financial Services</Link></li>
+                    <li><Link to="/" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>SMEs & Enterprises</Link></li>
                   </ul>
                 </div>
               </div>
@@ -228,20 +228,20 @@ export default function Layout() {
               {/* Column 2 */}
               <div className="flex flex-col gap-10">
                 <div>
-                  <h4 className="text-[13px] text-slate-400 font-medium mb-4 uppercase tracking-wider">Resources</h4>
-                  <ul className="flex flex-col gap-4">
-                    <li><Link to="/case-studies" className="text-[16px] leading-[1.3] font-medium text-slate-800 hover:text-brand-blue" onClick={() => setMobileMenuOpen(false)}>Case Studies</Link></li>
-                    <li><Link to="/deal-room" className="text-[16px] leading-[1.3] font-medium text-slate-800 hover:text-brand-blue" onClick={() => setMobileMenuOpen(false)}>Deal Room</Link></li>
-                    <li><Link to="/payment-hub" className="text-[16px] leading-[1.3] font-medium text-slate-800 hover:text-brand-blue" onClick={() => setMobileMenuOpen(false)}>Payment Hub</Link></li>
-                    <li><Link to="/" className="text-[16px] leading-[1.3] font-medium text-slate-800 hover:text-brand-blue" onClick={() => setMobileMenuOpen(false)}>AI Playbooks</Link></li>
+                  <h4 className="text-[14px] text-slate-400 font-medium mb-3">Resources</h4>
+                  <ul className="flex flex-col gap-5">
+                    <li><Link to="/case-studies" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Case Studies</Link></li>
+                    <li><Link to="/deal-room" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Deal Room</Link></li>
+                    <li><Link to="/payment-hub" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Payment Hub</Link></li>
+                    <li><Link to="/" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>AI Playbooks</Link></li>
                   </ul>
                 </div>
                 <div>
-                  <h4 className="text-[13px] text-slate-400 font-medium mb-4 uppercase tracking-wider">Company</h4>
-                  <ul className="flex flex-col gap-4">
-                    <li><Link to="/about" className="text-[16px] leading-[1.3] font-medium text-slate-800 hover:text-brand-blue" onClick={() => setMobileMenuOpen(false)}>About Us</Link></li>
-                    <li><Link to="/careers" className="text-[16px] leading-[1.3] font-medium text-slate-800 hover:text-brand-blue" onClick={() => setMobileMenuOpen(false)}>Careers</Link></li>
-                    <li><Link to="/partners" className="text-[16px] leading-[1.3] font-medium text-slate-800 hover:text-brand-blue" onClick={() => setMobileMenuOpen(false)}>Partner With Us</Link></li>
+                  <h4 className="text-[14px] text-slate-400 font-medium mb-3">Company</h4>
+                  <ul className="flex flex-col gap-5">
+                    <li><Link to="/about" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>About Us</Link></li>
+                    <li><Link to="/careers" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Careers</Link></li>
+                    <li><Link to="/partners" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Partner With Us</Link></li>
                   </ul>
                 </div>
               </div>
