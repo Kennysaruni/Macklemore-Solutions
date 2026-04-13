@@ -14,6 +14,8 @@ import DealRoom from "./pages/DealRoom";
 import Automation from "./pages/solutions/Automation";
 import AIEducation from "./pages/solutions/AIEducation";
 import Security from "./pages/solutions/Security";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import PaymentHub from "./pages/PaymentHub";
 
 export default function App() {
   return (
@@ -26,9 +28,11 @@ export default function App() {
           <Route path="careers" element={<Careers />} />
           <Route path="case-studies" element={<CaseStudies />} />
           <Route path="deal-room" element={<DealRoom />} />
+          <Route path="payment-hub" element={<PaymentHub />} />
           <Route path="solutions/automation" element={<Automation />} />
           <Route path="solutions/ai-education" element={<AIEducation />} />
           <Route path="solutions/security" element={<Security />} />
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
         </Route>
       </Routes>
     </BrowserRouter>

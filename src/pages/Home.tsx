@@ -32,23 +32,23 @@ export default function Home() {
               transition={{ duration: 0.5 }}
             >
               <h1 className="text-[44px] md:text-[60px] lg:text-[72px] font-display font-bold tracking-tight text-slate-800 mb-6 leading-[1.05]">
-                Designing Intelligent Systems That Power Institutional Growth
+                We Build AI & Automation Systems for Modern Businesses
               </h1>
               <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-lg leading-relaxed font-medium">
-                We build AI driven automation infrastructure that streamlines operations, strengthens decision making, and enables organizations to scale with precision.
+                Designing intelligent infrastructure that streamlines operations, strengthens decision making, and enables organizations to scale with precision.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/deal-room"
                   className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl bg-brand-blue text-white font-medium hover:bg-brand-blue-hover transition-colors shadow-lg shadow-brand-blue/30 text-[17px]"
                 >
-                  Request a demo
+                  Request a Demo
                 </Link>
                 <Link
-                  to="/case-studies"
+                  to="/"
                   className="inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-xl bg-white/80 border border-slate-200 text-slate-700 font-medium hover:bg-white transition-colors shadow-sm text-[17px]"
                 >
-                  Macklemore in 90 seconds
+                  Book a Call
                   <PlayCircle className="w-6 h-6 text-brand-blue fill-brand-blue/10" />
                 </Link>
               </div>
@@ -175,19 +175,19 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: "Automation for Business Growth",
-                desc: "AI driven systems that streamline operations and improve efficiency",
+                title: "Automation",
+                desc: "AI driven systems that streamline operations, eliminate fragmented workflows, and improve enterprise efficiency.",
                 link: "/solutions/automation"
               },
               {
-                title: "AI Education",
-                desc: "Institutional training and AI integration for workforce transformation",
-                link: "/solutions/ai-education"
+                title: "Cybersecurity",
+                desc: "Enterprise cybersecurity and risk management infrastructure tailored to secure and harden modern operational models.",
+                link: "/solutions/security"
               },
               {
-                title: "Security Services",
-                desc: "Enterprise cybersecurity and risk management infrastructure",
-                link: "/solutions/security"
+                title: "AI Training",
+                desc: "Institutional training and AI integration for workforce transformation from corporate seminars to certified programs.",
+                link: "/solutions/ai-education"
               }
             ].map((service, i) => (
               <Link key={i} to={service.link} className="group block">
@@ -216,7 +216,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-16">
             <div>
               <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 text-slate-900">
-                Why Choose Us
+                The Macklemore Advantage
               </h2>
               <Link
                 to="/about"
@@ -253,6 +253,102 @@ export default function Home() {
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Industries Section */}
+      <section className="py-24 bg-slate-50 border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 text-slate-900">
+              Industries We Serve
+            </h2>
+            <p className="text-slate-600 text-lg">
+              We deploy advanced automation and security frameworks tailored specifically to the operational constraints and regulatory needs of complex sectors.
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+            {["Logistics companies", "Financial Services", "Healthcare", "Retail & E-commerce", "Education", "SMEs & Enterprises"].map((industry, i) => (
+              <div key={i} className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm text-center hover:shadow-md hover:border-brand-blue/30 transition-all">
+                <h3 className="font-display font-semibold text-slate-800 text-lg">{industry}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Case Studies Preview Section */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex justify-between items-end mb-16">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-4 text-slate-900">
+                Recent Impact
+              </h2>
+              <p className="text-slate-600 text-lg max-w-xl">
+                See how we transform operational capacity through precision implementation.
+              </p>
+            </div>
+            <Link to="/case-studies" className="hidden md:flex items-center gap-2 text-brand-blue font-medium hover:text-brand-blue-hover transition-colors">
+              View all cases <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Automation Projects",
+                desc: "Scaling supply chain operations with intelligent workflow integration, eliminating data silos by 80%.",
+                category: "Logistics"
+              },
+              {
+                title: "Cybersecurity Implementations",
+                desc: "Enterprise hardening against zero-day threats in regulated data environments with automated monitoring.",
+                category: "Finance"
+              },
+              {
+                title: "AI Marketing Results",
+                desc: "Deploying predictive analytics and AI-driven campaign automation, multiplying lead qualification rates.",
+                category: "E-Commerce"
+              }
+            ].map((study, i) => (
+              <Link key={i} to="/case-studies" className="group block bg-slate-50 border border-slate-200 rounded-2xl p-8 hover:shadow-lg hover:border-brand-blue/30 transition-all">
+                <span className="inline-block px-3 py-1 bg-white text-xs font-semibold text-brand-blue border border-brand-blue/20 rounded-full mb-4">
+                  {study.category}
+                </span>
+                <h3 className="text-xl font-display font-semibold text-slate-900 mb-4 group-hover:text-brand-blue transition-colors">{study.title}</h3>
+                <p className="text-slate-600 mb-6">{study.desc}</p>
+                <div className="text-sm font-medium text-slate-800 flex items-center gap-2">
+                  Read Case Study <ArrowRight className="w-4 h-4 text-brand-blue group-hover:translate-x-1 transition-transform" />
+                </div>
+              </Link>
+            ))}
+          </div>
+          <div className="mt-8 text-center md:hidden">
+            <Link to="/case-studies" className="inline-flex items-center gap-2 text-brand-blue font-medium hover:text-brand-blue-hover transition-colors">
+              View all cases <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-24 bg-brand-blue text-white text-center">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+            Ready to Scale Your Infrastructure?
+          </h2>
+          <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
+            Speak directly with our team to architect the right automation, security, and AI integrations for your business.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/deal-room" className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white text-brand-blue font-bold hover:bg-slate-50 shadow-md transition-colors text-lg">
+              Request a Demo
+            </Link>
+            <Link to="/" className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-brand-blue-hover border border-white/20 text-white font-bold hover:bg-brand-cyan/20 transition-colors text-lg">
+              Book a Call
+            </Link>
           </div>
         </div>
       </section>

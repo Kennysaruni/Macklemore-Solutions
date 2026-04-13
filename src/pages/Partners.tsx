@@ -79,22 +79,17 @@ export default function Partners() {
             {[
               {
                 icon: <Handshake className="w-6 h-6 text-brand-cyan" />,
+                title: "Service Partners",
+                desc: "Consultancies, integrators, and software vendors that collaborate with us in designing and implementing AI-driven automation and security systems across enterprise environments."
+              },
+              {
+                icon: <Network className="w-6 h-6 text-brand-blue" />,
                 title: "Referral Partners",
                 desc: "Organizations and professionals who identify opportunities and connect institutions to our AI, automation, and security capabilities, supporting access to high-impact transformation initiatives."
               },
               {
-                icon: <Network className="w-6 h-6 text-brand-blue" />,
-                title: "Channel & Reseller Partners",
-                desc: "Firms that integrate our automation infrastructure, AI enablement, and security frameworks into their offerings, enabling them to deliver advanced operational systems to their clients."
-              },
-              {
-                icon: <ShieldCheck className="w-6 h-6 text-indigo-500" />,
-                title: "Delivery Partners",
-                desc: "Specialized experts and organizations who collaborate with us in designing and implementing AI-driven automation and security systems across enterprise environments."
-              },
-              {
                 icon: <BookOpen className="w-6 h-6 text-purple-500" />,
-                title: "Institutional & Workforce Partners",
+                title: "Universities / Training Institutions",
                 desc: "Educational institutions and workforce organizations that collaborate with us to deliver AI training, develop talent pipelines, and support large-scale digital transformation initiatives."
               }
             ].map((model, i) => (

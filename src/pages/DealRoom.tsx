@@ -5,62 +5,42 @@ export default function DealRoom() {
   const packages = [
     {
       id: "01",
-      title: "HR Automation Implementation Package",
+      title: "Active Business Opportunities",
       icon: <Zap className="w-6 h-6 text-brand-cyan" />,
-      description: "Designed for organizations experiencing inefficiency and inconsistency in core HR operations including hiring, onboarding, records management, and payroll processing.",
+      description: "Current high-priority projects and procurement needs seeking immediate vendor or consultant involvement across our automation and security deployments.",
       includes: [
-        "End-to-end audit of current HR workflows and identification of automation opportunities",
-        "Design and implementation of custom HR automation systems",
-        "Integration with existing HRIS, payroll, and communication tools",
-        "Staff enablement and governance documentation",
-        "30-day post-deployment performance review"
+        "View active RFPs and open tenders",
+        "Submit vendor pre-qualification frameworks",
+        "Direct engagement with project leads",
+        "Fast-tracked onboarding for verified specialists",
       ],
-      idealFor: "Mid-size to enterprise organizations with 50+ employees experiencing HR process bottlenecks."
+      idealFor: "Consultancies, specialized integrators, and software vendors ready to deploy solutions."
     },
     {
       id: "02",
-      title: "Enterprise Operations Optimization Package",
+      title: "Strategic Partnerships",
       icon: <Settings className="w-6 h-6 text-brand-blue" />,
-      description: "Designed for organizations seeking to eliminate operational inefficiency across multiple departments through a coordinated, phased automation strategy.",
+      description: "Co-market, co-sell, or co-build with Macklemore Solutions. We are actively expanding our network of trusted integration and channel partners.",
       includes: [
-        "Cross-departmental operations audit and process mapping",
-        "Prioritized automation roadmap aligned to business impact",
-        "Custom automation development and systems integration",
-        "Centralized operations dashboard for real-time visibility",
-        "Phased implementation with milestone-based reviews",
-        "Ongoing performance monitoring and optimization support"
+        "Access to joint go-to-market resources",
+        "Revenue-share frameworks and licensing deals",
+        "Co-branded marketing and event collaboration",
+        "Dedicated partner success manager",
       ],
-      idealFor: "Enterprise clients managing complex multi-department operations with significant manual workflow overhead."
+      idealFor: "Managed service providers (MSPs), agencies, and advisory firms seeking to expand their offerings."
     },
     {
       id: "03",
-      title: "Institutional AI Integration Package",
+      title: "Investment & Collaboration Deals",
       icon: <BookOpen className="w-6 h-6 text-purple-500" />,
-      description: "Designed for enterprises and academic institutions seeking to embed AI into their operations through a structured, governed, and measurable implementation program.",
+      description: "Explore opportunities for deeper financial and structural alignment, including project-finance, joint ventures, and strategic investments in emerging automation IP.",
       includes: [
-        "Organizational AI readiness assessment and skills gap analysis",
-        "Custom AI education program design and delivery",
-        "Department-specific implementation playbooks and pilot workflows",
-        "Leadership advisory on AI governance, risk, and strategy",
-        "AI champion identification and advanced training",
-        "Phased adoption roadmap and post-program performance review"
+        "Review prospective joint ventures",
+        "Access investment thesis outlines",
+        "Direct access to our executive board",
+        "Quarterly private briefings",
       ],
-      idealFor: "Organizations with 100+ staff that have made a strategic commitment to AI adoption and require structured implementation support."
-    },
-    {
-      id: "04",
-      title: "Security Hardening Package",
-      icon: <ShieldCheck className="w-6 h-6 text-indigo-500" />,
-      description: "Designed for organizations seeking to move from a reactive to a proactive security posture through structured infrastructure hardening, automated monitoring, and compliance readiness.",
-      includes: [
-        "Comprehensive security audit and risk assessment",
-        "Infrastructure hardening across network, endpoint, and cloud environments",
-        "Deployment of automated threat detection and incident response workflows",
-        "Staff security awareness training program",
-        "Compliance gap analysis and governance framework implementation",
-        "Ongoing managed security support and quarterly reporting"
-      ],
-      idealFor: "Organizations that have identified security gaps, experienced incidents, or require structured compliance readiness for upcoming audits."
+      idealFor: "Institutional investors, venture capital firms, and enterprise organizations seeking M&A or JV pathways."
     }
   ];
 
@@ -73,10 +53,10 @@ export default function DealRoom() {
           className="max-w-3xl mb-16"
         >
           <h1 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6">
-            Structured Engagement Packages for Enterprise Clients.
+            Macklemore Deal Room
           </h1>
           <p className="text-xl text-slate-600 leading-relaxed">
-            The Macklemore Solutions Deal Room is not a promotions page. It is a structured engagement framework designed for organizations that are ready to move from exploration to implementation. Each package below represents a defined scope of work, a clear methodology, and a commitment to measurable outcomes, built for institutional clients who value precision over promises.
+            The exclusive hub for high-impact collaborations. Access active business opportunities, register for strategic partnerships, and explore long-term investment and collaboration deals within the automation and AI sectors.
           </p>
         </motion.div>
 
