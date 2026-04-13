@@ -8,18 +8,24 @@
   --color-navy-900: #050B14;
   --color-navy-800: #0A1628;
   --color-navy-700: #112240;
-  
-  --color-brand-blue: #1DA1F2;
-  --color-brand-blue-hover: #1A91DA;
-  --color-brand-cyan: #22D3EE;
+
+  /* --color-brand-blue: #1DA1F2; */
+  --color-brand-blue: #FF2400;
+  --color-brand-blue-hover: #D01D00;
+  --color-brand-cyan: #0A1628; /* Changed from white to black/navy to fix invisible text on white background */
 }
 
 @layer base {
   body {
     @apply bg-slate-50 text-slate-600 font-sans antialiased selection:bg-brand-blue/20 selection:text-brand-blue;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-display text-slate-900;
   }
 }

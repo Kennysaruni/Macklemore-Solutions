@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/src/lib/utils";
-
+import macklemoreLogo from "@/src/assets/macklemorelogo.png";
 export default function Layout() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -44,7 +44,7 @@ export default function Layout() {
           >
             <div className="max-w-7xl mx-auto px-6 py-2.5 flex items-center justify-center text-sm font-medium pr-10 hover:text-white/90 transition-colors cursor-pointer relative">
               The Optimizers Awards: Recognizing Operational Excellence – Nominate Your Work Here &gt;&gt;&gt;
-              <button 
+              <button
                 onClick={(e) => { e.stopPropagation(); setBannerVisible(false); }}
                 className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors"
                 aria-label="Close banner"
@@ -61,14 +61,8 @@ export default function Layout() {
           "max-w-7xl mx-auto flex items-center justify-between bg-white rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] border border-slate-100/60",
           isScrolled ? "py-2.5 px-5 shadow-[0_8px_30px_rgb(0,0,0,0.08)]" : "py-3.5 px-5"
         )}>
-          <Link to="/" className="flex items-center gap-2 group">
-            <svg viewBox="0 0 40 40" className="w-8 h-8 text-brand-cyan" fill="currentColor">
-              <path d="M20 0C8.954 0 0 8.954 0 20s8.954 20 20 20 20-8.954 20-20S31.046 0 20 0zm0 36c-8.837 0-16-7.163-16-16S11.163 4 20 4s16 7.163 16 16-7.163 16-16 16z"/>
-              <path opacity="0.3" d="M20 8c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12S26.627 8 20 8zm0 20c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8z"/>
-            </svg>
-            <span className="font-display font-medium text-2xl tracking-tight text-slate-800">
-              autofleet
-            </span>
+          <Link to="/" className="flex items-center group">
+            <img src={macklemoreLogo} alt="Macklemore Solutions Logo" className="h-10" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-6 lg:gap-8 flex-wrap justify-center">
@@ -158,7 +152,7 @@ export default function Layout() {
                 </div>
               </div>
             </div>
-            
+
             <div className="mt-12 w-full">
               <Link to="/deal-room" onClick={() => setMobileMenuOpen(false)} className="block w-full py-3.5 rounded-lg bg-brand-blue text-white text-center font-medium shadow-sm active:bg-brand-blue/90">
                 Request a demo
@@ -175,19 +169,14 @@ export default function Layout() {
       <footer className="bg-slate-900 border-t border-slate-800 py-12 md:py-20 mt-auto">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
           <div className="col-span-1 md:col-span-2">
-            <Link to="/" className="flex items-center gap-2 mb-6">
-              <svg viewBox="0 0 40 40" className="w-8 h-8 text-white" fill="currentColor">
-                <path opacity="0.8" d="M20 0C8.954 0 0 8.954 0 20s8.954 20 20 20 20-8.954 20-20S31.046 0 20 0zm0 36c-8.837 0-16-7.163-16-16S11.163 4 20 4s16 7.163 16 16-7.163 16-16 16z"/>
-              </svg>
-              <span className="font-display font-medium text-xl tracking-tight text-white">
-                autofleet
-              </span>
+            <Link to="/" className="flex items-center mb-6">
+              <img src={macklemoreLogo} alt="Macklemore Solutions Logo" className="h-12 brightness-0 invert" />
             </Link>
             <p className="text-slate-400 max-w-sm mb-8">
-              Intelligent fleet and mobility operations, powered by real-time optimization and AI.
+              Intelligent automation, security infrastructure, and AI education solutions.
             </p>
           </div>
-          
+
           <div>
             <h4 className="font-display font-medium text-white mb-4">Solutions</h4>
             <ul className="space-y-3">
@@ -210,7 +199,7 @@ export default function Layout() {
         </div>
         <div className="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-slate-500 text-sm">
-            © {new Date().getFullYear()} Autofleet. All rights reserved.
+            © {new Date().getFullYear()} Macklemore Solutions. All rights reserved.
           </p>
         </div>
       </footer>
