@@ -35,7 +35,7 @@ export default function Layout() {
   return (
     <div className="min-h-screen flex flex-col bg-white">
       {/* Top Banner */}
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {bannerVisible && (
           <motion.div
             initial={{ height: "auto", opacity: 1 }}
@@ -54,7 +54,7 @@ export default function Layout() {
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
 
       <header className="sticky top-0 w-full z-50 transition-all duration-300 pt-3 px-3 md:pt-4 md:px-6">
         <div className={cn(
