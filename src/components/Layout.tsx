@@ -56,15 +56,11 @@ export default function Layout() {
         )}
       </AnimatePresence>
 
-      <header
-        className={cn(
-          "sticky top-0 w-full z-50 transition-all duration-300",
-          isScrolled
-            ? "bg-white shadow-sm py-4"
-            : "bg-white py-6"
-        )}
-      >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <header className="sticky top-0 w-full z-50 transition-all duration-300 pt-3 px-3 md:pt-4 md:px-6">
+        <div className={cn(
+          "max-w-7xl mx-auto flex items-center justify-between bg-white rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] border border-slate-100/60",
+          isScrolled ? "py-2.5 px-5 shadow-[0_8px_30px_rgb(0,0,0,0.08)]" : "py-3.5 px-5"
+        )}>
           <Link to="/" className="flex items-center gap-2 group">
             <svg viewBox="0 0 40 40" className="w-8 h-8 text-brand-cyan" fill="currentColor">
               <path d="M20 0C8.954 0 0 8.954 0 20s8.954 20 20 20 20-8.954 20-20S31.046 0 20 0zm0 36c-8.837 0-16-7.163-16-16S11.163 4 20 4s16 7.163 16 16-7.163 16-16 16z"/>
