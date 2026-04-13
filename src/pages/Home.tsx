@@ -1,55 +1,55 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Activity, Shield, Zap, CheckCircle2, BarChart3 } from "lucide-react";
+import { PlayCircle, ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full overflow-hidden">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-navy-800 via-navy-900 to-navy-900" />
-        
-        {/* Abstract Data Viz Background */}
-        <div className="absolute inset-0 opacity-20">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="1" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" />
-          </svg>
+      <section className="relative pt-24 pb-16 md:pt-36 md:pb-28 overflow-hidden bg-slate-50 min-h-[90vh] flex flex-col justify-center">
+        {/* Abstract 3D Graphic Placeholder mimicking Autofleet's background */}
+        <div className="absolute right-0 top-0 w-full md:w-[70%] h-full opacity-50 md:opacity-100 pointer-events-none z-0 overflow-hidden hidden md:block">
+           <div className="absolute top-10 -right-20 w-[800px] h-[800px] border-[40px] border-white rounded-full opacity-60 shadow-[0_0_100px_rgba(34,211,238,0.1)] transform rotate-12 scale-150"></div>
+           <div className="absolute top-40 right-20 w-[600px] h-[600px] bg-gradient-to-br from-white to-slate-100 rounded-3xl shadow-2xl transform rotate-12"></div>
+           <div className="absolute top-60 right-60 w-32 h-64 bg-slate-200 rounded-xl shadow-xl transform rotate-12 -skew-x-12 hidden lg:block"></div>
+           <div className="absolute top-96 right-10 w-48 h-32 bg-white rounded-xl shadow-xl transform rotate-12 skew-x-12 hidden lg:block border border-slate-100"></div>
+           {/* Connecting stylized lines */}
+           <svg className="absolute inset-0 w-full h-full stroke-brand-cyan/20 fill-none" preserveAspectRatio="none">
+              <path d="M400,200 C500,200 600,400 800,400" strokeWidth="20" strokeLinecap="round" />
+              <path d="M200,600 C400,600 500,300 900,300" strokeWidth="15" strokeLinecap="round" />
+              <path d="M600,800 C700,800 800,500 1000,500" strokeWidth="25" strokeLinecap="round" />
+           </svg>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="max-w-4xl">
+        {/* Mobile background subtle gradient */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-100 md:hidden z-0"></div>
+
+        <div className="max-w-7xl mx-auto px-6 w-full relative z-10 flex-1 flex flex-col justify-center">
+          <div className="max-w-xl lg:max-w-2xl bg-white/40 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-6 md:p-0 rounded-3xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-sm font-medium mb-6 border border-cyan-500/20">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                Powering Operational Excellence
-              </span>
-              <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tight text-white mb-8 leading-[1.1]">
-                Designing Intelligent Systems That Power <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Institutional Growth</span>.
+              <h1 className="text-[44px] md:text-[60px] lg:text-[72px] font-display font-bold tracking-tight text-slate-800 mb-6 leading-[1.05]">
+                Designing Intelligent Systems That Power Institutional Growth
               </h1>
-              <p className="text-xl text-slate-400 mb-10 max-w-2xl leading-relaxed">
-                We build AI-driven automation infrastructure that streamlines operations, strengthens decision-making, and enables organizations to scale with precision.
+              <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-lg leading-relaxed font-medium">
+                We build AI driven automation infrastructure that streamlines operations, strengthens decision making, and enables organizations to scale with precision.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/deal-room"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-navy-900 font-medium hover:bg-slate-100 transition-colors"
+                  className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl bg-brand-blue text-white font-medium hover:bg-brand-blue-hover transition-colors shadow-lg shadow-brand-blue/30 text-[17px]"
                 >
-                  Book a Strategy Session <ArrowRight className="w-4 h-4" />
+                  Request a demo
                 </Link>
                 <Link
                   to="/case-studies"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white/5 text-white font-medium hover:bg-white/10 border border-white/10 transition-colors"
+                  className="inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-xl bg-white/80 border border-slate-200 text-slate-700 font-medium hover:bg-white transition-colors shadow-sm text-[17px]"
                 >
-                  View Case Studies
+                  Autofleet in 90 seconds 
+                  <PlayCircle className="w-6 h-6 text-brand-blue fill-brand-blue/10" />
                 </Link>
               </div>
             </motion.div>
@@ -57,8 +57,44 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Problem/Solution Block */}
-      <section className="py-24 bg-navy-800 border-y border-white/5">
+      {/* Logo Bar */}
+      <section className="bg-slate-800 border-t-4 border-brand-cyan relative z-20">
+        <div className="max-w-7xl mx-auto px-6 py-8">
+          <div className="flex flex-wrap items-center justify-center md:justify-between gap-10 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+             {/* Mock Logos matching the image */}
+             <div className="text-white font-display font-bold tracking-widest text-2xl">SCANIA</div>
+             <div className="text-white font-display font-semibold flex items-center gap-2">
+                <div className="flex items-center">
+                  <div className="w-3 h-3 rounded-full border-2 border-white"></div>
+                  <div className="w-4 border-t-2 border-white"></div>
+                  <div className="w-3 h-3 rounded-full border-2 border-white flex justify-center items-center">
+                    <div className="w-1 h-1 bg-white rounded-full"></div>
+                  </div>
+                </div>
+                pedal me
+             </div>
+             <div className="text-white font-display italic font-medium flex items-center gap-2 text-xl">
+               <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
+               </svg>
+               Mobility-on-Demand
+             </div>
+             <div className="text-white font-display font-bold flex items-center gap-2 text-xl">
+               <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                 <circle cx="12" cy="12" r="10" />
+                 <path d="M12 8v8M8 12h8" />
+               </svg>
+               AVL TAXI
+             </div>
+             <div className="text-white font-sans font-bold text-2xl tracking-tighter">
+               zTrip
+             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Engineered Block */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -67,61 +103,40 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 text-slate-900">
                 Engineered for Complex Operational Environments
               </h2>
-              <p className="text-slate-400 text-lg mb-6 leading-relaxed">
-                Modern organizations lose thousands of productive hours to fragmented workflows. Manual processes are liabilities that slow down approval cycles, create inconsistent reporting, and stall growth.
-              </p>
-              <p className="text-slate-400 text-lg leading-relaxed">
-                Our systems are architected to integrate across departments, eliminate fragmented workflows, and create unified, data-driven operations across enterprise functions.
+              <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+                Our systems are architected to integrate across departments, eliminate fragmented workflows, and create unified, data driven operations across enterprise functions.
               </p>
             </motion.div>
 
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 blur-3xl rounded-full" />
-              <div className="relative bg-navy-900 border border-white/10 rounded-2xl p-8 shadow-2xl">
-                <div className="flex items-center justify-between mb-8 pb-8 border-b border-white/10">
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-cyan/20 to-brand-blue/20 blur-3xl rounded-full" />
+              <div className="relative bg-white border border-slate-200 rounded-2xl p-8 shadow-xl">
+                <div className="flex items-center justify-between mb-8 pb-8 border-b border-slate-100">
                   <div>
-                    <div className="text-sm font-medium text-red-400 mb-1">Before</div>
-                    <div className="text-lg text-white font-medium">Fragmented Workflows</div>
+                    <div className="text-sm font-medium text-slate-500 mb-1">Before</div>
+                    <div className="text-lg text-slate-800 font-medium">Fragmented Workflows</div>
                   </div>
                   <div className="flex gap-2">
-                    <div className="w-12 h-2 bg-red-500/20 rounded-full overflow-hidden">
-                      <div className="w-full h-full bg-red-500/40" />
+                    <div className="w-12 h-2 bg-slate-200 rounded-full overflow-hidden">
+                      <div className="w-full h-full bg-slate-300" />
                     </div>
-                    <div className="w-12 h-2 bg-red-500/20 rounded-full" />
-                    <div className="w-12 h-2 bg-red-500/20 rounded-full" />
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="text-sm font-medium text-cyan-400 mb-1">After</div>
-                    <div className="text-lg text-white font-medium">Unified AI Operations</div>
+                    <div className="text-sm font-medium text-brand-blue mb-1">After</div>
+                    <div className="text-lg text-slate-800 font-medium">Unified Platform</div>
                   </div>
                   <div className="flex gap-2">
-                    <div className="w-12 h-2 bg-cyan-500/20 rounded-full overflow-hidden">
+                    <div className="w-12 h-2 bg-brand-blue/10 rounded-full overflow-hidden">
                       <motion.div 
-                        className="w-full h-full bg-cyan-400"
+                        className="w-full h-full bg-brand-blue"
                         initial={{ x: "-100%" }}
                         whileInView={{ x: "0%" }}
                         transition={{ duration: 1, ease: "easeOut" }}
-                      />
-                    </div>
-                    <div className="w-12 h-2 bg-cyan-500/20 rounded-full overflow-hidden">
-                      <motion.div 
-                        className="w-full h-full bg-cyan-400"
-                        initial={{ x: "-100%" }}
-                        whileInView={{ x: "0%" }}
-                        transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
-                      />
-                    </div>
-                    <div className="w-12 h-2 bg-cyan-500/20 rounded-full overflow-hidden">
-                      <motion.div 
-                        className="w-full h-full bg-cyan-400"
-                        initial={{ x: "-100%" }}
-                        whileInView={{ x: "0%" }}
-                        transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
                       />
                     </div>
                   </div>
@@ -132,14 +147,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Service Pillars */}
-      <section className="py-24">
+      {/* Creative Approach & Delivering Performance */}
+      <section className="py-24 bg-slate-50">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+          <div className="text-center max-w-4xl mx-auto mb-16">
+            <span className="text-brand-blue font-semibold tracking-wider uppercase text-sm mb-4 block">Creative Approach</span>
+            <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 text-slate-900 leading-tight">
+              Powering Operational Excellence Through AI and Automation Infrastructure
+            </h2>
+            <p className="text-slate-600 text-lg mb-6 leading-relaxed">
+              Macklemore Solutions designs and implements intelligent systems that streamline operations, strengthen security, and enable data driven decision making across enterprise environments. Our capabilities span automation infrastructure, AI enablement, and security frameworks, allowing organizations to eliminate manual processes, integrate fragmented systems, and operate with greater efficiency and control. 
+            </p>
+            <p className="text-slate-600 text-lg leading-relaxed">
+              We work with institutions to build scalable operational architectures that improve performance, reduce risk, and support long term growth.
+            </p>
+          </div>
+
+          <div className="text-center max-w-3xl mx-auto mb-16 mt-24">
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 text-slate-900">
               Delivering Measurable Performance at Scale
             </h2>
-            <p className="text-slate-400 text-lg">
+            <p className="text-slate-600 text-lg leading-relaxed">
               We implement automation, security, and AI frameworks that reduce manual workload, improve operational accuracy, and accelerate organizational efficiency.
             </p>
           </div>
@@ -147,21 +175,18 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                icon: <Zap className="w-6 h-6 text-cyan-400" />,
                 title: "Automation for Business Growth",
-                desc: "AI-driven systems that streamline operations and improve efficiency across HR, Finance, CRM, and E-commerce.",
+                desc: "AI driven systems that streamline operations and improve efficiency",
                 link: "/solutions/automation"
               },
               {
-                icon: <Activity className="w-6 h-6 text-blue-400" />,
-                title: "AI Education & Enablement",
-                desc: "Institutional training and AI integration for workforce transformation, building internal capability and confidence.",
+                title: "AI Education",
+                desc: "Institutional training and AI integration for workforce transformation",
                 link: "/solutions/ai-education"
               },
               {
-                icon: <Shield className="w-6 h-6 text-indigo-400" />,
                 title: "Security Services",
-                desc: "Enterprise cybersecurity and risk management infrastructure to protect operations and maintain compliance.",
+                desc: "Enterprise cybersecurity and risk management infrastructure",
                 link: "/solutions/security"
               }
             ].map((service, i) => (
@@ -171,14 +196,11 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="h-full bg-navy-800 border border-white/5 hover:border-white/20 rounded-2xl p-8 transition-all hover:bg-white/[0.02]"
+                  className="h-full bg-white border border-slate-200 hover:border-brand-blue/30 rounded-2xl p-8 transition-all hover:shadow-lg hover:shadow-brand-blue/5"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-navy-900 border border-white/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                    {service.icon}
-                  </div>
-                  <h3 className="text-xl font-display font-semibold text-white mb-4">{service.title}</h3>
-                  <p className="text-slate-400 mb-6">{service.desc}</p>
-                  <div className="flex items-center gap-2 text-sm font-medium text-cyan-400 group-hover:text-cyan-300">
+                  <h3 className="text-xl font-display font-semibold text-slate-800 mb-4">{service.title}</h3>
+                  <p className="text-slate-600 mb-6">{service.desc}</p>
+                  <div className="flex items-center gap-2 text-sm font-medium text-brand-blue">
                     Explore Solution <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>
                 </motion.div>
@@ -188,77 +210,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Proof of Performance */}
-      <section className="py-24 bg-navy-800 border-y border-white/5 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 mb-12">
-          <h2 className="text-3xl md:text-4xl font-display font-bold">
-            Performance Measured. Results Verified.
-          </h2>
-        </div>
-        
-        <div className="flex gap-6 px-6 pb-8 overflow-x-auto snap-x snap-mandatory hide-scrollbar">
-          {[
-            {
-              title: "Business Process Automation",
-              region: "West Africa",
-              stat: "40%",
-              statDesc: "reduction in processing time",
-              desc: "Unified core operational workflows into a single, governed system."
-            },
-            {
-              title: "Security Automation",
-              region: "Canada",
-              stat: "70%",
-              statDesc: "reduction in security incidents",
-              desc: "Implemented structured security automation and governance program."
-            },
-            {
-              title: "AI Education",
-              region: "West Africa",
-              stat: "60 Days",
-              statDesc: "to operational AI workflows",
-              desc: "Structured AI education and implementation program across 4 departments."
-            }
-          ].map((study, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="min-w-[300px] md:min-w-[400px] snap-center bg-navy-900 border border-white/10 rounded-2xl p-8"
-            >
-              <div className="text-sm font-medium text-slate-500 mb-4">{study.region}</div>
-              <h3 className="text-xl font-display font-semibold text-white mb-6">{study.title}</h3>
-              <div className="mb-6">
-                <div className="text-4xl font-display font-bold text-cyan-400 mb-1">{study.stat}</div>
-                <div className="text-sm text-slate-400">{study.statDesc}</div>
-              </div>
-              <p className="text-slate-400 text-sm mb-6">{study.desc}</p>
-              <Link to="/case-studies" className="text-sm font-medium text-white hover:text-cyan-400 transition-colors flex items-center gap-1">
-                Read Case Study <ArrowRight className="w-4 h-4" />
-              </Link>
-            </motion.div>
-          ))}
-        </div>
-      </section>
-
       {/* Why Choose Us */}
-      <section className="py-24">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16">
             <div>
-              <h2 className="text-3xl md:text-4xl font-display font-bold mb-6">
+              <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 text-slate-900">
                 Why Choose Us
               </h2>
-              <p className="text-slate-400 text-lg mb-8">
-                We combine advanced technology with proven operational frameworks to implement solutions that are precise, reliable, and adaptable.
-              </p>
               <Link
                 to="/about"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-white/5 text-white font-medium hover:bg-white/10 border border-white/10 transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-brand-blue text-white font-medium hover:bg-brand-blue-hover transition-colors shadow-md shadow-brand-blue/20 mt-4"
               >
-                About Our Company
+                About Our Company <ArrowRight className="w-4 h-4"/>
               </Link>
             </div>
             
@@ -281,10 +245,10 @@ export default function Home() {
                 }
               ].map((val, i) => (
                 <div key={i} className="flex gap-6">
-                  <div className="text-xl font-display font-bold text-cyan-500/50">{val.num}</div>
+                  <div className="text-xl font-display font-bold text-brand-cyan/50">{val.num}</div>
                   <div>
-                    <h3 className="text-xl font-display font-semibold text-white mb-2">{val.title}</h3>
-                    <p className="text-slate-400 leading-relaxed">{val.desc}</p>
+                    <h3 className="text-xl font-display font-semibold text-slate-800 mb-2">{val.title}</h3>
+                    <p className="text-slate-600 leading-relaxed">{val.desc}</p>
                   </div>
                 </div>
               ))}
