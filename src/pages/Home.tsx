@@ -158,7 +158,7 @@ export default function Home() {
               </svg>
               AVL TAXI
             </div>
-            <div className="text-red-600 font-sans font-bold text-2xl tracking-tighter">
+            <div className="text-slate-800 font-sans font-bold text-2xl tracking-tighter">
               zTrip
             </div>
           </div>
