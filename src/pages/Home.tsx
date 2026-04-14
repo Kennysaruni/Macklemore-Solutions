@@ -248,32 +248,41 @@ export default function Home() {
             {[
               {
                 title: "Automation",
+                image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?q=80&w=2070&auto=format&fit=crop",
                 desc: "AI driven systems that streamline operations, eliminate fragmented workflows, and improve enterprise efficiency.",
                 link: "/solutions/automation"
               },
               {
                 title: "Cybersecurity",
+                image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop",
                 desc: "Enterprise cybersecurity and risk management infrastructure tailored to secure and harden modern operational models.",
                 link: "/solutions/security"
               },
               {
                 title: "AI Training",
+                image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop",
                 desc: "Institutional training and AI integration for workforce transformation from corporate seminars to certified programs.",
                 link: "/solutions/ai-education"
               }
             ].map((service, i) => (
-              <Link key={i} to={service.link} className="group block">
+              <Link key={i} to={service.link} className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded-3xl">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="h-full bg-white border border-slate-200 hover:border-brand-blue/30 rounded-2xl p-8 transition-all hover:shadow-lg hover:shadow-brand-blue/5"
+                  className="h-full bg-white border border-slate-200 hover:border-brand-blue/30 rounded-3xl hover:shadow-lg hover:shadow-brand-blue/5 transition-all overflow-hidden flex flex-col"
                 >
-                  <h3 className="text-xl font-display font-semibold text-slate-800 mb-4">{service.title}</h3>
-                  <p className="text-slate-600 mb-6">{service.desc}</p>
-                  <div className="flex items-center gap-2 text-sm font-medium text-brand-blue">
-                    Explore Solution <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <div className="w-full h-48 relative overflow-hidden bg-slate-100">
+                    <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-brand-blue/5 pointer-events-none mix-blend-multiply"></div>
+                  </div>
+                  <div className="p-8 flex-1 flex flex-col">
+                    <h3 className="text-xl font-display font-semibold text-slate-800 mb-4">{service.title}</h3>
+                    <p className="text-slate-600 mb-6 flex-1 text-[15px] leading-relaxed">{service.desc}</p>
+                    <div className="flex items-center gap-2 text-sm font-medium text-brand-blue mt-auto">
+                      Explore Solution <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </div>
                   </div>
                 </motion.div>
               </Link>
@@ -345,28 +354,39 @@ export default function Home() {
             {[
               {
                 title: "Automation Projects",
+                image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?q=80&w=2070&auto=format&fit=crop",
                 desc: "Scaling supply chain operations with intelligent workflow integration, eliminating data silos by 80%.",
                 category: "Logistics"
               },
               {
                 title: "Cybersecurity Implementations",
+                image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop",
                 desc: "Enterprise hardening against zero-day threats in regulated data environments with automated monitoring.",
                 category: "Finance"
               },
               {
                 title: "AI Marketing Results",
+                image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop",
                 desc: "Deploying predictive analytics and AI-driven campaign automation, multiplying lead qualification rates.",
                 category: "E-Commerce"
               }
             ].map((study, i) => (
-              <Link key={i} to="/case-studies" className="group block bg-slate-50 border border-slate-200 rounded-2xl p-8 hover:shadow-lg hover:border-brand-blue/30 transition-all">
-                <span className="inline-block px-3 py-1 bg-white text-xs font-semibold text-brand-blue border border-brand-blue/20 rounded-full mb-4">
-                  {study.category}
-                </span>
-                <h3 className="text-xl font-display font-semibold text-slate-900 mb-4 group-hover:text-brand-blue transition-colors">{study.title}</h3>
-                <p className="text-slate-600 mb-6">{study.desc}</p>
-                <div className="text-sm font-medium text-slate-800 flex items-center gap-2">
-                  Read Case Study <ArrowRight className="w-4 h-4 text-brand-blue group-hover:translate-x-1 transition-transform" />
+              <Link key={i} to="/case-studies" className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded-3xl">
+                <div className="h-full bg-slate-50 border border-slate-200 hover:border-brand-blue/30 rounded-3xl shadow-sm hover:shadow-lg transition-all overflow-hidden flex flex-col">
+                  <div className="w-full h-48 relative overflow-hidden bg-slate-100">
+                    <img src={study.image} alt={study.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-brand-blue/5 pointer-events-none mix-blend-multiply"></div>
+                  </div>
+                  <div className="p-8 flex-1 flex flex-col">
+                    <span className="inline-block px-3 py-1 bg-white text-xs font-semibold text-brand-blue border border-brand-blue/20 rounded-full mb-4 w-fit">
+                      {study.category}
+                    </span>
+                    <h3 className="text-xl font-display font-semibold text-slate-900 mb-4 group-hover:text-brand-blue transition-colors">{study.title}</h3>
+                    <p className="text-slate-600 mb-6 flex-1 text-[15px] leading-relaxed">{study.desc}</p>
+                    <div className="text-sm font-medium text-slate-800 flex items-center gap-2 mt-auto">
+                      Read Case Study <ArrowRight className="w-4 h-4 text-brand-blue group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
                 </div>
               </Link>
             ))}

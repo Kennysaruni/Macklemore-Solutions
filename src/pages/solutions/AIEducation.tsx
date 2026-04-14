@@ -11,7 +11,7 @@ export default function AIEducation() {
           animate={{ opacity: 1, y: 0 }}
           className="max-w-3xl mb-16"
         >
-          <div className="text-brand-cyan font-medium mb-4 uppercase tracking-wider text-sm">Services Page — AI Education</div>
+          <div className="text-brand-cyan font-medium mb-4 uppercase tracking-wider text-sm">AI Education</div>
           <h1 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6">
             Equip Your Organization to Operate in an AI-First World.
           </h1>
@@ -30,7 +30,7 @@ export default function AIEducation() {
             <p className="text-slate-600 leading-relaxed mb-8">
               Artificial intelligence is no longer an experimental technology. It is an operational reality reshaping how organizations hire, communicate, analyze, and compete. Yet most institutions are attempting to integrate AI without a structured foundation, leading to inconsistent adoption, wasted investment, and growing risk exposure. Macklemore Solutions bridges this gap with tailored AI education programs designed specifically for enterprise and institutional environments, delivered by practitioners with real-world implementation experience.
             </p>
-            
+
             <h2 className="text-2xl font-display font-bold text-slate-900 mb-6">The Business Problem We Solve</h2>
             <p className="text-slate-600 leading-relaxed mb-4">
               The majority of AI implementation failures are not technology failures, they are knowledge failures. Teams do not understand the tools they are expected to use. Leadership cannot evaluate AI investments without a framework. Compliance teams cannot govern what they do not understand. The result is an organization spending on AI while capturing very little of its potential.
@@ -88,36 +88,47 @@ export default function AIEducation() {
           className="mb-24"
         >
           <h2 className="text-3xl font-display font-bold text-slate-900 mb-12 text-center">Our Services</h2>
-          
+
           <div className="grid md:grid-cols-2 gap-8">
             {[
               {
                 icon: <BookOpen className="w-6 h-6 text-brand-cyan" />,
                 title: "AI Curriculum Development for Institutions",
-                desc: "We design structured, institution-specific AI curricula that align with your organizational goals, existing skill levels, and compliance requirements. Every program is built for measurable learning outcomes, not general awareness."
+                desc: "We design structured, institution-specific AI curricula that align with your organizational goals, existing skill levels, and compliance requirements. Every program is built for measurable learning outcomes, not general awareness.",
+                image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop"
               },
               {
                 icon: <GraduationCap className="w-6 h-6 text-brand-blue" />,
                 title: "AI Integration into Learning Environments",
-                desc: "For academic institutions and corporate training departments, we integrate AI tools directly into existing learning management systems and workflows, creating adaptive, data-informed learning environments that improve outcomes at scale."
+                desc: "For academic institutions and corporate training departments, we integrate AI tools directly into existing learning management systems and workflows, creating adaptive, data-informed learning environments that improve outcomes at scale.",
+                image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop"
               },
               {
                 icon: <Lightbulb className="w-6 h-6 text-indigo-500" />,
                 title: "Institutional Digital Transformation Advisory",
-                desc: "We advise institutional leadership on AI strategy, technology selection, governance frameworks, and change management, providing the structured guidance needed to make sound decisions and execute transformation with confidence."
+                desc: "We advise institutional leadership on AI strategy, technology selection, governance frameworks, and change management, providing the structured guidance needed to make sound decisions and execute transformation with confidence.",
+                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
               },
               {
                 icon: <TrendingUp className="w-6 h-6 text-purple-500" />,
                 title: "Certification and Structured AI Training Programs",
-                desc: "We deliver structured training programs across key AI domains including machine learning fundamentals, AI governance and ethics, automation strategy, and practical tool implementation, with certification pathways designed for professional credibility."
+                desc: "We deliver structured training programs across key AI domains including machine learning fundamentals, AI governance and ethics, automation strategy, and practical tool implementation, with certification pathways designed for professional credibility.",
+                image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop"
               }
             ].map((service, i) => (
-              <div key={i} className="bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center mb-6">
-                  {service.icon}
+              <div key={i} className="bg-white border border-slate-200 rounded-3xl hover:shadow-lg transition-all overflow-hidden flex flex-col group">
+                <div className="w-full h-48 relative overflow-hidden bg-slate-100">
+                  <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-brand-blue/5 pointer-events-none mix-blend-multiply"></div>
                 </div>
-                <h3 className="text-xl font-display font-semibold text-slate-900 mb-3">{service.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{service.desc}</p>
+                <div className="p-8 flex-1 flex flex-col">
+                  {/* Floating Icon Layout */}
+                  <div className="w-12 h-12 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center mb-6 relative z-10 -mt-14">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-xl font-display font-semibold text-slate-900 mb-3">{service.title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed flex-1">{service.desc}</p>
+                </div>
               </div>
             ))}
           </div>

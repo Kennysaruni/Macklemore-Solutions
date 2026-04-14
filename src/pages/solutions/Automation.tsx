@@ -11,7 +11,7 @@ export default function Automation() {
           animate={{ opacity: 1, y: 0 }}
           className="max-w-3xl mb-16"
         >
-          <div className="text-brand-cyan font-medium mb-4 uppercase tracking-wide text-sm">Services Page — Automation for Business Growth</div>
+          <div className="text-brand-cyan font-medium mb-4 uppercase tracking-wide text-sm">Automation for Business Growth</div>
           <h1 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6 leading-tight">
             We Design Intelligent Systems That Do the Heavy Lifting.
           </h1>
@@ -30,7 +30,7 @@ export default function Automation() {
             <p className="text-slate-600 leading-relaxed mb-8">
               Modern organizations lose thousands of productive hours each year to manual processes that can be automated. At Macklemore Solutions, we design and implement custom automation infrastructure tailored to your workflows, not generic plug-and-play tools that create new problems. Our systems integrate directly into your existing operations, delivering measurable efficiency gains from the first month of deployment.
             </p>
-            
+
             <h2 className="text-2xl font-display font-bold text-slate-900 mb-6">The Business Problem We Solve</h2>
             <p className="text-slate-600 leading-relaxed mb-4">
               As your organization grows, manual processes that once worked become significant liabilities. Approval cycles slow down. Reporting becomes inconsistent. Teams spend more time managing data than acting on it. Errors compound. Costs rise. Growth stalls.
@@ -108,46 +108,59 @@ export default function Automation() {
           className="mb-24"
         >
           <h2 className="text-3xl font-display font-bold text-slate-900 mb-12 text-center">Our Services</h2>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: <Users className="w-6 h-6 text-brand-cyan" />,
                 title: "HR Automation Systems",
-                desc: "Streamline hiring workflows, onboarding processes, employee record management, and payroll coordination through intelligent automation that reduces administrative burden and improves team performance."
+                desc: "Streamline hiring workflows, onboarding processes, employee record management, and payroll coordination through intelligent automation that reduces administrative burden and improves team performance.",
+                image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop"
               },
               {
                 icon: <Building2 className="w-6 h-6 text-brand-blue" />,
                 title: "Accounting and Finance Workflow Automation",
-                desc: "Automate invoice processing, expense tracking, financial reporting, and approval cycles to increase accuracy, reduce processing time, and give your finance team real-time visibility into business performance."
+                desc: "Automate invoice processing, expense tracking, financial reporting, and approval cycles to increase accuracy, reduce processing time, and give your finance team real-time visibility into business performance.",
+                image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop"
               },
               {
                 icon: <Workflow className="w-6 h-6 text-indigo-500" />,
                 title: "CRM and Sales Automation",
-                desc: "Build automated pipelines that capture, qualify, and nurture leads while your sales team focuses on closing. We integrate CRM workflows that keep your customer data clean, current, and actionable."
+                desc: "Build automated pipelines that capture, qualify, and nurture leads while your sales team focuses on closing. We integrate CRM workflows that keep your customer data clean, current, and actionable.",
+                image: "https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=2070&auto=format&fit=crop"
               },
               {
                 icon: <ShoppingCart className="w-6 h-6 text-emerald-500" />,
                 title: "E-Commerce Process Automation",
-                desc: "From order management and inventory tracking to customer communications and fulfilment workflows, we automate the backend operations that keep your e-commerce business running at scale."
+                desc: "From order management and inventory tracking to customer communications and fulfilment workflows, we automate the backend operations that keep your e-commerce business running at scale.",
+                image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2070&auto=format&fit=crop"
               },
               {
                 icon: <Cpu className="w-6 h-6 text-purple-500" />,
                 title: "Custom AI-Powered Operational Systems",
-                desc: "For enterprises with complex, non-standard workflows, we build bespoke AI-powered systems that learn from your data, surface actionable insights, and execute repetitive tasks with precision and speed."
+                desc: "For enterprises with complex, non-standard workflows, we build bespoke AI-powered systems that learn from your data, surface actionable insights, and execute repetitive tasks with precision and speed.",
+                image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
               },
               {
                 icon: <Smartphone className="w-6 h-6 text-pink-500" />,
                 title: "Custom Web and Mobile Platforms Built for Automation",
-                desc: "We develop web and mobile applications with automation at their core; platforms that don't just display data, but actively process it, trigger workflows, and reduce human intervention at every stage."
+                desc: "We develop web and mobile applications with automation at their core; platforms that don't just display data, but actively process it, trigger workflows, and reduce human intervention at every stage.",
+                image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop"
               }
             ].map((service, i) => (
-              <div key={i} className="bg-white border border-slate-200 rounded-2xl p-8 hover:shadow-md transition-shadow">
-                <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center mb-6">
-                  {service.icon}
+              <div key={i} className="bg-white border border-slate-200 rounded-3xl hover:shadow-lg transition-all overflow-hidden flex flex-col group">
+                <div className="w-full h-48 relative overflow-hidden bg-slate-100">
+                  <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-brand-blue/5 pointer-events-none mix-blend-multiply"></div>
                 </div>
-                <h3 className="text-xl font-display font-semibold text-slate-900 mb-3">{service.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{service.desc}</p>
+                <div className="p-8 flex-1 flex flex-col">
+                  {/* Floating Icon Layout */}
+                  <div className="w-12 h-12 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center mb-6 relative z-10 -mt-14">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-xl font-display font-semibold text-slate-900 mb-3">{service.title}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed flex-1">{service.desc}</p>
+                </div>
               </div>
             ))}
           </div>
