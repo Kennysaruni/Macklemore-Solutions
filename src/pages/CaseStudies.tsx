@@ -6,6 +6,7 @@ export default function CaseStudies() {
     {
       id: "01",
       title: "Business Process Automation",
+      image: "https://images.pexels.com/photos/19317897/pexels-photo-19317897.jpeg",
       industry: "Logistics and Distribution",
       region: "West Africa",
       size: "120 Employees",
@@ -28,6 +29,7 @@ export default function CaseStudies() {
     {
       id: "02",
       title: "Security Automation and Risk Management",
+      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop",
       industry: "Professional Services",
       region: "Canada",
       size: "75 Employees",
@@ -50,6 +52,7 @@ export default function CaseStudies() {
     {
       id: "03",
       title: "AI Education and Workforce Enablement",
+      image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop",
       industry: "Corporate Services",
       region: "West Africa",
       size: "200 Staff",
@@ -72,6 +75,7 @@ export default function CaseStudies() {
     {
       id: "04",
       title: "AI-Powered Tax Portal",
+      image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop",
       client: "Lowe Levinson Financial Solutions",
       industry: "Financial Services",
       icon: <Calculator className="w-6 h-6 text-brand-blue" />,
@@ -109,8 +113,12 @@ export default function CaseStudies() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-12 shadow-sm"
+              className="bg-slate-50 border border-slate-200 rounded-3xl p-8 md:p-12 shadow-sm overflow-hidden"
             >
+              <div className="w-full h-56 md:h-80 mb-10 overflow-hidden rounded-2xl relative group">
+                <img src={study.image} alt={study.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-brand-blue/5 pointer-events-none mix-blend-multiply"></div>
+              </div>
               <div className="flex flex-col md:flex-row gap-12">
                 <div className="md:w-1/3">
                   <div className="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center mb-6">
@@ -118,7 +126,7 @@ export default function CaseStudies() {
                   </div>
                   <div className="text-sm font-medium text-brand-cyan mb-2">Case Study {study.id}</div>
                   <h2 className="text-2xl font-display font-bold text-slate-900 mb-6">{study.title}</h2>
-                  
+
                   <div className="space-y-4 text-sm">
                     {study.client && (
                       <div>
@@ -150,7 +158,7 @@ export default function CaseStudies() {
                     <h3 className="text-lg font-display font-semibold text-slate-900 mb-3">Situation</h3>
                     <p className="text-slate-600 leading-relaxed">{study.situation}</p>
                   </div>
-                  
+
                   <div>
                     <h3 className="text-lg font-display font-semibold text-slate-900 mb-3">Solution</h3>
                     <p className="text-slate-600 leading-relaxed mb-4">{study.solution}</p>
