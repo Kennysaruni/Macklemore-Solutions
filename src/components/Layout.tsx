@@ -20,8 +20,20 @@ export default function Layout() {
 
   useEffect(() => {
     setMobileMenuOpen(false);
-    window.scrollTo(0, 0);
-  }, [location.pathname]);
+    
+    if (location.hash) {
+      setTimeout(() => {
+        const id = location.hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          const y = element.getBoundingClientRect().top + window.scrollY - 100;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [location.pathname, location.hash]);
 
   useEffect(() => {
     if (mobileMenuOpen) {

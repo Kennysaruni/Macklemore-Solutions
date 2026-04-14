@@ -354,24 +354,27 @@ export default function Home() {
             {[
               {
                 title: "Automation Projects",
-                image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?q=80&w=2070&auto=format&fit=crop",
+                link: "/case-studies#case-01",
+                image: "https://images.unsplash.com/photo-1586528116311-ad8ed7c663b0?q=80&w=2070&auto=format&fit=crop",
                 desc: "Scaling supply chain operations with intelligent workflow integration, eliminating data silos by 80%.",
                 category: "Logistics"
               },
               {
                 title: "Cybersecurity Implementations",
+                link: "/case-studies#case-02",
                 image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop",
                 desc: "Enterprise hardening against zero-day threats in regulated data environments with automated monitoring.",
                 category: "Finance"
               },
               {
                 title: "AI Marketing Results",
+                link: "/case-studies#case-04",
                 image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop",
                 desc: "Deploying predictive analytics and AI-driven campaign automation, multiplying lead qualification rates.",
                 category: "E-Commerce"
               }
             ].map((study, i) => (
-              <Link key={i} to="/case-studies" className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded-3xl">
+              <Link key={i} to={study.link} className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded-3xl">
                 <div className="h-full bg-slate-50 border border-slate-200 hover:border-brand-blue/30 rounded-3xl shadow-sm hover:shadow-lg transition-all overflow-hidden flex flex-col">
                   <div className="w-full h-48 relative overflow-hidden bg-slate-100">
                     <img src={study.image} alt={study.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
