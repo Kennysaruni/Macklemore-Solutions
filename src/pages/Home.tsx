@@ -130,12 +130,12 @@ export default function Home() {
       </section>
 
       {/* Logo Bar */}
-      <section className="bg-white border-t-4 border-brand-cyan relative z-20">
+      <section className="bg-white border-t-4 border-brand-white relative z-20">
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="flex flex-wrap items-center justify-center md:justify-between gap-10 opacity-70 grayscale grayscale-0 transition-all duration-500">
             {/* Mock Logos matching the image */}
-            <div className="text-red-600 font-display font-bold tracking-widest text-2xl">SCANIA</div>
-            <div className="text-red-600 font-display font-semibold flex items-center gap-2">
+            <div className="text-slate-800font-display font-bold tracking-widest text-2xl">SCANIA</div>
+            <div className="text-slate-800 font-display font-semibold flex items-center gap-2">
               <div className="flex items-center">
                 <div className="w-3 h-3 rounded-full border-2 border-white"></div>
                 <div className="w-4 border-t-2 border-white"></div>
@@ -145,13 +145,13 @@ export default function Home() {
               </div>
               pedal me
             </div>
-            <div className="text-red-600 font-display italic font-medium flex items-center gap-2 text-xl">
+            <div className="text-slate-800 font-display italic font-medium flex items-center gap-2 text-xl">
               <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
               </svg>
               Mobility-on-Demand
             </div>
-            <div className="text-red-600 font-display font-bold flex items-center gap-2 text-xl">
+            <div className="text-slate-800 font-display font-bold flex items-center gap-2 text-xl">
               <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <circle cx="12" cy="12" r="10" />
                 <path d="M12 8v8M8 12h8" />
