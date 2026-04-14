@@ -1,60 +1,132 @@
+import { useState } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { PlayCircle, ArrowRight } from "lucide-react";
+import { cn } from "@/src/lib/utils";
+
+function AdvantageTimeline() {
+  const [activeStep, setActiveStep] = useState(0);
+
+  const steps = [
+    {
+      num: "1",
+      title: "Strategic Impact",
+      desc: "We design AI-driven systems and automation frameworks that directly streamline operations, reduce manual workload, and enable measurable organizational performance. Every solution is structured to deliver tangible business outcomes at scale."
+    },
+    {
+      num: "2",
+      title: "Trust and Governance",
+      desc: "Our enterprise-grade approach ensures security, compliance, and operational integrity. We operate with transparency and accountability, creating systems and processes that institutions can rely on for long-term resilience and growth."
+    },
+    {
+      num: "3",
+      title: "Scalable Excellence",
+      desc: "We combine advanced technology with proven operational frameworks to implement solutions that are precise, reliable, and adaptable. Our focus is on delivering infrastructure that supports sustainable growth, efficiency, and institutional readiness."
+    }
+  ];
+
+  return (
+    <div className="relative border-l-2 border-slate-200 ml-4 md:ml-6 pb-2 mt-4 md:mt-0">
+      {steps.map((val, i) => {
+        const isActive = activeStep === i;
+        return (
+          <motion.div
+            key={i}
+            onViewportEnter={() => setActiveStep(i)}
+            viewport={{ margin: "-45% 0px -45% 0px" }}
+            className="relative pl-10 pb-16 last:pb-0 group"
+          >
+            {/* The circle on the vertical line */}
+            <div className={cn(
+              "absolute -left-[17px] top-0 w-8 h-8 rounded-full border-2 flex items-center justify-center font-display font-bold text-sm bg-white transition-all duration-500",
+              isActive
+                ? "border-brand-blue text-brand-blue scale-110 shadow-[0_0_15px_rgba(255,36,0,0.3)]"
+                : "border-slate-300 text-slate-400 group-hover:border-brand-blue/50"
+            )}>
+              {val.num}
+            </div>
+
+            <div className={cn("transition-opacity duration-500", isActive ? "opacity-100" : "opacity-60")}>
+              <h3 className={cn(
+                "text-xl font-display font-semibold mb-2 transition-colors duration-500",
+                isActive ? "text-brand-blue" : "text-slate-800"
+              )}>
+                {val.title}
+              </h3>
+              <p className={cn(
+                "leading-relaxed transition-colors duration-500",
+                isActive ? "text-slate-700" : "text-slate-500"
+              )}>
+                {val.desc}
+              </p>
+            </div>
+          </motion.div>
+        );
+      })}
+    </div>
+  );
+}
 
 export default function Home() {
   return (
     <div className="flex flex-col w-full overflow-hidden">
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 md:pt-36 md:pb-28 overflow-hidden bg-slate-50 min-h-[90vh] flex flex-col justify-center">
+      <section className="relative pt-20 pb-16 md:pt-36 md:pb-28 overflow-hidden bg-slate-50 min-h-[90vh] flex flex-col justify-end md:justify-center">
         {/* Abstract 3D Graphic Placeholder mimicking Autofleet's background */}
-        <div className="absolute right-0 top-0 w-full md:w-[70%] h-full opacity-50 md:opacity-100 pointer-events-none z-0 overflow-hidden hidden md:block">
-          <div className="absolute top-10 -right-20 w-[800px] h-[800px] border-[40px] border-white rounded-full opacity-60 shadow-[0_0_100px_rgba(34,211,238,0.1)] transform rotate-12 scale-150"></div>
-          <div className="absolute top-40 right-20 w-[600px] h-[600px] bg-gradient-to-br from-white to-slate-100 rounded-3xl shadow-2xl transform rotate-12"></div>
-          <div className="absolute top-60 right-60 w-32 h-64 bg-slate-200 rounded-xl shadow-xl transform rotate-12 -skew-x-12 hidden lg:block"></div>
-          <div className="absolute top-96 right-10 w-48 h-32 bg-white rounded-xl shadow-xl transform rotate-12 skew-x-12 hidden lg:block border border-slate-100"></div>
-          {/* Connecting stylized lines */}
-          <svg className="absolute inset-0 w-full h-full stroke-brand-cyan/20 fill-none" preserveAspectRatio="none">
-            <path d="M400,200 C500,200 600,400 800,400" strokeWidth="20" strokeLinecap="round" />
-            <path d="M200,600 C400,600 500,300 900,300" strokeWidth="15" strokeLinecap="round" />
-            <path d="M600,800 C700,800 800,500 1000,500" strokeWidth="25" strokeLinecap="round" />
-          </svg>
+        <div className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+          {/* Faux 3D elements to match graphic feel */}
+          <div className="absolute top-[-5%] left-[-10%] md:top-10 md:right-[-10%] w-[120%] h-[120%] md:w-[800px] md:h-[800px] border-[30px] border-white/40 rounded-[100px] opacity-40 transform rotate-[25deg] scale-[1.5]"></div>
+          <div className="absolute top-[30%] -right-10 md:top-40 md:right-20 w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-gradient-to-br from-white/80 to-transparent rounded-[40px] shadow-[0_20px_100px_rgba(255,36,0,0.05)] transform rotate-12"></div>
+
+          {/* <svg className="absolute inset-0 w-full h-full stroke-brand-blue/10 fill-none" preserveAspectRatio="none">
+            <path d="M-100,200 C300,200 400,450 800,450" strokeWidth="12" strokeLinecap="round" />
+            <path d="M200,600 C400,600 500,300 900,300" strokeWidth="8" strokeLinecap="round" />
+            <path d="M0,800 C300,800 600,600 1200,600" strokeWidth="16" strokeLinecap="round" />
+          </svg> */}
+          <img
+            src="https://images.pexels.com/photos/1181408/pexels-photo-1181408.jpeg"
+            alt="Hero Background"
+            className="absolute inset-0 w-full h-full object-cover opacity-45 mix-blend-luminosity pointer-events-none"
+          />
+          {/* Subtle brand tint overlay to ensure it blends with the red consistency */}
+          <div className="absolute inset-0 bg-brand-blue/5 pointer-events-none"></div>
         </div>
 
-        {/* Mobile background subtle gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-100 md:hidden z-0"></div>
+        {/* Mobile background subtle gradient fading into content */}
+        <div className="absolute bottom-0 left-0 w-full h-[60%] bg-gradient-to-t from-slate-50 via-slate-50/80 to-transparent z-0"></div>
 
-        <div className="max-w-7xl mx-auto px-6 w-full relative z-10 flex-1 flex flex-col justify-center">
-          <div className="max-w-xl lg:max-w-2xl bg-white/40 md:bg-transparent backdrop-blur-md md:backdrop-blur-none p-6 md:p-0 rounded-3xl">
+        <div className="max-w-7xl mx-auto px-6 w-full relative z-10 flex-1 flex flex-col justify-end md:justify-center pb-[80px] md:pb-0 pt-[300px] md:pt-0">
+          <div className="w-full md:max-w-xl lg:max-w-2xl text-center md:text-left mx-auto md:mx-0">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <h1 className="text-[44px] md:text-[60px] lg:text-[72px] font-display font-bold tracking-tight text-slate-800 mb-6 leading-[1.05]">
+              <h1 className="text-[28px] sm:text-[44px] md:text-[60px] lg:text-[72px] font-display font-extrabold tracking-tight text-slate-800 mb-6 leading-[1.15] max-w-[400px] mx-auto md:mx-0 md:max-w-none">
                 We Build AI & Automation Systems for Modern Businesses
               </h1>
-              <p className="text-lg md:text-xl text-slate-600 mb-10 max-w-lg leading-relaxed font-medium">
+              <p className="text-[15px] sm:text-lg md:text-xl text-slate-600 mb-10 max-w-[380px] mx-auto md:mx-0 md:max-w-lg leading-snug font-medium">
                 Designing intelligent infrastructure that streamlines operations, strengthens decision making, and enables organizations to scale with precision.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
                 <Link
                   to="/deal-room"
-                  className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl bg-brand-blue text-white font-medium hover:bg-brand-blue-hover transition-colors shadow-lg shadow-brand-blue/30 text-[17px]"
+                  className="inline-flex items-center justify-center px-6 py-3.5 rounded-lg bg-brand-blue text-white font-bold hover:bg-brand-blue-hover transition-colors shadow-md text-[16px] w-[200px]"
                 >
                   Request a Demo
                 </Link>
                 <Link
                   to="/"
-                  className="inline-flex items-center justify-center gap-3 px-6 py-3.5 rounded-xl bg-white/80 border border-slate-200 text-slate-700 font-medium hover:bg-white transition-colors shadow-sm text-[17px]"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-lg bg-brand-blue/5 border border-brand-blue/20 text-slate-800 font-semibold hover:bg-brand-blue/10 transition-colors text-[16px] w-[260px]"
                 >
                   Book a Call
-                  <PlayCircle className="w-6 h-6 text-brand-blue fill-brand-blue/10" />
+                  <PlayCircle className="w-6 h-6 text-white fill-brand-blue" strokeWidth={1} />
                 </Link>
               </div>
             </motion.div>
           </div>
         </div>
+
       </section>
 
       {/* Logo Bar */}
@@ -226,33 +298,7 @@ export default function Home() {
               </Link>
             </div>
 
-            <div className="space-y-8">
-              {[
-                {
-                  num: "01",
-                  title: "Strategic Impact",
-                  desc: "We design AI-driven systems and automation frameworks that directly streamline operations, reduce manual workload, and enable measurable organizational performance. Every solution is structured to deliver tangible business outcomes at scale."
-                },
-                {
-                  num: "02",
-                  title: "Trust and Governance",
-                  desc: "Our enterprise-grade approach ensures security, compliance, and operational integrity. We operate with transparency and accountability, creating systems and processes that institutions can rely on for long-term resilience and growth."
-                },
-                {
-                  num: "03",
-                  title: "Scalable Excellence",
-                  desc: "We combine advanced technology with proven operational frameworks to implement solutions that are precise, reliable, and adaptable. Our focus is on delivering infrastructure that supports sustainable growth, efficiency, and institutional readiness."
-                }
-              ].map((val, i) => (
-                <div key={i} className="flex gap-6">
-                  <div className="text-xl font-display font-bold text-brand-cyan/50">{val.num}</div>
-                  <div>
-                    <h3 className="text-xl font-display font-semibold text-slate-800 mb-2">{val.title}</h3>
-                    <p className="text-slate-600 leading-relaxed">{val.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <AdvantageTimeline />
           </div>
         </div>
       </section>
@@ -334,7 +380,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-brand-blue text-white text-center">
+      <section className="py-24 bg-brand-blue-hover text-white text-center">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
             Ready to Scale Your Infrastructure?
@@ -346,7 +392,7 @@ export default function Home() {
             <Link to="/deal-room" className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white text-brand-blue font-bold hover:bg-slate-50 shadow-md transition-colors text-lg">
               Request a Demo
             </Link>
-            <Link to="/" className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-brand-blue-hover border border-white/20 text-white font-bold hover:bg-brand-cyan/20 transition-colors text-lg">
+            <Link to="/" className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-brand-blue border border-white/20 text-white font-bold hover:bg-brand-cyan/20 transition-colors text-lg">
               Book a Call
             </Link>
           </div>

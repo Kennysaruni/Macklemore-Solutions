@@ -40,23 +40,23 @@ export default function Layout() {
           <motion.div
             initial={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="bg-brand-blue text-white w-full z-[60] relative"
+            className="bg-[#1DA1F2] text-white w-full z-[60] relative"
           >
-            <div className="max-w-7xl mx-auto px-6 py-2.5 flex items-center justify-center text-sm font-medium pr-10 hover:text-white/90 transition-colors cursor-pointer relative">
+            <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-center text-sm font-bold pr-10 hover:text-white/90 transition-colors cursor-pointer relative text-center">
               The Optimizers Awards: Recognizing Operational Excellence – Nominate Your Work Here &gt;&gt;&gt;
               <button
                 onClick={(e) => { e.stopPropagation(); setBannerVisible(false); }}
                 className="absolute right-4 top-1/2 -translate-y-1/2 text-white/80 hover:text-white transition-colors"
                 aria-label="Close banner"
               >
-                <X className="w-4 h-4" />
+                <X className="w-5 h-5" />
               </button>
             </div>
           </motion.div>
         )}
       </AnimatePresence> */}
 
-      <header className="sticky top-0 w-full z-50 transition-all duration-300 pt-3 px-3 md:pt-4 md:px-6">
+      <header className="fixed top-0 left-0 w-full z-50 transition-all duration-300 pt-3 px-3 md:pt-4 md:px-6">
         <div className={cn(
           "max-w-7xl mx-auto flex items-center justify-between bg-white rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] border border-slate-100/60",
           isScrolled ? "py-2.5 px-5 shadow-[0_8px_30px_rgb(0,0,0,0.08)]" : "py-3.5 px-5"
@@ -256,7 +256,7 @@ export default function Layout() {
         )}
       </AnimatePresence>
 
-      <main className="flex-1 flex flex-col">
+      <main className={cn("flex-1 flex flex-col", location.pathname !== "/" && "pt-[100px]")}>
         <Outlet />
       </main>
 
