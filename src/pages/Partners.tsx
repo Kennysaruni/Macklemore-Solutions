@@ -5,19 +5,35 @@ import { ArrowRight, Handshake, Network, BookOpen, ShieldCheck } from "lucide-re
 export default function Partners() {
   return (
     <div className="flex flex-col pt-32 pb-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-3xl mb-16"
-        >
-          <h1 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6 leading-tight">
-            Partner With Macklemore Solutions
-          </h1>
-          <p className="text-xl text-slate-600 leading-relaxed font-medium">
-            Collaborate to Deliver AI, Automation, and Security Infrastructure at Scale
-          </p>
-        </motion.div>
+      <div className="max-w-[1440px] mx-auto px-6 w-full">
+        <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20 mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex-1"
+          >
+            <h1 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6 leading-tight">
+              Partner With Macklemore Solutions
+            </h1>
+            <p className="text-xl text-slate-600 leading-relaxed font-medium">
+              Collaborate to Deliver AI, Automation, and Security Infrastructure at Scale
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2 }}
+            className="flex-1 w-full relative"
+          >
+            <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl relative">
+              <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=2070&auto=format&fit=crop" alt="Business partners shaking hands" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-brand-blue/10 mix-blend-multiply pointer-events-none"></div>
+            </div>
+            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-brand-cyan/20 rounded-full blur-2xl pointer-events-none"></div>
+            <div className="absolute -top-6 -right-6 w-32 h-32 bg-brand-blue/20 rounded-full blur-2xl pointer-events-none"></div>
+          </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-16 mb-24">
           <motion.div

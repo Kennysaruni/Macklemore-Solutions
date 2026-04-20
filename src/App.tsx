@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Advantage from "./pages/Advantage";
 import Partners from "./pages/Partners";
 import Careers from "./pages/Careers";
 import CaseStudies from "./pages/CaseStudies";
@@ -16,6 +17,9 @@ import AIEducation from "./pages/solutions/AIEducation";
 import Security from "./pages/solutions/Security";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import PaymentHub from "./pages/PaymentHub";
+import Blog from "./pages/Blog";
+import EGuides from "./pages/EGuides";
+import Playbooks from "./pages/Playbooks";
 
 export default function App() {
   return (
@@ -24,6 +28,7 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
+          <Route path="advantage" element={<Advantage />} />
           <Route path="partners" element={<Partners />} />
           <Route path="careers" element={<Careers />} />
           <Route path="case-studies" element={<CaseStudies />} />
@@ -33,6 +38,9 @@ export default function App() {
           <Route path="solutions/ai-education" element={<AIEducation />} />
           <Route path="solutions/security" element={<Security />} />
           <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="blog" element={<Blog />} />
+          <Route path="eguides" element={<EGuides />} />
+          <Route path="playbooks" element={<Playbooks />} />
         </Route>
       </Routes>
     </BrowserRouter>

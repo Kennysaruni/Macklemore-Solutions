@@ -5,20 +5,36 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 export default function About() {
   return (
     <div className="flex flex-col pt-32 pb-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-3xl mb-16"
-        >
-          <div className="text-brand-cyan font-medium mb-4 uppercase tracking-wide text-sm">About Macklemore Solutions</div>
-          <h1 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6 leading-tight">
-            Smart Systems. Secure Infrastructure. Measurable Impact.
-          </h1>
-          <p className="text-xl text-slate-600 leading-relaxed">
-            At Macklemore Solutions, we design and implement AI-driven automation and security infrastructure that streamlines operations, strengthens governance, and accelerates institutional growth. Our solutions are engineered for enterprises and institutions, delivering scalable performance, measurable outcomes, and operational resilience across complex organizational environments.
-          </p>
-        </motion.div>
+      <div className="max-w-[1440px] mx-auto px-6 w-full">
+        <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20 mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex-1"
+          >
+            <div className="text-brand-cyan font-medium mb-4 uppercase tracking-wide text-sm">About Macklemore Solutions</div>
+            <h1 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6 leading-tight">
+              Smart Systems. Secure Infrastructure. Measurable Impact.
+            </h1>
+            <p className="text-xl text-slate-600 leading-relaxed">
+              At Macklemore Solutions, we design and implement AI-driven automation and security infrastructure that streamlines operations, strengthens governance, and accelerates institutional growth. Our solutions are engineered for enterprises and institutions, delivering scalable performance, measurable outcomes, and operational resilience across complex organizational environments.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2 }}
+            className="flex-1 w-full relative"
+          >
+            <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl relative">
+              <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop" alt="Corporate office team working on infrastructure" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-brand-blue/10 mix-blend-multiply pointer-events-none"></div>
+            </div>
+            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-brand-cyan/20 rounded-full blur-2xl pointer-events-none"></div>
+            <div className="absolute -top-6 -right-6 w-32 h-32 bg-brand-blue/20 rounded-full blur-2xl pointer-events-none"></div>
+          </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-16 mb-24">
           <motion.div

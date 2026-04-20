@@ -5,19 +5,35 @@ import { ArrowRight, GraduationCap, Briefcase, Users, Star } from "lucide-react"
 export default function Careers() {
   return (
     <div className="flex flex-col pt-32 pb-24 bg-white">
-      <div className="max-w-7xl mx-auto px-6 w-full">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-3xl mb-16"
-        >
-          <h1 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6">
-            Who We Are
-          </h1>
-          <p className="text-xl text-slate-600 leading-relaxed">
-            Macklemore Solutions is an AI and Automation Infrastructure Company delivering intelligent operational systems and enterprise-grade security frameworks. We cultivate talent through structured programs for students, interns, and professionals, equipping them with skills in AI, automation, and cybersecurity to contribute to real-world institutional impact.
-          </p>
-        </motion.div>
+      <div className="max-w-[1440px] mx-auto px-6 w-full">
+        <div className="flex flex-col md:flex-row-reverse items-center gap-12 lg:gap-20 mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex-1"
+          >
+            <h1 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6">
+              Careers
+            </h1>
+            <p className="text-xl text-slate-600 leading-relaxed">
+              Macklemore Solutions is an AI and Automation Infrastructure Company delivering intelligent operational systems and enterprise-grade security frameworks. We cultivate talent through structured programs for students, interns, and professionals, equipping them with skills in AI, automation, and cybersecurity to contribute to real-world institutional impact.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.2 }}
+            className="flex-1 w-full relative"
+          >
+            <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl relative">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" alt="Team collaborating in a modern office" className="w-full h-full object-cover" />
+              <div className="absolute inset-0 bg-brand-cyan/10 mix-blend-multiply pointer-events-none"></div>
+            </div>
+            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-brand-blue/20 rounded-full blur-2xl pointer-events-none"></div>
+            <div className="absolute -top-6 -right-6 w-32 h-32 bg-brand-cyan/20 rounded-full blur-2xl pointer-events-none"></div>
+          </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-16 mb-24">
           <motion.div
@@ -69,7 +85,7 @@ export default function Careers() {
             className="bg-slate-50 border border-slate-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow h-fit"
           >
             <h2 className="text-2xl font-display font-bold text-slate-900 mb-6">Why Join Macklemore Solutions?</h2>
-            
+
             <ul className="space-y-6">
               {[
                 "Work on meaningful, global AI and automation projects",
