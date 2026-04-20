@@ -11,6 +11,7 @@ import Advantage from "./pages/Advantage";
 import Partners from "./pages/Partners";
 import Careers from "./pages/Careers";
 import CaseStudies from "./pages/CaseStudies";
+import Industries from "./pages/Industries";
 import DealRoom from "./pages/DealRoom";
 import Automation from "./pages/solutions/Automation";
 import AIEducation from "./pages/solutions/AIEducation";
@@ -31,6 +32,7 @@ export default function App() {
           <Route path="advantage" element={<Advantage />} />
           <Route path="partners" element={<Partners />} />
           <Route path="careers" element={<Careers />} />
+          <Route path="industries" element={<Industries />} />
           <Route path="case-studies" element={<CaseStudies />} />
           <Route path="deal-room" element={<DealRoom />} />
           <Route path="payment-hub" element={<PaymentHub />} />

@@ -94,7 +94,7 @@ export default function Layout() {
 
             {/* Industries */}
             <div className="py-4">
-              <Link to="/" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue transition-colors flex items-center">
+              <Link to="/industries" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue transition-colors flex items-center">
                 Industries
               </Link>
             </div>
