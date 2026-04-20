@@ -185,11 +185,10 @@ export default function Layout() {
                 </div>
 
                 <div>
-                  <h4 className="text-[14px] text-slate-400 font-medium mb-3">Industries</h4>
+                  <h4 className="text-[14px] text-slate-400 font-medium mb-3">Explore</h4>
                   <ul className="flex flex-col gap-5">
-                    <li><Link to="/" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Logistics & Healthcare</Link></li>
-                    <li><Link to="/" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Financial Services</Link></li>
-                    <li><Link to="/" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>SMEs & Enterprises</Link></li>
+                    <li><Link to="/industries" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Industries We Serve</Link></li>
+                    <li><Link to="/case-studies" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Case Studies</Link></li>
                   </ul>
                 </div>
               </div>
@@ -199,16 +198,16 @@ export default function Layout() {
                 <div>
                   <h4 className="text-[14px] text-slate-400 font-medium mb-3">Resources</h4>
                   <ul className="flex flex-col gap-5">
-                    <li><Link to="/case-studies" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Case Studies</Link></li>
-                    <li><Link to="/deal-room" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Deal Room</Link></li>
-                    <li><Link to="/payment-hub" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Payment Hub</Link></li>
-                    <li><Link to="/" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>AI Playbooks</Link></li>
+                    <li><Link to="/blog" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Blog</Link></li>
+                    <li><Link to="/eguides" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>eGuides / Whitepapers</Link></li>
+                    <li><Link to="/playbooks" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>AI Playbooks</Link></li>
                   </ul>
                 </div>
                 <div>
                   <h4 className="text-[14px] text-slate-400 font-medium mb-3">Company</h4>
                   <ul className="flex flex-col gap-5">
                     <li><Link to="/about" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>About Us</Link></li>
+                    <li><Link to="/advantage" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>The Macklemore Advantage</Link></li>
                     <li><Link to="/careers" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Careers</Link></li>
                     <li><Link to="/partners" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Partner With Us</Link></li>
                   </ul>
@@ -252,23 +251,22 @@ export default function Layout() {
           <div>
             <h4 className="font-display font-medium text-white mb-4">Industries</h4>
             <ul className="space-y-3 text-sm">
-              <li><Link to="/" className="text-slate-400 hover:text-white transition-colors">Logistics</Link></li>
-              <li><Link to="/" className="text-slate-400 hover:text-white transition-colors">Financial Services</Link></li>
-              <li><Link to="/" className="text-slate-400 hover:text-white transition-colors">Healthcare</Link></li>
-              <li><Link to="/" className="text-slate-400 hover:text-white transition-colors">Retail & E-commerce</Link></li>
-              <li><Link to="/" className="text-slate-400 hover:text-white transition-colors">Education</Link></li>
-              <li><Link to="/" className="text-slate-400 hover:text-white transition-colors">SMEs & Enterprises</Link></li>
+              <li><Link to="/industries" className="text-slate-400 hover:text-white transition-colors">Logistics</Link></li>
+              <li><Link to="/industries" className="text-slate-400 hover:text-white transition-colors">Financial Services</Link></li>
+              <li><Link to="/industries" className="text-slate-400 hover:text-white transition-colors">Healthcare</Link></li>
+              <li><Link to="/industries" className="text-slate-400 hover:text-white transition-colors">Retail & E-commerce</Link></li>
+              <li><Link to="/industries" className="text-slate-400 hover:text-white transition-colors">Education</Link></li>
+              <li><Link to="/industries" className="text-slate-400 hover:text-white transition-colors">SMEs & Enterprises</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-display font-medium text-white mb-4">Resources</h4>
             <ul className="space-y-3 text-sm">
-              <li><Link to="/" className="text-slate-400 hover:text-white transition-colors">Blog</Link></li>
+              <li><Link to="/blog" className="text-slate-400 hover:text-white transition-colors">Blog</Link></li>
               <li><Link to="/case-studies" className="text-slate-400 hover:text-white transition-colors">Case Studies</Link></li>
-              <li><Link to="/" className="text-slate-400 hover:text-white transition-colors">eGuides / Whitepapers</Link></li>
-              <li><Link to="/" className="text-slate-400 hover:text-white transition-colors">Webinars & Training</Link></li>
-              <li><Link to="/" className="text-slate-400 hover:text-white transition-colors">AI Playbooks</Link></li>
+              <li><Link to="/eguides" className="text-slate-400 hover:text-white transition-colors">eGuides / Whitepapers</Link></li>
+              <li><Link to="/playbooks" className="text-slate-400 hover:text-white transition-colors">AI Playbooks</Link></li>
             </ul>
           </div>
 
