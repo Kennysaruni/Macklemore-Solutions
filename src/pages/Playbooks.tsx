@@ -26,7 +26,7 @@ export default function Playbooks() {
       title: "AI for Logistics and Delivery Operations",
       desc: "Optimizing routing, dispatch, and operational visibility using intelligent systems.",
       icon: <Truck className="w-6 h-6" />,
-      image: "https://images.unsplash.com/photo-1586528116311-ad8ed7c663b0?q=80&w=2070&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bG9naXN0aWNzfGVufDB8fDB8fHww"
     },
     {
       title: "AI for Internal Workflow Automation",
@@ -145,7 +145,7 @@ export default function Playbooks() {
                 <div className="flex flex-col flex-1 p-8">
                   <h3 className="text-2xl font-display font-bold text-slate-900 mb-4 group-hover:text-brand-blue transition-colors leading-snug">{playbook.title}</h3>
                   <p className="text-slate-600 text-base leading-relaxed mb-8 flex-1">{playbook.desc}</p>
-                  
+
                   <div className="flex items-center text-sm font-bold text-brand-blue group-hover:text-brand-cyan transition-colors mt-auto">
                     Explore Playbook <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                   </div>
@@ -174,7 +174,7 @@ export default function Playbooks() {
                 ))}
               </ul>
             </div>
-            
+
             <div className="bg-white/5 border border-white/10 rounded-3xl p-10 backdrop-blur-md">
               <h2 className="text-3xl font-display font-bold mb-8">Value & Expected Outcomes</h2>
               <ul className="space-y-6">
