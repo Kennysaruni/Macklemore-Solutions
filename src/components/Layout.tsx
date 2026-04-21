@@ -172,7 +172,7 @@ export default function Layout() {
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-40 bg-white pt-[100px] px-6 pb-24 md:hidden overflow-y-auto"
           >
-            <div className="grid grid-cols-2 gap-x-6 gap-y-12">
+            <div className="grid grid-cols-2 gap-x-6 gap-y-12 pr-4">
               {/* Column 1 */}
               <div className="flex flex-col gap-10">
                 <div>

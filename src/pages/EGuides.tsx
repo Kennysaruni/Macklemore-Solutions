@@ -83,9 +83,9 @@ export default function EGuides() {
       </section>
 
       {/* FILTER BAR */}
-      <section className="sticky top-[72px] z-40 bg-white/80 backdrop-blur-md border-b border-slate-200 py-4 shadow-sm">
+      <section className="sticky top-[72px] z-30 bg-white/80 backdrop-blur-md border-b border-slate-200 py-4 shadow-sm">
         <div className="max-w-[1440px] mx-auto px-6 overflow-x-auto no-scrollbar">
-          <div className="flex items-center gap-2 whitespace-nowrap">
+          <div className="flex items-center gap-2 whitespace-nowrap pb-3">
             {filters.map((filter, i) => (
               <button 
                 key={i} 

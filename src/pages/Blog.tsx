@@ -64,9 +64,9 @@ export default function Blog() {
       </section>
 
       {/* FILTER BAR (EXPLORE BY CATEGORY) */}
-      <section className="sticky top-[72px] z-40 bg-white/80 backdrop-blur-md border-b border-slate-200 py-4">
+      <section className="sticky top-[72px] z-30 bg-white/80 backdrop-blur-md border-b border-slate-200 py-4">
         <div className="max-w-[1440px] mx-auto px-6 overflow-x-auto no-scrollbar">
-          <div className="flex items-center gap-2 whitespace-nowrap">
+          <div className="flex items-center gap-2 whitespace-nowrap pb-3">
             <button className="px-5 py-2 rounded-full bg-brand-blue text-white text-sm font-medium transition-colors">
               All Resources
             </button>
