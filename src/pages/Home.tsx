@@ -355,7 +355,7 @@ export default function Home() {
               {
                 title: "Automation Projects",
                 link: "/case-studies#case-01",
-                image: "https://images.unsplash.com/photo-1586528116311-ad8ed7c663b0?q=80&w=2070&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 desc: "Scaling supply chain operations with intelligent workflow integration, eliminating data silos by 80%.",
                 category: "Logistics"
               },
