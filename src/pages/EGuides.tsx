@@ -39,7 +39,7 @@ export default function EGuides() {
     {
       title: "AI in Logistics and Operations",
       desc: "How intelligent systems are transforming logistics, routing, and operational performance.",
-      image: "https://images.unsplash.com/photo-1586528116311-ad8ed7c663b0?q=80&w=2070&auto=format&fit=crop",
+      image: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bG9naXN0aWNzfGVufDB8fDB8fHww",
       category: "Whitepaper"
     },
     {
@@ -58,8 +58,8 @@ export default function EGuides() {
 
   const filters = ["All Resources", "eGuides", "Whitepapers"];
 
-  const filteredResources = activeFilter === "All Resources" 
-    ? resources 
+  const filteredResources = activeFilter === "All Resources"
+    ? resources
     : resources.filter(r => r.category + "s" === activeFilter);
 
   return (
@@ -87,14 +87,13 @@ export default function EGuides() {
         <div className="max-w-[1440px] mx-auto px-6 overflow-x-auto no-scrollbar">
           <div className="flex items-center gap-2 whitespace-nowrap pb-3">
             {filters.map((filter, i) => (
-              <button 
-                key={i} 
+              <button
+                key={i}
                 onClick={() => setActiveFilter(filter)}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${
-                  activeFilter === filter 
-                    ? "bg-brand-blue text-white shadow-sm shadow-brand-blue/20" 
+                className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${activeFilter === filter
+                    ? "bg-brand-blue text-white shadow-sm shadow-brand-blue/20"
                     : "bg-slate-100 hover:bg-slate-200 text-slate-700"
-                }`}
+                  }`}
               >
                 {filter}
               </button>
@@ -124,7 +123,7 @@ export default function EGuides() {
                   </div>
                   <h3 className="text-lg font-display font-bold text-slate-900 mb-2 group-hover:text-brand-blue transition-colors leading-snug">{resource.title}</h3>
                   <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-1">{resource.desc}</p>
-                  
+
                   <button className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-slate-900 hover:bg-brand-blue text-white text-sm font-bold transition-colors mt-auto shadow-sm">
                     <Download className="w-4 h-4" /> Download
                   </button>
@@ -147,9 +146,9 @@ export default function EGuides() {
             <h3 className="text-xl font-bold mb-4">Join our Mailing List</h3>
             <p className="text-sm text-white/80 mb-6">Get notified when we publish new strategic insights and technical guides.</p>
             <div className="flex flex-col gap-3">
-              <input 
-                type="email" 
-                placeholder="Enter your work email" 
+              <input
+                type="email"
+                placeholder="Enter your work email"
                 className="px-5 py-3.5 rounded-xl text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-brand-cyan w-full text-sm font-medium"
               />
               <button className="w-full flex items-center justify-center px-8 py-3.5 rounded-xl bg-brand-cyan hover:bg-white hover:text-brand-cyan text-white font-bold transition-colors shadow-lg">
