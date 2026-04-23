@@ -65,7 +65,7 @@ export default function EGuides() {
   return (
     <div className="flex flex-col bg-slate-50 min-h-screen">
       {/* MINIMAL HERO SECTION */}
-      <section className="pt-28 pb-12 md:pt-36 md:pb-16 bg-slate-50 border-b border-slate-200">
+      <section className="pt-28 pb-12 md:pt-36 md:pb-16 bg-slate-50 ">
         <div className="max-w-[1440px] mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -83,7 +83,7 @@ export default function EGuides() {
       </section>
 
       {/* FILTER BAR */}
-      <section className="sticky top-[72px] z-30 bg-white/80 backdrop-blur-md border-b border-slate-200 py-4 shadow-sm">
+      <section className="bg-white py-4 shadow-sm">
         <div className="max-w-[1440px] mx-auto px-6 overflow-x-auto no-scrollbar">
           <div className="flex items-center gap-2 whitespace-nowrap pb-3">
             {filters.map((filter, i) => (
@@ -91,8 +91,8 @@ export default function EGuides() {
                 key={i}
                 onClick={() => setActiveFilter(filter)}
                 className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${activeFilter === filter
-                    ? "bg-brand-blue text-white shadow-sm shadow-brand-blue/20"
-                    : "bg-slate-100 hover:bg-slate-200 text-slate-700"
+                  ? "bg-brand-blue text-white shadow-sm shadow-brand-blue/20"
+                  : "bg-slate-100 hover:bg-slate-200 text-slate-700"
                   }`}
               >
                 {filter}
@@ -135,10 +135,10 @@ export default function EGuides() {
       </section>
 
       {/* LEAD CAPTURE / CTA SECTION */}
-      <section className="py-24 bg-brand-blue text-white text-center relative overflow-hidden">
+      <section className="py-24 bg-brand-blue-hover text-white text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] opacity-10 object-cover mix-blend-overlay"></div>
         <div className="max-w-3xl mx-auto px-6 relative z-10">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">Access Our Resources</h2>
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white" >Access Our Resources</h2>
           <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
             Download our eGuides and whitepapers to explore how AI and automation can transform your business operations.
           </p>

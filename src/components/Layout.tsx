@@ -232,7 +232,7 @@ export default function Layout() {
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12">
           <div className="col-span-2 md:col-span-1">
             <Link to="/" className="flex items-center mb-6">
-              <img src={macklemoreLogo} alt="Macklemore Solutions Logo" className="h-10 brightness-0 invert" />
+              <img src={macklemoreLogo} alt="Macklemore Solutions Logo" className="h-10 " />
             </Link>
             <p className="text-slate-400 text-sm">
               Designing intelligent systems that power institutional growth.

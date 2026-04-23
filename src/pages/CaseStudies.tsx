@@ -78,6 +78,7 @@ export default function CaseStudies() {
       image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop",
       client: "Lowe Levinson Financial Solutions",
       industry: "Financial Services",
+      region: "USA",
       icon: <Calculator className="w-6 h-6 text-brand-blue" />,
       situation: "The client required a secure, intelligent system to replace a manual and error-prone tax estimation and submission process. The existing workflow created significant processing delays, introduced compliance risks, and produced a poor experience for clients submitting complex tax documentation.",
       solution: "Macklemore Solutions developed a secure, web-based tax management portal integrated with an AI assistant. The system provided real-time calculation insights, automated validation checks, and a guided submission experience that reduced errors at every stage of the process.",

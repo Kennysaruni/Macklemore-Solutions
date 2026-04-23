@@ -17,7 +17,7 @@ export default function Industries() {
         "Operations dashboards and reporting"
       ],
       outcome: "Improved delivery timelines, reduced operational costs, and enhanced visibility across operations.",
-      image: "https://images.unsplash.com/photo-1586528116311-ad8ed7c663b0?q=80&w=2070&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1492168732976-2676c584c675?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dHJ1Y2tzfGVufDB8fDB8fHww"
     },
     {
       id: "finance",
@@ -163,7 +163,7 @@ export default function Industries() {
           <div key={industry.id} className={`py-16 md:py-24 ${index % 2 !== 0 ? 'bg-white' : ''}`}>
             <div className="max-w-[1440px] mx-auto px-6">
               <div className={`flex flex-col gap-12 lg:gap-20 items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                
+
                 <div className="flex-1 w-full">
                   <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-xl relative group">
                     <img src={industry.image} alt={industry.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -177,7 +177,7 @@ export default function Industries() {
                   </div>
                   <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-6">{industry.title}</h2>
                   <p className="text-lg text-slate-600 leading-relaxed mb-8">{industry.content}</p>
-                  
+
                   <h3 className="text-sm font-bold tracking-wider uppercase text-slate-900 mb-4">Key Capabilities</h3>
                   <ul className="space-y-3 mb-8">
                     {industry.capabilities.map((cap, i) => (
@@ -193,7 +193,7 @@ export default function Industries() {
                     <p className="text-slate-800 font-medium">{industry.outcome}</p>
                   </div>
                 </div>
-                
+
               </div>
             </div>
           </div>

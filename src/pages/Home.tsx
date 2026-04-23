@@ -1,8 +1,15 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
-import { PlayCircle, ArrowRight } from "lucide-react";
+import { PlayCircle, ArrowRight, Linkedin } from "lucide-react";
 import { cn } from "@/src/lib/utils";
+import micah from "../assets/micah.jpg";
+import karlene from "../assets/Karlene.jpg";
+import obinna from "../assets/Obinna..jpg";
+import ankita from "../assets/Ankita.jpg";
+import ava from "../assets/Ava Jackson.jpg";
+import jr from "../assets/JRThomas.jpg";
+import elizabeth from "../assets/Elizabeth...jpg";
 
 function AdvantageTimeline() {
   const [activeStep, setActiveStep] = useState(0);
@@ -67,6 +74,57 @@ function AdvantageTimeline() {
   );
 }
 
+const teamMembers = [
+  {
+    name: "Micah Elechi",
+    role: "President and Chief Executive Officer",
+    linkedin: "https://www.linkedin.com/in/micah-elechi-a0489b20a/",
+    image: micah
+  },
+  {
+    name: "Karlene Haughton",
+    role: "Client Success Officer",
+    linkedin: "https://www.linkedin.com/in/karlene-haughton-humber-a47748187/",
+    image: karlene
+  },
+  {
+    name: "Obinna Achazie",
+    role: "Project Delivery Lead",
+    linkedin: "https://www.linkedin.com/in/obinna-achazie/",
+    image: obinna
+  },
+  {
+    name: "Ankita Saini",
+    role: "Security Architect, Macklemore Solutions LLC",
+    linkedin: "https://www.linkedin.com/in/cybersecurityspecialist16122023?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    image: ankita
+  },
+  {
+    name: "Dr. Ayoade Adeyemi",
+    role: "Chief People Officer (CPO)",
+    linkedin: "https://www.linkedin.com/in/drayoadeadeyemi?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+    image: ""
+  },
+  {
+    name: "Ava Jackson",
+    role: "Chief Financial Officer (CFO)",
+    linkedin: "https://www.linkedin.com/in/ava-jackson-4021295b/",
+    image: ava
+  },
+  {
+    name: "JR Thomas",
+    role: "Strategic Sales Partner",
+    linkedin: "https://www.linkedin.com/in/jr-thomas-357895158/",
+    image: jr
+  },
+  {
+    name: "Elizabeth Adedapo",
+    role: "Growth and Partnerships Manager",
+    linkedin: "https://www.linkedin.com/in/elizabethadedapo/",
+    image: elizabeth
+  }
+];
+
 export default function Home() {
   return (
     <div className="flex flex-col w-full overflow-hidden">
@@ -120,7 +178,10 @@ export default function Home() {
                   className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-lg bg-brand-blue/5 border border-brand-blue/20 text-slate-800 font-semibold hover:bg-brand-blue/10 transition-colors text-[16px] w-[260px]"
                 >
                   Book a Call
-                  <PlayCircle className="w-6 h-6 text-white fill-brand-blue" strokeWidth={1} />
+                  <span className="relative flex h-3 w-3 ml-1">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-blue"></span>
+                  </span>
                 </Link>
               </div>
             </motion.div>
@@ -333,8 +394,77 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Team Section */}
+      <section className="py-24 bg-white border-t border-slate-100">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-brand-blue font-semibold tracking-wider uppercase text-sm mb-4 block">Our Team</span>
+            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 text-slate-900">
+              Meet the Experts Behind Macklemore Solutions
+            </h2>
+            <p className="text-slate-600 text-lg">
+              Our leadership team brings together decades of experience in technology, strategy, and enterprise operations to deliver scalable solutions.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {teamMembers.map((member, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group flex flex-col bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl hover:border-brand-blue/30 transition-all duration-300"
+              >
+                {/* Image Container */}
+                <div className="w-full aspect-square bg-slate-200 relative overflow-hidden">
+                  {member.image ? (
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex flex-col items-center justify-center bg-slate-100 text-slate-400 group-hover:bg-slate-200 transition-colors">
+                      <svg className="w-12 h-12 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                      </svg>
+                      <span className="text-xs font-medium uppercase tracking-wider"></span>
+                    </div>
+                  )}
+                  {/* Subtle gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6 flex flex-col flex-1 relative bg-white">
+                  <div className="flex justify-between items-start mb-2">
+                    <h3 className="text-lg font-display font-bold text-slate-900 group-hover:text-brand-blue transition-colors">
+                      {member.name}
+                    </h3>
+                    <a
+                      href={member.linkedin}
+                      target={member.linkedin !== "#" ? "_blank" : "_self"}
+                      rel={member.linkedin !== "#" ? "noopener noreferrer" : ""}
+                      className="text-slate-400 hover:text-[#0077b5] transition-colors"
+                      aria-label={`${member.name}'s LinkedIn profile`}
+                    >
+                      <Linkedin className="w-5 h-5" />
+                    </a>
+                  </div>
+                  <p className="text-brand-blue font-medium text-sm leading-snug">
+                    {member.role}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Case Studies Preview Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-slate-50 border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex justify-between items-end mb-16">
             <div>
