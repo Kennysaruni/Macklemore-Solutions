@@ -1,6 +1,6 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUp } from "lucide-react";
 import { useState, useEffect } from "react";
 import { cn } from "@/src/lib/utils";
 import macklemoreLogo from "@/src/assets/macklemorelogo.png";
@@ -73,7 +73,7 @@ export default function Layout() {
           "max-w-[1440px] mx-auto flex items-center justify-between bg-white rounded-2xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)] border border-slate-100/60",
           isScrolled ? "py-2.5 px-5 shadow-[0_8px_30px_rgb(0,0,0,0.08)]" : "py-3.5 px-5"
         )}>
-          <Link to="/" className="flex items-center group">
+          <Link to="/" className="flex items-center group" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <img src={macklemoreLogo} alt="Macklemore Solutions Logo" className="h-10" />
           </Link>
 
@@ -245,13 +245,13 @@ export default function Layout() {
         </div>
 
         {/* The main footer background */}
-        <div className="bg-gradient-to-b from-red-100 to-white pt-40 pb-12 px-6">
+        <div className="bg-gradient-to-b from-slate-50 to-white pt-40 pb-12 px-6">
           <div className="max-w-[1440px] mx-auto">
             {/* Top row: Logo & Links */}
             <div className="grid grid-cols-1 md:grid-cols-6 gap-8 mb-16">
               {/* Logo Column */}
               <div className="col-span-1 md:col-span-1">
-                <Link to="/" className="flex items-start mb-4">
+                <Link to="/" className="flex items-start mb-4" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                   <img src={macklemoreLogo} alt="Macklemore Solutions Logo" className="h-10" />
                 </Link>
                 <p className="text-sm text-slate-600 leading-relaxed pr-2">
@@ -313,7 +313,7 @@ export default function Layout() {
             </div>
 
             {/* Bottom row: Legal & Info */}
-            <div className="flex flex-col md:flex-row justify-between items-center text-[13px] font-medium text-slate-600 w-full pt-8 border-t border-red-900/5">
+            <div className="flex flex-col md:flex-row justify-between items-center text-[13px] font-medium text-slate-600 w-full pt-8 border-t border-slate-900/5">
               <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 mb-4 md:mb-0">
                 <span>All rights reserved to Macklemore Solutions {new Date().getFullYear()}</span>
                 <span className="hidden sm:inline">|</span>
@@ -328,6 +328,22 @@ export default function Layout() {
           </div>
         </div>
       </footer>
+
+      {/* Scroll to top button */}
+      <AnimatePresence>
+        {isScrolled && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.8 }}
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="fixed bottom-6 right-6 z-50 bg-brand-blue text-white p-3 rounded-full shadow-lg hover:bg-brand-blue-hover transition-all flex items-center justify-center md:hidden"
+            aria-label="Scroll to top"
+          >
+            <ArrowUp className="w-6 h-6" />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
