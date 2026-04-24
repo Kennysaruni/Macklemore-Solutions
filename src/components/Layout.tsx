@@ -132,7 +132,7 @@ export default function Layout() {
                   <Link to="/advantage" className="block px-3 py-2 text-sm text-slate-600 hover:text-brand-blue hover:bg-slate-50 rounded-lg font-medium transition-colors">The Macklemore Advantage</Link>
                   <Link to="/careers" className="block px-3 py-2 text-sm text-slate-600 hover:text-brand-blue hover:bg-slate-50 rounded-lg font-medium transition-colors">Careers</Link>
                   <Link to="/partners" className="block px-3 py-2 text-sm text-slate-600 hover:text-brand-blue hover:bg-slate-50 rounded-lg font-medium transition-colors">Partner With Us</Link>
-                  <Link to="/" className="block px-3 py-2 text-sm text-slate-600 hover:text-brand-blue hover:bg-slate-50 rounded-lg font-medium transition-colors">Contact</Link>
+                  <Link to="/contact" className="block px-3 py-2 text-sm text-slate-600 hover:text-brand-blue hover:bg-slate-50 rounded-lg font-medium transition-colors">Contact</Link>
                 </div>
               </div>
             </div>
@@ -278,7 +278,7 @@ export default function Layout() {
               <li><Link to="/careers" className="text-slate-400 hover:text-white transition-colors">Careers</Link></li>
               <li><Link to="/partners" className="text-slate-400 hover:text-white transition-colors">Partner With Us</Link></li>
               <li><Link to="/deal-room" className="text-slate-400 hover:text-white transition-colors">Deal Room</Link></li>
-              <li><Link to="/" className="text-slate-400 hover:text-white transition-colors">Contact</Link></li>
+              <li><Link to="/contact" className="text-slate-400 hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
         </div>

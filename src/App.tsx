@@ -13,6 +13,7 @@ import Careers from "./pages/Careers";
 import CaseStudies from "./pages/CaseStudies";
 import Industries from "./pages/Industries";
 import DealRoom from "./pages/DealRoom";
+import Contact from "./pages/Contact";
 import Automation from "./pages/solutions/Automation";
 import AIEducation from "./pages/solutions/AIEducation";
 import Security from "./pages/solutions/Security";
@@ -53,6 +54,7 @@ export default function App() {
             <Route path="industries" element={<Industries />} />
             <Route path="case-studies" element={<CaseStudies />} />
             <Route path="deal-room" element={<DealRoom />} />
+            <Route path="contact" element={<Contact />} />
             <Route path="payment-hub" element={<PaymentHub />} />
             <Route path="solutions/automation" element={<Automation />} />
             <Route path="solutions/ai-education" element={<AIEducation />} />
