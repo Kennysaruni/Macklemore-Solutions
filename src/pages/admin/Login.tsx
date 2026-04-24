@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
 import { supabase } from '../../lib/supabase';
 import { useAuth } from '../../context/AuthContext';
+import macklemoreLogo from '@/src/assets/macklemorelogo.png';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -38,6 +39,9 @@ export default function Login() {
     <div className="min-h-screen flex items-center justify-center bg-slate-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8 bg-white p-10 rounded-2xl shadow-xl border border-slate-100">
         <div>
+          <div className="flex justify-center">
+            <img src={macklemoreLogo} alt="Macklemore Solutions Logo" className="h-12 mb-6" />
+          </div>
           <h2 className="mt-6 text-center text-3xl font-display font-extrabold text-slate-900">
             Admin Portal
           </h2>

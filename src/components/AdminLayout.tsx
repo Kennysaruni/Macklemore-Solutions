@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { 
-  Users, 
-  Handshake, 
-  FileText, 
-  Briefcase, 
-  BookOpen, 
-  LayoutTemplate, 
+import {
+  Users,
+  Handshake,
+  FileText,
+  Briefcase,
+  BookOpen,
+  LayoutTemplate,
   MessageSquare,
   LogOut,
   LayoutDashboard,
@@ -15,6 +15,7 @@ import {
   X
 } from 'lucide-react';
 import { cn } from '../lib/utils';
+import macklemoreLogo from '../assets/macklemorelogo.png';
 
 export default function AdminLayout() {
   const { signOut, user } = useAuth();
@@ -36,7 +37,7 @@ export default function AdminLayout() {
     <div className="min-h-screen bg-slate-50 flex">
       {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-slate-900/50 z-20 lg:hidden"
           onClick={() => setIsMobileMenuOpen(false)}
         />
@@ -48,23 +49,24 @@ export default function AdminLayout() {
         isMobileMenuOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
       )}>
         <div className="h-16 flex items-center justify-between px-6 border-b border-slate-200">
-          <Link to="/admin" className="font-display font-bold text-xl text-slate-900">
-            Admin Portal
+          <Link to="/admin" className="flex items-center">
+            <img src={macklemoreLogo} alt="Macklemore Solutions Logo" className="h-8" />
+            <h3 className="text-xl font-semibold text-slate-800">Admin Portal</h3>
           </Link>
-          <button 
+          <button
             className="lg:hidden text-slate-500 hover:text-slate-700"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             <X className="w-5 h-5" />
           </button>
         </div>
-        
+
         <div className="flex-1 overflow-y-auto py-4">
           <nav className="px-3 space-y-1">
             {navigation.map((item) => {
               const isActive = location.pathname === item.href || (item.href !== '/admin' && location.pathname.startsWith(item.href));
               const Icon = item.icon;
-              
+
               return (
                 <Link
                   key={item.name}
@@ -72,8 +74,8 @@ export default function AdminLayout() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={cn(
                     "flex items-center px-3 py-2.5 text-sm font-medium rounded-lg transition-colors group",
-                    isActive 
-                      ? "bg-brand-blue/10 text-brand-blue" 
+                    isActive
+                      ? "bg-brand-blue/10 text-brand-blue"
                       : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
                   )}
                 >
@@ -106,7 +108,7 @@ export default function AdminLayout() {
       <div className="flex-1 flex flex-col min-h-screen lg:ml-64 w-full">
         <header className="h-16 bg-white border-b border-slate-200 flex items-center px-4 lg:px-8 justify-between sticky top-0 z-10 w-full">
           <div className="flex items-center gap-4">
-            <button 
+            <button
               className="lg:hidden text-slate-500 hover:text-slate-700 p-2 -ml-2"
               onClick={() => setIsMobileMenuOpen(true)}
             >
@@ -121,7 +123,7 @@ export default function AdminLayout() {
             <span className="sm:hidden">Live Site</span> &rarr;
           </a>
         </header>
-        
+
         <main className="flex-1 p-4 lg:p-8 overflow-x-hidden w-full">
           <Outlet />
         </main>
