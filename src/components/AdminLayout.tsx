@@ -51,7 +51,7 @@ export default function AdminLayout() {
         <div className="h-16 flex items-center justify-between px-6 border-b border-slate-200">
           <Link to="/admin" className="flex items-center">
             <img src={macklemoreLogo} alt="Macklemore Solutions Logo" className="h-8" />
-            <h3 className="text-xl font-semibold text-slate-800">Admin Portal</h3>
+            <h3 className="text-xl font-semibold text-slate-800 ml-2">Admin Portal</h3>
           </Link>
           <button
             className="lg:hidden text-slate-500 hover:text-slate-700"
