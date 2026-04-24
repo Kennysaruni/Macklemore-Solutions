@@ -234,9 +234,13 @@ export default function Layout() {
             <Link to="/" className="flex items-center mb-6">
               <img src={macklemoreLogo} alt="Macklemore Solutions Logo" className="h-10 " />
             </Link>
-            <p className="text-slate-400 text-sm">
+            <p className="text-slate-400 text-sm mb-6">
               Designing intelligent systems that power institutional growth.
             </p>
+            <div className="space-y-2 text-sm text-slate-400">
+              <p>Contact: <a href="tel:+14374316340" className="hover:text-white transition-colors">+1 (437) 431-6340</a></p>
+              <p>Email: <a href="mailto:Info@macklemoresolutions.com" className="hover:text-white transition-colors">Info@macklemoresolutions.com</a></p>
+            </div>
           </div>
 
           <div>
@@ -251,12 +255,7 @@ export default function Layout() {
           <div>
             <h4 className="font-display font-medium text-white mb-4">Industries</h4>
             <ul className="space-y-3 text-sm">
-              <li><Link to="/industries" className="text-slate-400 hover:text-white transition-colors">Logistics</Link></li>
-              <li><Link to="/industries" className="text-slate-400 hover:text-white transition-colors">Financial Services</Link></li>
-              <li><Link to="/industries" className="text-slate-400 hover:text-white transition-colors">Healthcare</Link></li>
-              <li><Link to="/industries" className="text-slate-400 hover:text-white transition-colors">Retail & E-commerce</Link></li>
-              <li><Link to="/industries" className="text-slate-400 hover:text-white transition-colors">Education</Link></li>
-              <li><Link to="/industries" className="text-slate-400 hover:text-white transition-colors">SMEs & Enterprises</Link></li>
+              <li><Link to="/industries" className="text-slate-400 hover:text-white transition-colors">Overview</Link></li>
             </ul>
           </div>
 
