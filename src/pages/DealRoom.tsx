@@ -1,5 +1,8 @@
 import { motion } from "motion/react";
-import { ArrowRight, CheckCircle2, Zap, Settings, BookOpen, ShieldCheck } from "lucide-react";
+import { ArrowRight, CheckCircle2, Zap, Settings, BookOpen, Loader2 } from "lucide-react";
+import { useState } from "react";
+import { supabase } from "../lib/supabase";
+import emailjs from '@emailjs/browser';
 
 export default function DealRoom() {
   const packages = [
@@ -43,6 +46,50 @@ export default function DealRoom() {
       idealFor: "Institutional investors, venture capital firms, and enterprise organizations seeking M&A or JV pathways."
     }
   ];
+
+  const [formData, setFormData] = useState({ name: "", email: "", company: "", message: "" });
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus('idle');
+
+    try {
+      // 1. Insert into Supabase
+      const { error: dbError } = await supabase.from('messages').insert([
+        formData
+      ]);
+
+      if (dbError) throw dbError;
+
+      // 2. Send via EmailJS (using env variables if available, otherwise just mock success if not configured)
+      // Note: User needs to configure VITE_EMAILJS_SERVICE_ID, VITE_EMAILJS_TEMPLATE_ID, VITE_EMAILJS_PUBLIC_KEY
+      if (import.meta.env.VITE_EMAILJS_SERVICE_ID) {
+        await emailjs.send(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '',
+          {
+            to_email: 'info@macklemoresolutions.com',
+            from_name: formData.name,
+            from_email: formData.email,
+            company: formData.company,
+            message: formData.message,
+          },
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY || ''
+        );
+      }
+
+      setStatus('success');
+      setFormData({ name: "", email: "", company: "", message: "" });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setStatus('error');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="flex flex-col pt-32 pb-24 bg-white">
@@ -102,14 +149,75 @@ export default function DealRoom() {
           ))}
         </div>
 
-        <div className="text-center">
-          <h2 className="text-2xl font-display font-bold text-slate-900 mb-4">How to Engage</h2>
-          <p className="text-slate-600 mb-8 max-w-2xl mx-auto text-lg">
-            Each package begins with a scoping conversation to confirm fit and define the engagement parameters. Our team does not use a one-size-fits-all approach. Once the scope is agreed, a formal proposal and timeline are issued within 3 business days.
-          </p>
-          <button className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-blue text-white font-medium hover:bg-brand-blue-hover shadow-md shadow-brand-blue/20 transition-all text-lg">
-            Start the Conversation <ArrowRight className="w-5 h-5" />
-          </button>
+        <div className="max-w-2xl mx-auto mt-16 bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
+          <h2 className="text-2xl font-display font-bold text-slate-900 mb-6 text-center">Start the Conversation</h2>
+          
+          {status === 'success' && (
+            <div className="mb-6 p-4 bg-green-50 text-green-800 rounded-lg border border-green-200 text-center">
+              Thank you! Your message has been sent successfully. We will be in touch soon.
+            </div>
+          )}
+          
+          {status === 'error' && (
+            <div className="mb-6 p-4 bg-red-50 text-red-800 rounded-lg border border-red-200 text-center">
+              There was an error sending your message. Please try again later.
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-1">Name</label>
+                <input
+                  type="text"
+                  required
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-brand-blue focus:border-brand-blue"
+                  placeholder="John Doe"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-slate-700 mb-1">Email</label>
+                <input
+                  type="email"
+                  required
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-brand-blue focus:border-brand-blue"
+                  placeholder="john@company.com"
+                />
+              </div>
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-slate-700 mb-1">Company / Organization</label>
+              <input
+                type="text"
+                value={formData.company}
+                onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-brand-blue focus:border-brand-blue"
+                placeholder="Acme Corp"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-slate-700 mb-1">Message</label>
+              <textarea
+                required
+                rows={5}
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                className="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-brand-blue focus:border-brand-blue"
+                placeholder="Tell us about your project or partnership goals..."
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-brand-blue text-white font-medium hover:bg-brand-blue-hover shadow-md shadow-brand-blue/20 transition-all text-lg disabled:opacity-70 disabled:cursor-not-allowed"
+            >
+              {loading ? <Loader2 className="w-6 h-6 animate-spin" /> : <>Submit Request <ArrowRight className="w-5 h-5" /></>}
+            </button>
+          </form>
         </div>
       </div>
     </div>

@@ -274,7 +274,7 @@ export default function Advantage() {
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-cyan opacity-20 rounded-full blur-3xl translate-y-1/2 -translate-x-1/3"></div>
 
         <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">Let’s Build the Right System for Your Business</h2>
+          <h2 className="text-3xl md:text-5xl font-display font-bold mb-6 text-white">Let’s Build the Right System for Your Business</h2>
           <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
             Every organization operates differently. We design solutions tailored to your specific needs, ensuring real and measurable impact.
           </p>

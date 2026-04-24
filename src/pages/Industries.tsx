@@ -248,7 +248,7 @@ export default function Industries() {
       <section className="py-24 bg-brand-blue text-white text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] opacity-10 object-cover mix-blend-overlay"></div>
         <div className="max-w-4xl mx-auto px-6 relative z-10">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">Let’s Build the Right System for Your Industry</h2>
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white">Let’s Build the Right System for Your Industry</h2>
           <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
             Every industry has unique challenges. We design solutions tailored to your specific needs, ensuring real and measurable impact.
           </p>

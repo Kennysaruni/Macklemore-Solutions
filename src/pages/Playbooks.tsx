@@ -1,40 +1,10 @@
 import { motion } from "motion/react";
-import { BookOpen, CheckCircle2, ArrowRight, Settings, Users, LineChart, Truck, Workflow } from "lucide-react";
+import { BookOpen, CheckCircle2, ArrowRight, Settings, Users, LineChart, Truck, Workflow, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useData } from "../context/DataContext";
 
 export default function Playbooks() {
-  const playbooks = [
-    {
-      title: "AI for Operations Optimization",
-      desc: "A structured approach to identifying inefficiencies and implementing automation across business processes to improve overall performance.",
-      icon: <Settings className="w-6 h-6" />,
-      image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?q=80&w=2070&auto=format&fit=crop"
-    },
-    {
-      title: "AI for Customer Support Systems",
-      desc: "How to design and deploy AI-powered support systems that improve response times, reduce workload, and enhance customer experience.",
-      icon: <Users className="w-6 h-6" />,
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
-    },
-    {
-      title: "AI for Sales and Lead Generation",
-      desc: "A practical framework for building automated sales funnels, managing leads intelligently, and improving conversion rates.",
-      icon: <LineChart className="w-6 h-6" />,
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"
-    },
-    {
-      title: "AI for Logistics and Delivery Operations",
-      desc: "Optimizing routing, dispatch, and operational visibility using intelligent systems.",
-      icon: <Truck className="w-6 h-6" />,
-      image: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bG9naXN0aWNzfGVufDB8fDB8fHww"
-    },
-    {
-      title: "AI for Internal Workflow Automation",
-      desc: "How to automate repetitive internal tasks, streamline workflows, and improve team productivity.",
-      icon: <Workflow className="w-6 h-6" />,
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop"
-    }
-  ];
+  const { playbooks, loading } = useData();
 
   const whatYouFind = [
     "Clear problem definition and use cases",
@@ -133,31 +103,41 @@ export default function Playbooks() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12">
-            {playbooks.map((playbook, i) => (
-              <Link to="#" key={i} className="group flex flex-col h-full bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-2xl hover:shadow-brand-blue/10 hover:border-brand-blue/30 transition-all duration-300">
-                <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
-                  <img src={playbook.image} alt={playbook.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent pointer-events-none opacity-60"></div>
-                  <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm p-3 rounded-2xl shadow-lg text-brand-blue">
-                    {playbook.icon}
+            {playbooks.length > 0 ? (
+              playbooks.map((playbook, i) => (
+                <Link to={`/playbooks/${playbook.id}`} key={playbook.id || i} className="group flex flex-col h-full bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-2xl hover:shadow-brand-blue/10 hover:border-brand-blue/30 transition-all duration-300">
+                  <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
+                    {playbook.image_url ? (
+                      <img src={playbook.image_url} alt={playbook.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    ) : (
+                      <div className="w-full h-full bg-slate-200" />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent pointer-events-none opacity-60"></div>
+                    <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm p-3 rounded-2xl shadow-lg text-brand-blue">
+                      <BookOpen className="w-6 h-6" />
+                    </div>
                   </div>
-                </div>
-                <div className="flex flex-col flex-1 p-8">
-                  <h3 className="text-2xl font-display font-bold text-slate-900 mb-4 group-hover:text-brand-blue transition-colors leading-snug">{playbook.title}</h3>
-                  <p className="text-slate-600 text-base leading-relaxed mb-8 flex-1">{playbook.desc}</p>
+                  <div className="flex flex-col flex-1 p-8">
+                    <h3 className="text-2xl font-display font-bold text-slate-900 mb-4 group-hover:text-brand-blue transition-colors leading-snug">{playbook.title}</h3>
+                    <p className="text-slate-600 text-base leading-relaxed mb-8 flex-1">{playbook.description}</p>
 
-                  <div className="flex items-center text-sm font-bold text-brand-blue group-hover:text-brand-cyan transition-colors mt-auto">
-                    Explore Playbook <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                    <div className="flex items-center text-sm font-bold text-brand-blue group-hover:text-brand-cyan transition-colors mt-auto">
+                      Explore Playbook <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              ))
+            ) : (
+              <div className="col-span-full text-center text-slate-500 py-12">
+                {loading ? <div className="flex justify-center"><Loader2 className="w-8 h-8 animate-spin text-brand-blue" /></div> : 'No playbooks found.'}
+              </div>
+            )}
           </div>
         </div>
       </section>
 
       {/* WHAT YOU'LL FIND & EXPECTATIONS */}
-      <section className="py-24 bg-slate-900 text-white overflow-hidden relative">
+      <section className="py-24 bg-white text-slate-800 overflow-hidden relative">
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-blue/20 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
         <div className="max-w-[1440px] mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-16 lg:gap-24">
@@ -169,7 +149,7 @@ export default function Playbooks() {
                     <div className="w-8 h-8 rounded-full bg-brand-blue/20 flex items-center justify-center shrink-0 mt-0.5 text-brand-cyan">
                       <CheckCircle2 className="w-5 h-5" />
                     </div>
-                    <span className="text-lg text-slate-300 leading-relaxed">{item}</span>
+                    <span className="text-lg text-slate-700 leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -183,7 +163,7 @@ export default function Playbooks() {
                     <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5 text-emerald-400">
                       <CheckCircle2 className="w-5 h-5" />
                     </div>
-                    <span className="text-lg text-slate-300 leading-relaxed">{item}</span>
+                    <span className="text-lg text-slate-700 leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>

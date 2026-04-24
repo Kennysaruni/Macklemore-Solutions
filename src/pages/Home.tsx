@@ -3,13 +3,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { PlayCircle, ArrowRight, Linkedin } from "lucide-react";
 import { cn } from "@/src/lib/utils";
-import micah from "../assets/micah.jpg";
-import karlene from "../assets/Karlene.jpg";
-import obinna from "../assets/Obinna..jpg";
-import ankita from "../assets/Ankita.jpg";
-import ava from "../assets/Ava Jackson.jpg";
-import jr from "../assets/JRThomas.jpg";
-import elizabeth from "../assets/Elizabeth...jpg";
+import { useData } from "../context/DataContext";
 
 function AdvantageTimeline() {
   const [activeStep, setActiveStep] = useState(0);
@@ -74,58 +68,9 @@ function AdvantageTimeline() {
   );
 }
 
-const teamMembers = [
-  {
-    name: "Micah Elechi",
-    role: "President and Chief Executive Officer",
-    linkedin: "https://www.linkedin.com/in/micah-elechi-a0489b20a/",
-    image: micah
-  },
-  {
-    name: "Karlene Haughton",
-    role: "Client Success Officer",
-    linkedin: "https://www.linkedin.com/in/karlene-haughton-humber-a47748187/",
-    image: karlene
-  },
-  {
-    name: "Obinna Achazie",
-    role: "Project Delivery Lead",
-    linkedin: "https://www.linkedin.com/in/obinna-achazie/",
-    image: obinna
-  },
-  {
-    name: "Ankita Saini",
-    role: "Security Architect, Macklemore Solutions LLC",
-    linkedin: "https://www.linkedin.com/in/cybersecurityspecialist16122023?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-    image: ankita
-  },
-  {
-    name: "Dr. Ayoade Adeyemi",
-    role: "Chief People Officer (CPO)",
-    linkedin: "https://www.linkedin.com/in/drayoadeadeyemi?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-    image: ""
-  },
-  {
-    name: "Ava Jackson",
-    role: "Chief Financial Officer (CFO)",
-    linkedin: "https://www.linkedin.com/in/ava-jackson-4021295b/",
-    image: ava
-  },
-  {
-    name: "JR Thomas",
-    role: "Strategic Sales Partner",
-    linkedin: "https://www.linkedin.com/in/jr-thomas-357895158/",
-    image: jr
-  },
-  {
-    name: "Elizabeth Adedapo",
-    role: "Growth and Partnerships Manager",
-    linkedin: "https://www.linkedin.com/in/elizabethadedapo/",
-    image: elizabeth
-  }
-];
-
 export default function Home() {
+  const { team, partners, loading } = useData();
+
   return (
     <div className="flex flex-col w-full overflow-hidden">
       {/* Hero Section */}
@@ -193,35 +138,14 @@ export default function Home() {
       {/* Logo Bar */}
       <section className="bg-white border-t-4 border-brand-white relative z-20">
         <div className="max-w-7xl mx-auto px-6 py-8">
-          <div className="flex flex-wrap items-center justify-center md:justify-between gap-10 opacity-70 grayscale grayscale-0 transition-all duration-500">
-            {/* Mock Logos matching the image */}
-            <div className="text-slate-800font-display font-bold tracking-widest text-2xl">SCANIA</div>
-            <div className="text-slate-800 font-display font-semibold flex items-center gap-2">
-              <div className="flex items-center">
-                <div className="w-3 h-3 rounded-full border-2 border-white"></div>
-                <div className="w-4 border-t-2 border-white"></div>
-                <div className="w-3 h-3 rounded-full border-2 border-white flex justify-center items-center">
-                  <div className="w-1 h-1 bg-white rounded-full"></div>
-                </div>
-              </div>
-              pedal me
-            </div>
-            <div className="text-slate-800 font-display italic font-medium flex items-center gap-2 text-xl">
-              <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
-              </svg>
-              Mobility-on-Demand
-            </div>
-            <div className="text-slate-800 font-display font-bold flex items-center gap-2 text-xl">
-              <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M12 8v8M8 12h8" />
-              </svg>
-              AVL TAXI
-            </div>
-            <div className="text-slate-800 font-sans font-bold text-2xl tracking-tighter">
-              zTrip
-            </div>
+          <div className="flex flex-wrap items-center justify-center md:justify-between gap-10 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+            {partners.length > 0 ? (
+              partners.map((partner) => (
+                <img key={partner.id} src={partner.logo_url} alt={partner.name} className="h-8 md:h-12 object-contain" />
+              ))
+            ) : (
+              <div className="text-slate-500 text-sm italic">Loading partners...</div>
+            )}
           </div>
         </div>
       </section>
@@ -408,57 +332,65 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group flex flex-col bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl hover:border-brand-blue/30 transition-all duration-300"
-              >
-                {/* Image Container */}
-                <div className="w-full aspect-square bg-slate-200 relative overflow-hidden">
-                  {member.image ? (
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex flex-col items-center justify-center bg-slate-100 text-slate-400 group-hover:bg-slate-200 transition-colors">
-                      <svg className="w-12 h-12 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                      </svg>
-                      <span className="text-xs font-medium uppercase tracking-wider"></span>
-                    </div>
-                  )}
-                  {/* Subtle gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6 flex flex-col flex-1 relative bg-white">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-lg font-display font-bold text-slate-900 group-hover:text-brand-blue transition-colors">
-                      {member.name}
-                    </h3>
-                    <a
-                      href={member.linkedin}
-                      target={member.linkedin !== "#" ? "_blank" : "_self"}
-                      rel={member.linkedin !== "#" ? "noopener noreferrer" : ""}
-                      className="text-slate-400 hover:text-[#0077b5] transition-colors"
-                      aria-label={`${member.name}'s LinkedIn profile`}
-                    >
-                      <Linkedin className="w-5 h-5" />
-                    </a>
+            {team.length > 0 ? (
+              team.map((member, i) => (
+                <motion.div
+                  key={member.id || i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="group flex flex-col bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl hover:border-brand-blue/30 transition-all duration-300"
+                >
+                  {/* Image Container */}
+                  <div className="w-full aspect-square bg-slate-200 relative overflow-hidden">
+                    {member.image_url ? (
+                      <img
+                        src={member.image_url}
+                        alt={member.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                    ) : (
+                      <div className="w-full h-full flex flex-col items-center justify-center bg-slate-100 text-slate-400 group-hover:bg-slate-200 transition-colors">
+                        <svg className="w-12 h-12 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                        </svg>
+                        <span className="text-xs font-medium uppercase tracking-wider"></span>
+                      </div>
+                    )}
+                    {/* Subtle gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
                   </div>
-                  <p className="text-brand-blue font-medium text-sm leading-snug">
-                    {member.role}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
+
+                  {/* Content */}
+                  <div className="p-6 flex flex-col flex-1 relative bg-white">
+                    <div className="flex justify-between items-start mb-2">
+                      <h3 className="text-lg font-display font-bold text-slate-900 group-hover:text-brand-blue transition-colors">
+                        {member.name}
+                      </h3>
+                      {member.linkedin && (
+                        <a
+                          href={member.linkedin}
+                          target={member.linkedin !== "#" ? "_blank" : "_self"}
+                          rel={member.linkedin !== "#" ? "noopener noreferrer" : ""}
+                          className="text-slate-400 hover:text-[#0077b5] transition-colors"
+                          aria-label={`${member.name}'s LinkedIn profile`}
+                        >
+                          <Linkedin className="w-5 h-5" />
+                        </a>
+                      )}
+                    </div>
+                    <p className="text-brand-blue font-medium text-sm leading-snug">
+                      {member.role}
+                    </p>
+                  </div>
+                </motion.div>
+              ))
+            ) : (
+              <div className="col-span-full text-center text-slate-500 py-12">
+                {loading ? 'Loading team members...' : 'No team members found.'}
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -535,7 +467,7 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-24 bg-brand-blue-hover text-white text-center">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white">
             Ready to Scale Your Infrastructure?
           </h2>
           <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">

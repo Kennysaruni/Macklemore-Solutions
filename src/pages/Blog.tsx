@@ -1,40 +1,16 @@
+import { useState } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { useData } from "../context/DataContext";
 
 export default function Blog() {
-  const featuredPosts = [
-    {
-      title: "How AI is Transforming Business Operations",
-      desc: "A breakdown of how organizations are using AI to streamline workflows, reduce manual effort, and improve efficiency.",
-      image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop",
-      category: "AI in Operations"
-    },
-    {
-      title: "5 Business Processes You Should Automate Today",
-      desc: "An overview of key operational areas where automation delivers immediate value.",
-      image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?q=80&w=2070&auto=format&fit=crop",
-      category: "Automation Strategies"
-    },
-    {
-      title: "Why Most AI Implementations Fail in Businesses",
-      desc: "Common challenges businesses face when implementing AI and how to approach it correctly.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
-      category: "Industry Insights"
-    },
-    {
-      title: "How to Build an AI-Ready Organization",
-      desc: "A step-by-step perspective on moving from traditional processes to automated systems.",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
-      category: "AI in Operations"
-    },
-    {
-      title: "The Role of Automation in Scaling Modern Businesses",
-      desc: "Discover how intelligent infrastructure enables organizations to scale with precision.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
-      category: "Automation Strategies"
-    }
-  ];
+  const { blogs, loading } = useData();
+  const [activeFilter, setActiveFilter] = useState("All Resources");
+
+  const filteredBlogs = activeFilter === "All Resources"
+    ? blogs
+    : blogs.filter(post => post.category === activeFilter);
 
   const categories = [
     { name: "AI in Operations", desc: "Insights on how AI improves efficiency across business functions, from logistics to internal workflows." },
@@ -67,11 +43,24 @@ export default function Blog() {
       <section className="bg-white border-b border-slate-200 py-4">
         <div className="max-w-[1440px] mx-auto px-6 overflow-x-auto no-scrollbar">
           <div className="flex items-center gap-2 whitespace-nowrap pb-3">
-            <button className="px-5 py-2 rounded-full bg-brand-blue text-white text-sm font-medium transition-colors">
+            <button
+              onClick={() => setActiveFilter("All Resources")}
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${activeFilter === "All Resources"
+                ? "bg-brand-blue text-white shadow-sm shadow-brand-blue/20"
+                : "bg-slate-100 hover:bg-slate-200 text-slate-700"
+                }`}
+            >
               All Resources
             </button>
             {categories.map((cat, i) => (
-              <button key={i} className="px-5 py-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-sm font-medium transition-colors">
+              <button
+                key={i}
+                onClick={() => setActiveFilter(cat.name)}
+                className={`px-5 py-2 rounded-full text-sm font-medium transition-colors ${activeFilter === cat.name
+                  ? "bg-brand-blue text-white shadow-sm shadow-brand-blue/20"
+                  : "bg-slate-100 hover:bg-slate-200 text-slate-700"
+                  }`}
+              >
                 {cat.name}
               </button>
             ))}
@@ -83,26 +72,38 @@ export default function Blog() {
       <section className="py-16 bg-white">
         <div className="max-w-[1440px] mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12">
-            {featuredPosts.map((post, i) => (
-              <Link to="#" key={i} className="group flex flex-col h-full overflow-hidden">
-                <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-slate-100 mb-5">
-                  <img src={post.image} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-brand-blue/5 pointer-events-none mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                </div>
-                <div className="flex flex-col flex-1">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="text-xs font-bold tracking-wider uppercase text-brand-blue bg-brand-blue/10 px-2.5 py-1 rounded-full">
-                      {post.category}
-                    </span>
+            {filteredBlogs.length > 0 ? (
+              filteredBlogs.map((post) => (
+                <Link to={`/blog/${post.slug}`} key={post.id} className="group flex flex-col h-full overflow-hidden">
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-slate-100 mb-5">
+                    {post.image_url ? (
+                      <img src={post.image_url} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    ) : (
+                      <div className="w-full h-full bg-slate-200" />
+                    )}
+                    <div className="absolute inset-0 bg-brand-blue/5 pointer-events-none mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity"></div>
                   </div>
-                  <h3 className="text-xl font-display font-bold text-slate-900 mb-3 group-hover:text-brand-blue transition-colors leading-snug">{post.title}</h3>
-                  <p className="text-slate-600 text-[15px] leading-relaxed mb-4 flex-1">{post.desc}</p>
-                  <div className="flex items-center text-sm font-bold text-slate-900 group-hover:text-brand-blue transition-colors mt-auto">
-                    Read more <span className="ml-1 text-lg leading-none">&rsaquo;</span>
+                  <div className="flex flex-col flex-1 mt-2">
+                    {post.category && (
+                      <div className="mb-3">
+                        <span className="text-[10px] font-bold tracking-wider uppercase text-brand-blue bg-brand-blue/10 px-2 py-1 rounded-md">
+                          {post.category}
+                        </span>
+                      </div>
+                    )}
+                    <h3 className="text-xl font-display font-bold text-slate-900 mb-3 group-hover:text-brand-blue transition-colors leading-snug">{post.title}</h3>
+                    <p className="text-slate-600 text-[15px] leading-relaxed mb-4 flex-1">{post.content.substring(0, 120)}...</p>
+                    <div className="flex items-center text-sm font-bold text-slate-900 group-hover:text-brand-blue transition-colors mt-auto">
+                      Read more <span className="ml-1 text-lg leading-none">&rsaquo;</span>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              ))
+            ) : (
+              <div className="col-span-full text-center text-slate-500 py-12">
+                {loading ? 'Loading blog posts...' : 'No blog posts found.'}
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -153,7 +154,7 @@ export default function Blog() {
       <section className="py-24 bg-brand-blue text-white text-center relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] opacity-10 object-cover mix-blend-overlay"></div>
         <div className="max-w-3xl mx-auto px-6 relative z-10">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">Stay Informed</h2>
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white">Stay Informed</h2>
           <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
             Get the latest insights on AI, automation, and business systems delivered directly to you.
           </p>
