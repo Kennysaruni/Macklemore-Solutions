@@ -210,6 +210,8 @@ export default function Layout() {
                     <li><Link to="/advantage" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>The Macklemore Advantage</Link></li>
                     <li><Link to="/careers" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Careers</Link></li>
                     <li><Link to="/partners" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Partner With Us</Link></li>
+                    <li><Link to="/contact" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Contact</Link></li>
+                    <li><Link to="/privacy-policy" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Privacy Policy</Link></li>
                   </ul>
                 </div>
               </div>
@@ -228,66 +230,100 @@ export default function Layout() {
         <Outlet />
       </main>
 
-      <footer className="bg-slate-900 border-t border-slate-800 py-12 md:py-20 mt-auto">
-        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12">
-          <div className="col-span-2 md:col-span-1">
-            <Link to="/" className="flex items-center mb-6">
-              <img src={macklemoreLogo} alt="Macklemore Solutions Logo" className="h-10 " />
+      <footer className="relative mt-auto pt-24 bg-white">
+        {/* CTA Card */}
+        <div className="max-w-4xl mx-auto px-6 relative z-10 -mb-24">
+          <div className="bg-white rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.08)] p-8 md:p-12 text-center flex flex-col items-center justify-center gap-6 border border-slate-100 relative overflow-hidden">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900">
+              Ready to see Macklemore in action?
+            </h2>
+            <Link to="/deal-room" className="bg-[#1DA1F2] bg-brand-blue hover:bg-brand-blue-hover text-white px-8 py-3.5 rounded-xl font-medium inline-block transition-colors shadow-sm shadow-[#1DA1F2]/20 text-[15px] z-10">
+              Book a demo
             </Link>
-            <p className="text-slate-400 text-sm mb-6">
-              Designing intelligent systems that power institutional growth.
-            </p>
-            <div className="space-y-2 text-sm text-slate-400">
-              <p>Contact: <a href="tel:+14374316340" className="hover:text-white transition-colors">+1 (437) 431-6340</a></p>
-              <p>Email: <a href="mailto:Info@macklemoresolutions.com" className="hover:text-white transition-colors">Info@macklemoresolutions.com</a></p>
-            </div>
-          </div>
-
-          <div>
-            <h4 className="font-display font-medium text-white mb-4">Solutions</h4>
-            <ul className="space-y-3 text-sm">
-              <li><Link to="/solutions/automation" className="text-slate-400 hover:text-white transition-colors">AI & Automation</Link></li>
-              <li><Link to="/solutions/security" className="text-slate-400 hover:text-white transition-colors">Cybersecurity</Link></li>
-              <li><Link to="/solutions/ai-education" className="text-slate-400 hover:text-white transition-colors">AI Education</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-display font-medium text-white mb-4">Industries</h4>
-            <ul className="space-y-3 text-sm">
-              <li><Link to="/industries" className="text-slate-400 hover:text-white transition-colors">Overview</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-display font-medium text-white mb-4">Resources</h4>
-            <ul className="space-y-3 text-sm">
-              <li><Link to="/blog" className="text-slate-400 hover:text-white transition-colors">Blog</Link></li>
-              <li><Link to="/case-studies" className="text-slate-400 hover:text-white transition-colors">Case Studies</Link></li>
-              <li><Link to="/eguides" className="text-slate-400 hover:text-white transition-colors">eGuides / Whitepapers</Link></li>
-              <li><Link to="/playbooks" className="text-slate-400 hover:text-white transition-colors">AI Playbooks</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-display font-medium text-white mb-4">Company</h4>
-            <ul className="space-y-3 text-sm">
-              <li><Link to="/about" className="text-slate-400 hover:text-white transition-colors">About Us</Link></li>
-              <li><Link to="/advantage" className="text-slate-400 hover:text-white transition-colors">The Macklemore Advantage</Link></li>
-              <li><Link to="/careers" className="text-slate-400 hover:text-white transition-colors">Careers</Link></li>
-              <li><Link to="/partners" className="text-slate-400 hover:text-white transition-colors">Partner With Us</Link></li>
-              <li><Link to="/deal-room" className="text-slate-400 hover:text-white transition-colors">Deal Room</Link></li>
-              <li><Link to="/contact" className="text-slate-400 hover:text-white transition-colors">Contact</Link></li>
-            </ul>
+            <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-slate-50 rounded-full blur-3xl -z-10"></div>
           </div>
         </div>
-        <div className="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex flex-col sm:flex-row items-center gap-4 text-slate-500 text-sm w-full md:w-auto">
-            <span>© {new Date().getFullYear()} Macklemore Solutions. All rights reserved.</span>
-            <span className="hidden sm:inline text-slate-700">|</span>
-            <div className="flex gap-4">
-              <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
-              <Link to="/" className="hover:text-white transition-colors">Terms of Service</Link>
+
+        {/* The main footer background */}
+        <div className="bg-gradient-to-b from-red-100 to-white pt-40 pb-12 px-6">
+          <div className="max-w-[1440px] mx-auto">
+            {/* Top row: Logo & Links */}
+            <div className="grid grid-cols-1 md:grid-cols-6 gap-8 mb-16">
+              {/* Logo Column */}
+              <div className="col-span-1 md:col-span-1">
+                <Link to="/" className="flex items-start mb-4">
+                  <img src={macklemoreLogo} alt="Macklemore Solutions Logo" className="h-10" />
+                </Link>
+                <p className="text-sm text-slate-600 leading-relaxed pr-2">
+                  Designing intelligent systems that power institutional growth.
+                </p>
+              </div>
+
+              {/* Solutions Column */}
+              <div className="hidden md:block col-span-1">
+                <h4 className="font-display font-semibold text-slate-900 mb-6 text-[15px]">Solutions</h4>
+                <ul className="space-y-4 text-sm">
+                  <li><Link to="/solutions/automation" className="text-slate-600 hover:text-brand-blue transition-colors">AI & Automation</Link></li>
+                  <li><Link to="/solutions/security" className="text-slate-600 hover:text-brand-blue transition-colors">Cybersecurity</Link></li>
+                  <li><Link to="/solutions/ai-education" className="text-slate-600 hover:text-brand-blue transition-colors">AI Education</Link></li>
+                </ul>
+              </div>
+
+              {/* Industries Column */}
+              <div className="hidden md:block col-span-1">
+                <h4 className="font-display font-semibold text-slate-900 mb-6 text-[15px]">Industries</h4>
+                <ul className="space-y-4 text-sm">
+                  <li><Link to="/industries" className="text-slate-600 hover:text-brand-blue transition-colors">Overview</Link></li>
+                </ul>
+              </div>
+
+              {/* Company Column */}
+              <div className="hidden md:block col-span-1">
+                <h4 className="font-display font-semibold text-slate-900 mb-6 text-[15px]">Company</h4>
+                <ul className="space-y-4 text-sm">
+                  <li><Link to="/about" className="text-slate-600 hover:text-brand-blue transition-colors">About Us</Link></li>
+                  <li><Link to="/advantage" className="text-slate-600 hover:text-brand-blue transition-colors">The Macklemore Advantage</Link></li>
+                  <li><Link to="/careers" className="text-slate-600 hover:text-brand-blue transition-colors">Careers</Link></li>
+                  <li><Link to="/partners" className="text-slate-600 hover:text-brand-blue transition-colors">Partner With Us</Link></li>
+                  <li><Link to="/deal-room" className="text-slate-600 hover:text-brand-blue transition-colors">Deal Room</Link></li>
+                  <li><Link to="/contact" className="text-slate-600 hover:text-brand-blue transition-colors">Contact</Link></li>
+                </ul>
+              </div>
+
+              {/* Resources Column */}
+              <div className="hidden md:block col-span-1">
+                <h4 className="font-display font-semibold text-slate-900 mb-6 text-[15px]">Resources</h4>
+                <ul className="space-y-4 text-sm">
+                  <li><Link to="/blog" className="text-slate-600 hover:text-brand-blue transition-colors">Blog</Link></li>
+                  <li><Link to="/case-studies" className="text-slate-600 hover:text-brand-blue transition-colors">Case Studies</Link></li>
+                  <li><Link to="/eguides" className="text-slate-600 hover:text-brand-blue transition-colors">eGuides / Whitepapers</Link></li>
+                  <li><Link to="/playbooks" className="text-slate-600 hover:text-brand-blue transition-colors">AI Playbooks</Link></li>
+                </ul>
+              </div>
+
+              {/* Follow Us Column */}
+              <div className="hidden md:block col-span-1">
+                <h4 className="font-display font-semibold text-slate-900 mb-6 text-[15px]">Follow us</h4>
+                <ul className="space-y-4 text-sm">
+                  <li><a href="#" className="flex items-center gap-2 text-slate-600 hover:text-[#0077b5] transition-colors"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z" /></svg> LinkedIn</a></li>
+                  <li><a href="#" className="flex items-center gap-2 text-slate-600 hover:text-[#1DA1F2] transition-colors"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" /></svg> Twitter</a></li>
+                  <li><a href="#" className="flex items-center gap-2 text-slate-600 hover:text-[#1877F2] transition-colors"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" /></svg> Facebook</a></li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Bottom row: Legal & Info */}
+            <div className="flex flex-col md:flex-row justify-between items-center text-[13px] font-medium text-slate-600 w-full pt-8 border-t border-red-900/5">
+              <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 mb-4 md:mb-0">
+                <span>All rights reserved to Macklemore Solutions {new Date().getFullYear()}</span>
+                <span className="hidden sm:inline">|</span>
+                <a href="mailto:Info@macklemoresolutions.com" className="hover:text-slate-900 transition-colors">Info@macklemoresolutions.com</a>
+                <span className="hidden sm:inline">|</span>
+                <a href="tel:+14374316340" className="hover:text-slate-900 transition-colors">+1 (437) 431-6340</a>
+              </div>
+              <div>
+                <Link to="/privacy-policy" className="hover:text-slate-900 transition-colors">Privacy Policy</Link>
+              </div>
             </div>
           </div>
         </div>
