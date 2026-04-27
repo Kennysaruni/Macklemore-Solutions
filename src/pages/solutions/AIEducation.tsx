@@ -56,10 +56,17 @@ export default function AIEducation() {
                 "Leadership briefings on AI governance, risk, and strategic opportunity",
                 "Post-program support and adoption tracking"
               ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-slate-700">
+                <motion.li 
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  key={i} 
+                  className="flex items-start gap-3 text-slate-700"
+                >
                   <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan mt-2 shrink-0" />
                   <span>{item}</span>
-                </li>
+                </motion.li>
               ))}
             </ul>
 
@@ -72,10 +79,17 @@ export default function AIEducation() {
                 "Identification and development of internal AI champions",
                 "A clear, phased AI adoption roadmap customized to your institution"
               ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-slate-700">
+                <motion.li 
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  key={i} 
+                  className="flex items-start gap-3 text-slate-700"
+                >
                   <div className="w-1.5 h-1.5 rounded-full bg-brand-blue mt-2 shrink-0" />
                   <span>{item}</span>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.div>
@@ -89,7 +103,7 @@ export default function AIEducation() {
         >
           <h2 className="text-3xl font-display font-bold text-slate-900 mb-12 text-center">Our Services</h2>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ visible: { transition: { staggerChildren: 0.1 } } }} className="grid md:grid-cols-2 gap-8">
             {[
               {
                 icon: <BookOpen className="w-6 h-6 text-brand-cyan" />,
@@ -116,22 +130,24 @@ export default function AIEducation() {
                 image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop"
               }
             ].map((service, i) => (
-              <div key={i} className="bg-white border border-slate-200 rounded-3xl hover:shadow-lg transition-all overflow-hidden flex flex-col group">
-                <div className="w-full h-48 relative overflow-hidden bg-slate-100">
-                  <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                  <div className="absolute inset-0 bg-brand-blue/5 pointer-events-none mix-blend-multiply"></div>
-                </div>
-                <div className="p-8 flex-1 flex flex-col">
-                  {/* Floating Icon Layout */}
-                  <div className="w-12 h-12 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center mb-6 relative z-10 -mt-14">
-                    {service.icon}
+              <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} key={i} whileHover={{ y: -8 }}>
+                <div className="bg-white border border-slate-200 rounded-3xl shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col group h-full">
+                  <div className="w-full h-48 relative overflow-hidden bg-slate-100">
+                    <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-brand-blue/5 pointer-events-none mix-blend-multiply"></div>
                   </div>
-                  <h3 className="text-xl font-display font-semibold text-slate-900 mb-3">{service.title}</h3>
-                  <p className="text-slate-600 text-sm leading-relaxed flex-1">{service.desc}</p>
+                  <div className="p-8 flex-1 flex flex-col">
+                    {/* Floating Icon Layout */}
+                    <div className="w-12 h-12 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-center mb-6 relative z-10 -mt-14">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-xl font-display font-semibold text-slate-900 mb-3">{service.title}</h3>
+                    <p className="text-slate-600 text-sm leading-relaxed flex-1">{service.desc}</p>
+                  </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
 
         <div className="text-center">
@@ -139,9 +155,11 @@ export default function AIEducation() {
           <p className="text-slate-600 mb-8 max-w-2xl mx-auto text-lg">
             AI capability is becoming a fundamental competitive requirement. Let us assess your organization's current AI readiness and design a structured education program that delivers real adoption, not just awareness.
           </p>
-          <Link to="/deal-room" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-blue text-white font-medium hover:bg-brand-blue-hover shadow-md shadow-brand-blue/20 transition-all text-lg">
-            Schedule an AI Readiness Assessment <ArrowRight className="w-5 h-5" />
-          </Link>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
+            <Link to="/deal-room" className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-blue text-white font-medium hover:bg-brand-blue-hover shadow-md shadow-brand-blue/20 transition-all text-lg">
+              Schedule an AI Readiness Assessment <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
         </div>
       </div>
     </div>

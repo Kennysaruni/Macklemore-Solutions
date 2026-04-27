@@ -71,11 +71,12 @@ export default function Blog() {
       {/* GRID SECTION (FEATURED INSIGHTS) */}
       <section className="py-16 bg-white">
         <div className="max-w-[1440px] mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12">
+          <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.1 } } }} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 gap-y-12">
             {filteredBlogs.length > 0 ? (
               filteredBlogs.map((post) => (
-                <Link to={`/blog/${post.slug}`} key={post.id} className="group flex flex-col h-full overflow-hidden">
-                  <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-slate-100 mb-5">
+                <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} key={post.id} whileHover={{ y: -8 }}>
+                  <Link to={`/blog/${post.slug}`} className="group flex flex-col h-full overflow-hidden">
+                    <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-slate-100 mb-5 shadow-sm transition-shadow group-hover:shadow-md">
                     {post.image_url ? (
                       <img src={post.image_url} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     ) : (
@@ -97,14 +98,15 @@ export default function Blog() {
                       Read more <span className="ml-1 text-lg leading-none">&rsaquo;</span>
                     </div>
                   </div>
-                </Link>
+                  </Link>
+                </motion.div>
               ))
             ) : (
               <div className="col-span-full text-center text-slate-500 py-12">
                 {loading ? 'Loading blog posts...' : 'No blog posts found.'}
               </div>
             )}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -159,9 +161,11 @@ export default function Blog() {
             Get the latest insights on AI, automation, and business systems delivered directly to you.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="#" className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white text-brand-blue font-bold hover:bg-slate-50 shadow-md transition-colors text-lg">
-              Subscribe for Updates
-            </Link>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link to="#" className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white text-brand-blue font-bold hover:bg-slate-50 shadow-md transition-colors text-lg">
+                Subscribe for Updates
+              </Link>
+            </motion.div>
           </div>
         </div>
       </section>

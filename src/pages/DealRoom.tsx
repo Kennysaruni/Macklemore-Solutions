@@ -107,15 +107,13 @@ export default function DealRoom() {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-24">
+        <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ visible: { transition: { staggerChildren: 0.1 } } }} className="grid md:grid-cols-2 gap-8 mb-24">
           {packages.map((pkg, i) => (
             <motion.div
               key={pkg.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="bg-slate-50 border border-slate-200 rounded-3xl p-8 flex flex-col h-full shadow-sm"
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+              whileHover={{ y: -8 }}
+              className="bg-slate-50 border border-slate-200 rounded-3xl p-8 flex flex-col h-full shadow-sm transition-shadow hover:shadow-md"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center shrink-0 shadow-sm">
@@ -147,7 +145,7 @@ export default function DealRoom() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <div className="max-w-2xl mx-auto mt-16 bg-white p-8 rounded-3xl border border-slate-200 shadow-sm">
           <h2 className="text-2xl font-display font-bold text-slate-900 mb-6 text-center">Start the Conversation</h2>
@@ -210,13 +208,15 @@ export default function DealRoom() {
                 placeholder="Tell us about your project or partnership goals..."
               ></textarea>
             </div>
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-brand-blue text-white font-medium hover:bg-brand-blue-hover shadow-md shadow-brand-blue/20 transition-all text-lg disabled:opacity-70 disabled:cursor-not-allowed"
-            >
-              {loading ? <Loader2 className="w-6 h-6 animate-spin" /> : <>Submit Request <ArrowRight className="w-5 h-5" /></>}
-            </button>
+            <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-brand-blue text-white font-medium hover:bg-brand-blue-hover shadow-md shadow-brand-blue/20 transition-all text-lg disabled:opacity-70 disabled:cursor-not-allowed"
+              >
+                {loading ? <Loader2 className="w-6 h-6 animate-spin" /> : <>Submit Request <ArrowRight className="w-5 h-5" /></>}
+              </button>
+            </motion.div>
           </form>
         </div>
       </div>

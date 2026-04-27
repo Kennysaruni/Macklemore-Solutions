@@ -71,7 +71,7 @@ export default function Contact() {
             animate={{ opacity: 1, x: 0 }}
             className="lg:col-span-1 space-y-8"
           >
-            <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm h-full">
+            <motion.div whileHover={{ y: -5 }} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm h-full transition-shadow hover:shadow-md">
               <h3 className="text-2xl font-display font-bold text-slate-900 mb-8">Contact Information</h3>
               
               <div className="space-y-6">
@@ -111,7 +111,7 @@ export default function Contact() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
 
           {/* Contact Form */}
@@ -181,13 +181,15 @@ export default function Contact() {
                     placeholder="How can we help you?"
                   ></textarea>
                 </div>
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-brand-blue text-white font-medium hover:bg-brand-blue-hover shadow-md shadow-brand-blue/20 transition-all text-lg disabled:opacity-70 disabled:cursor-not-allowed mt-4"
-                >
-                  {loading ? <Loader2 className="w-6 h-6 animate-spin" /> : <>Send Message <ArrowRight className="w-5 h-5" /></>}
-                </button>
+                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-brand-blue text-white font-medium hover:bg-brand-blue-hover shadow-md shadow-brand-blue/20 transition-all text-lg disabled:opacity-70 disabled:cursor-not-allowed mt-4"
+                  >
+                    {loading ? <Loader2 className="w-6 h-6 animate-spin" /> : <>Send Message <ArrowRight className="w-5 h-5" /></>}
+                  </button>
+                </motion.div>
               </form>
             </div>
           </motion.div>

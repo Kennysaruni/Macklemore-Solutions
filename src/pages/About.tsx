@@ -61,6 +61,7 @@ export default function About() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: i * 0.1 }}
+                    whileHover={{ y: -8 }}
                     className="group flex flex-col bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl hover:border-brand-blue/30 transition-all duration-300"
                   >
                     {/* Image Container */}
@@ -129,10 +130,17 @@ export default function About() {
                 "AI Education & Enablement",
                 "Security & Risk Management"
               ].map((item, i) => (
-                <li key={i} className="flex items-center gap-3 text-slate-700 font-medium">
+                <motion.li 
+                  key={i} 
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + (i * 0.1) }}
+                  className="flex items-center gap-3 text-slate-700 font-medium"
+                >
                   <CheckCircle2 className="w-5 h-5 text-brand-blue shrink-0" />
                   <span>{item}</span>
-                </li>
+                </motion.li>
               ))}
             </ul>
             <p className="text-slate-600 leading-relaxed">
@@ -142,7 +150,8 @@ export default function About() {
 
           <motion.div
             initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             transition={{ delay: 0.3 }}
             className="bg-slate-50 border border-slate-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow"
           >
@@ -174,12 +183,14 @@ export default function About() {
         </div>
 
         <div className="text-center">
-          <Link
-            to="/deal-room"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-blue text-white font-medium hover:bg-brand-blue-hover shadow-md shadow-brand-blue/20 transition-all text-lg"
-          >
-            Book a Strategy Session <ArrowRight className="w-5 h-5" />
-          </Link>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
+            <Link
+              to="/deal-room"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-blue text-white font-medium hover:bg-brand-blue-hover shadow-md shadow-brand-blue/20 transition-all text-lg"
+            >
+              Book a Strategy Session <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
         </div>
       </div>
     </div>

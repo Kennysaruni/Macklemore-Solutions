@@ -49,10 +49,17 @@ export default function Automation() {
                 "Education and Academic Institutions",
                 "Professional Services and Consulting"
               ].map((item, i) => (
-                <li key={i} className="flex items-start gap-3 text-slate-700 font-medium text-sm">
+                <motion.li 
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  key={i} 
+                  className="flex items-start gap-3 text-slate-700 font-medium text-sm"
+                >
                   <div className="w-1.5 h-1.5 rounded-full bg-brand-cyan mt-2 shrink-0" />
                   <span>{item}</span>
-                </li>
+                </motion.li>
               ))}
             </ul>
           </motion.div>
@@ -109,7 +116,7 @@ export default function Automation() {
         >
           <h2 className="text-3xl font-display font-bold text-slate-900 mb-12 text-center">Our Services</h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={{ visible: { transition: { staggerChildren: 0.1 } } }} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: <Users className="w-6 h-6 text-brand-cyan" />,
@@ -148,7 +155,8 @@ export default function Automation() {
                 image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop"
               }
             ].map((service, i) => (
-              <div key={i} className="bg-white border border-slate-200 rounded-3xl hover:shadow-lg transition-all overflow-hidden flex flex-col group">
+              <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} key={i} whileHover={{ y: -8 }}>
+                <div className="bg-white border border-slate-200 rounded-3xl shadow-sm hover:shadow-md transition-shadow overflow-hidden flex flex-col group h-full">
                 <div className="w-full h-48 relative overflow-hidden bg-slate-100">
                   <img src={service.image} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-brand-blue/5 pointer-events-none mix-blend-multiply"></div>
@@ -161,21 +169,24 @@ export default function Automation() {
                   <h3 className="text-xl font-display font-semibold text-slate-900 mb-3">{service.title}</h3>
                   <p className="text-slate-600 text-sm leading-relaxed flex-1">{service.desc}</p>
                 </div>
-              </div>
+                </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
 
         <div className="text-center">
           <p className="text-slate-600 mb-8 max-w-2xl mx-auto text-lg">
             Ready to eliminate the manual work that is slowing your organization down? Schedule a no obligation strategy session with our automation team and we will identify exactly where intelligent systems can deliver the greatest return for your business.
           </p>
-          <Link
-            to="/deal-room"
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-blue text-white font-medium hover:bg-brand-blue-hover shadow-md shadow-brand-blue/20 transition-all text-lg"
-          >
-            Book a Strategy Session <ArrowRight className="w-5 h-5" />
-          </Link>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
+            <Link
+              to="/deal-room"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-blue text-white font-medium hover:bg-brand-blue-hover shadow-md shadow-brand-blue/20 transition-all text-lg"
+            >
+              Book a Strategy Session <ArrowRight className="w-5 h-5" />
+            </Link>
+          </motion.div>
         </div>
       </div>
     </div>

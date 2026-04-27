@@ -55,10 +55,11 @@ export default function EGuides() {
       {/* GRID SECTION */}
       <section className="py-16 bg-white min-h-[50vh]">
         <div className="max-w-[1440px] mx-auto px-6">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 gap-y-10">
+          <motion.div initial="hidden" animate="visible" variants={{ visible: { transition: { staggerChildren: 0.1 } } }} className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 gap-y-10">
             {filteredResources.length > 0 ? (
               filteredResources.map((resource, i) => (
-                <Link to={`/eguides/${resource.id}`} key={resource.id || i} className="group flex flex-col h-full overflow-hidden border border-slate-200 rounded-2xl bg-white hover:shadow-xl hover:shadow-brand-blue/5 hover:border-brand-blue/30 transition-all p-2">
+                <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} key={resource.id || i} whileHover={{ y: -8 }}>
+                  <Link to={`/eguides/${resource.id}`} className="group flex flex-col h-full overflow-hidden border border-slate-200 rounded-2xl bg-white shadow-sm transition-shadow hover:shadow-md p-2">
                   <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-slate-100 mb-4">
                     {resource.image_url ? (
                       <img src={resource.image_url} alt={resource.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -83,14 +84,15 @@ export default function EGuides() {
                       Read Guide
                     </div>
                   </div>
-                </Link>
+                  </Link>
+                </motion.div>
               ))
             ) : (
               <div className="col-span-full text-center text-slate-500 py-12">
                 {loading ? <div className="flex justify-center"><Loader2 className="w-8 h-8 animate-spin text-brand-blue" /></div> : 'No resources found.'}
               </div>
             )}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -111,9 +113,11 @@ export default function EGuides() {
                 placeholder="Enter your work email"
                 className="px-5 py-3.5 rounded-xl text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-brand-cyan w-full text-sm font-medium"
               />
-              <button className="w-full flex items-center justify-center px-8 py-3.5 rounded-xl bg-brand-cyan hover:bg-white hover:text-brand-cyan text-white font-bold transition-colors shadow-lg">
-                Subscribe for Updates
-              </button>
+              <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                <button className="w-full flex items-center justify-center px-8 py-3.5 rounded-xl bg-brand-cyan hover:bg-white hover:text-brand-cyan text-white font-bold transition-colors shadow-lg">
+                  Subscribe for Updates
+                </button>
+              </motion.div>
             </div>
           </div>
         </div>

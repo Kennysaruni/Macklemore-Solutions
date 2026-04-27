@@ -130,9 +130,11 @@ export default function CaseStudies() {
           <p className="text-slate-600 mb-8 max-w-2xl mx-auto text-lg">
             We have delivered further engagements across fintech, healthcare administration, institutional education, and enterprise operations that are available upon request. If you would like a curated portfolio aligned to your industry or business challenge, contact our team directly.
           </p>
-          <button className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-blue text-white font-medium hover:bg-brand-blue-hover shadow-md shadow-brand-blue/20 transition-all text-lg">
-            Request Our Full Portfolio <ArrowRight className="w-5 h-5" />
-          </button>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
+            <button className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-blue text-white font-medium hover:bg-brand-blue-hover shadow-md shadow-brand-blue/20 transition-all text-lg">
+              Request Our Full Portfolio <ArrowRight className="w-5 h-5" />
+            </button>
+          </motion.div>
         </div>
       </div>
     </div>

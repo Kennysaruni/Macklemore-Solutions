@@ -37,9 +37,13 @@ export default function Careers() {
 
         <div className="grid md:grid-cols-2 gap-16 mb-24">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              hidden: { opacity: 0, x: -20 },
+              visible: { opacity: 1, x: 0, transition: { staggerChildren: 0.1 } }
+            }}
           >
             <h2 className="text-2xl font-display font-bold text-slate-900 mb-8">Career Pathways at Macklemore Solutions</h2>
             <div className="space-y-8">
@@ -65,7 +69,7 @@ export default function Careers() {
                   desc: "Tech professionals – Lead projects, drive AI and automation innovation, and mentor others"
                 }
               ].map((path, i) => (
-                <div key={i} className="flex gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
+                <motion.div variants={{ hidden: { opacity: 0, y: 10 }, visible: { opacity: 1, y: 0 } }} key={i} className="flex gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100">
                   <div className="w-12 h-12 rounded-lg bg-white border border-slate-200 shadow-sm flex items-center justify-center shrink-0">
                     {path.icon}
                   </div>
@@ -73,14 +77,15 @@ export default function Careers() {
                     <h3 className="text-lg font-display font-semibold text-slate-900 mb-1">{path.title}</h3>
                     <p className="text-slate-600 text-sm leading-relaxed">{path.desc}</p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
             transition={{ delay: 0.3 }}
             className="bg-slate-50 border border-slate-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition-shadow h-fit"
           >
@@ -106,9 +111,11 @@ export default function Careers() {
         </div>
 
         <div className="text-center">
-          <button className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-blue text-white font-medium hover:bg-brand-blue-hover shadow-md shadow-brand-blue/20 transition-all text-lg">
-            View Open Positions <ArrowRight className="w-5 h-5" />
-          </button>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
+            <button className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-blue text-white font-medium hover:bg-brand-blue-hover shadow-md shadow-brand-blue/20 transition-all text-lg">
+              View Open Positions <ArrowRight className="w-5 h-5" />
+            </button>
+          </motion.div>
         </div>
       </div>
     </div>

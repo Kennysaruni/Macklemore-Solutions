@@ -101,34 +101,53 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 w-full relative z-10 flex-1 flex flex-col justify-end md:justify-center pb-[80px] md:pb-0 pt-[300px] md:pt-0">
           <div className="w-full md:max-w-xl lg:max-w-2xl text-center md:text-left mx-auto md:mx-0">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: { opacity: 0 },
+                visible: {
+                  opacity: 1,
+                  transition: { staggerChildren: 0.2 }
+                }
+              }}
             >
-              <h1 className="text-[28px] sm:text-[44px] md:text-[60px] lg:text-[72px] font-display font-extrabold tracking-tight text-slate-800 mb-6 leading-[1.15] max-w-[400px] mx-auto md:mx-0 md:max-w-none">
+              <motion.h1 
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                className="text-[28px] sm:text-[44px] md:text-[60px] lg:text-[72px] font-display font-extrabold tracking-tight text-slate-800 mb-6 leading-[1.15] max-w-[400px] mx-auto md:mx-0 md:max-w-none"
+              >
                 We Build AI & Automation Systems for Modern Businesses
-              </h1>
-              <p className="text-[15px] sm:text-lg md:text-xl text-slate-600 mb-10 max-w-[380px] mx-auto md:mx-0 md:max-w-lg leading-snug font-medium">
+              </motion.h1>
+              <motion.p 
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                className="text-[15px] sm:text-lg md:text-xl text-slate-600 mb-10 max-w-[380px] mx-auto md:mx-0 md:max-w-lg leading-snug font-medium"
+              >
                 Designing intelligent infrastructure that streamlines operations, strengthens decision making, and enables organizations to scale with precision.
-              </p>
-              <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
-                <Link
-                  to="/deal-room"
-                  className="inline-flex items-center justify-center px-6 py-3.5 rounded-lg bg-brand-blue text-white font-bold hover:bg-brand-blue-hover transition-colors shadow-md text-[16px] w-[200px]"
-                >
-                  Request a Demo
-                </Link>
-                <Link
-                  to="/"
-                  className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-lg bg-brand-blue/5 border border-brand-blue/20 text-slate-800 font-semibold hover:bg-brand-blue/10 transition-colors text-[16px] w-[200px]"
-                >
-                  Book a Call
-                  <span className="relative flex h-3 w-3 ml-1">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-blue"></span>
-                  </span>
-                </Link>
-              </div>
+              </motion.p>
+              <motion.div 
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                className="flex flex-col md:flex-row items-center md:items-start gap-4"
+              >
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Link
+                    to="/deal-room"
+                    className="inline-flex items-center justify-center px-6 py-3.5 rounded-lg bg-brand-blue text-white font-bold hover:bg-brand-blue-hover transition-colors shadow-md text-[16px] w-[200px]"
+                  >
+                    Request a Demo
+                  </Link>
+                </motion.div>
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Link
+                    to="/"
+                    className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-lg bg-brand-blue/5 border border-brand-blue/20 text-slate-800 font-semibold hover:bg-brand-blue/10 transition-colors text-[16px] w-[200px]"
+                  >
+                    Book a Call
+                    <span className="relative flex h-3 w-3 ml-1">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-3 w-3 bg-brand-blue"></span>
+                    </span>
+                  </Link>
+                </motion.div>
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -256,6 +275,7 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
+                  whileHover={{ y: -8 }}
                   className="h-full bg-white border border-slate-200 hover:border-brand-blue/30 rounded-3xl hover:shadow-lg hover:shadow-brand-blue/5 transition-all overflow-hidden flex flex-col"
                 >
                   <div className="w-full h-48 relative overflow-hidden bg-slate-100">
@@ -361,7 +381,14 @@ export default function Home() {
               }
             ].map((study, i) => (
               <Link key={i} to={study.link} className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded-3xl">
-                <div className="h-full bg-slate-50 border border-slate-200 hover:border-brand-blue/30 rounded-3xl shadow-sm hover:shadow-lg transition-all overflow-hidden flex flex-col">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  whileHover={{ y: -8 }}
+                  className="h-full bg-slate-50 border border-slate-200 hover:border-brand-blue/30 rounded-3xl shadow-sm hover:shadow-lg transition-all overflow-hidden flex flex-col"
+                >
                   <div className="w-full h-48 relative overflow-hidden bg-slate-100">
                     <img src={study.image} alt={study.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                     <div className="absolute inset-0 bg-brand-blue/5 pointer-events-none mix-blend-multiply"></div>
@@ -376,7 +403,7 @@ export default function Home() {
                       Read Case Study <ArrowRight className="w-4 h-4 text-brand-blue group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </Link>
             ))}
           </div>

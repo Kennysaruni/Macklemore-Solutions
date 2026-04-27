@@ -240,7 +240,18 @@ export default function Layout() {
       </AnimatePresence>
 
       <main className={cn("flex-1 flex flex-col", !["/", "/advantage"].includes(location.pathname) && "pt-[100px]")}>
-        <Outlet />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="flex-1 flex flex-col"
+          >
+            <Outlet />
+          </motion.div>
+        </AnimatePresence>
       </main>
 
       <footer className="relative mt-auto pt-24 bg-white">
@@ -250,9 +261,11 @@ export default function Layout() {
             <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900">
               Ready to see Macklemore in action?
             </h2>
-            <Link to="/deal-room" className="bg-[#1DA1F2] bg-brand-blue hover:bg-brand-blue-hover text-white px-8 py-3.5 rounded-xl font-medium inline-block transition-colors shadow-sm shadow-[#1DA1F2]/20 text-[15px] z-10">
-              Book a demo
-            </Link>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block z-10">
+              <Link to="/deal-room" className="bg-[#1DA1F2] bg-brand-blue hover:bg-brand-blue-hover text-white px-8 py-3.5 rounded-xl font-medium inline-block transition-colors shadow-sm shadow-[#1DA1F2]/20 text-[15px]">
+                Book a demo
+              </Link>
+            </motion.div>
             <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-slate-50 rounded-full blur-3xl -z-10"></div>
           </div>
         </div>

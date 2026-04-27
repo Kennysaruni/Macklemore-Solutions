@@ -158,9 +158,16 @@ export default function Industries() {
       </section>
 
       {/* INDUSTRIES SECTION (ALTERNATING LAYOUT) */}
-      <section className="py-12 bg-slate-50">
+      <section className="py-12 bg-slate-50 overflow-hidden">
         {industries.map((industry, index) => (
-          <div key={industry.id} className={`py-16 md:py-24 ${index % 2 !== 0 ? 'bg-white' : ''}`}>
+          <motion.div 
+            key={industry.id} 
+            initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-10%" }}
+            transition={{ duration: 0.6 }}
+            className={`py-16 md:py-24 ${index % 2 !== 0 ? 'bg-white' : ''}`}
+          >
             <div className="max-w-[1440px] mx-auto px-6">
               <div className={`flex flex-col gap-12 lg:gap-20 items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
 
@@ -196,7 +203,7 @@ export default function Industries() {
 
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </section>
 
@@ -212,11 +219,18 @@ export default function Industries() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, i) => (
-              <div key={i} className="bg-slate-50 border border-slate-200 rounded-2xl p-8 hover:border-brand-blue/30 hover:shadow-lg transition-all">
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="bg-slate-50 border border-slate-200 rounded-2xl p-8 hover:border-brand-blue/30 hover:shadow-lg transition-all"
+              >
                 <div className="text-brand-blue font-bold tracking-widest uppercase text-sm mb-4">Step {i + 1}</div>
                 <h3 className="text-xl font-bold text-slate-900 mb-4">{step.title}</h3>
                 <p className="text-slate-600 leading-relaxed">{step.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -253,12 +267,16 @@ export default function Industries() {
             Every industry has unique challenges. We design solutions tailored to your specific needs, ensuring real and measurable impact.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/deal-room" className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white text-brand-blue font-bold hover:bg-slate-50 shadow-md transition-colors text-lg">
-              Book a Demo
-            </Link>
-            <Link to="/contact" className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-brand-cyan hover:bg-white hover:text-brand-cyan text-white font-bold shadow-md transition-colors text-lg">
-              Speak With Our Team
-            </Link>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link to="/deal-room" className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white text-brand-blue font-bold hover:bg-slate-50 shadow-md transition-colors text-lg w-full">
+                Book a Demo
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link to="/contact" className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-brand-cyan hover:bg-white hover:text-brand-cyan text-white font-bold shadow-md transition-colors text-lg w-full">
+                Speak With Our Team
+              </Link>
+            </motion.div>
           </div>
         </div>
       </section>
