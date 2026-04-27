@@ -1,9 +1,39 @@
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
-import { Menu, X, ArrowUp } from "lucide-react";
-import { useState, useEffect } from "react";
+import { Menu, X, ArrowUp, ChevronDown } from "lucide-react";
+import { useState, useEffect, ReactNode } from "react";
 import { cn } from "@/src/lib/utils";
 import macklemoreLogo from "@/src/assets/macklemorelogo.png";
+
+const MobileNavSection = ({ title, children }: { title: string, children: ReactNode }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <div className="border-b border-slate-100 py-2 last:border-0">
+      <button 
+        onClick={() => setIsOpen(!isOpen)} 
+        className="w-full flex items-center justify-between text-[16px] text-slate-800 font-semibold py-2"
+      >
+        {title}
+        <ChevronDown className={cn("w-5 h-5 text-slate-400 transition-transform duration-300", isOpen ? "rotate-180" : "")} />
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="overflow-hidden"
+          >
+            <ul className="flex flex-col gap-4 pt-2 pb-4 pl-2">
+              {children}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
 export default function Layout() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -172,49 +202,32 @@ export default function Layout() {
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-40 bg-white pt-[100px] px-6 pb-24 md:hidden overflow-y-auto"
           >
-            <div className="grid grid-cols-2 gap-x-6 gap-y-12 pr-4">
-              {/* Column 1 */}
-              <div className="flex flex-col gap-10">
-                <div>
-                  <h4 className="text-[14px] text-slate-400 font-medium mb-3">Services</h4>
-                  <ul className="flex flex-col gap-5">
-                    <li><Link to="/solutions/automation" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>AI & Automation</Link></li>
-                    <li><Link to="/solutions/security" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Cybersecurity</Link></li>
-                    <li><Link to="/solutions/ai-education" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>AI Education</Link></li>
-                  </ul>
-                </div>
+            <div className="flex flex-col gap-2">
+              <MobileNavSection title="Services">
+                <li><Link to="/solutions/automation" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>AI & Automation</Link></li>
+                <li><Link to="/solutions/security" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Cybersecurity</Link></li>
+                <li><Link to="/solutions/ai-education" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>AI Education</Link></li>
+              </MobileNavSection>
 
-                <div>
-                  <h4 className="text-[14px] text-slate-400 font-medium mb-3">Explore</h4>
-                  <ul className="flex flex-col gap-5">
-                    <li><Link to="/industries" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Industries We Serve</Link></li>
-                    <li><Link to="/case-studies" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Case Studies</Link></li>
-                  </ul>
-                </div>
-              </div>
+              <MobileNavSection title="Explore">
+                <li><Link to="/industries" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Industries We Serve</Link></li>
+                <li><Link to="/case-studies" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Case Studies</Link></li>
+              </MobileNavSection>
 
-              {/* Column 2 */}
-              <div className="flex flex-col gap-10">
-                <div>
-                  <h4 className="text-[14px] text-slate-400 font-medium mb-3">Resources</h4>
-                  <ul className="flex flex-col gap-5">
-                    <li><Link to="/blog" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Blog</Link></li>
-                    <li><Link to="/eguides" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>eGuides / Whitepapers</Link></li>
-                    <li><Link to="/playbooks" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>AI Playbooks</Link></li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="text-[14px] text-slate-400 font-medium mb-3">Company</h4>
-                  <ul className="flex flex-col gap-5">
-                    <li><Link to="/about" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>About Us</Link></li>
-                    <li><Link to="/advantage" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>The Macklemore Advantage</Link></li>
-                    <li><Link to="/careers" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Careers</Link></li>
-                    <li><Link to="/partners" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Partner With Us</Link></li>
-                    <li><Link to="/contact" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Contact</Link></li>
-                    <li><Link to="/privacy-policy" className="text-[15px] leading-snug font-semibold text-slate-800 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Privacy Policy</Link></li>
-                  </ul>
-                </div>
-              </div>
+              <MobileNavSection title="Resources">
+                <li><Link to="/blog" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Blog</Link></li>
+                <li><Link to="/eguides" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>eGuides / Whitepapers</Link></li>
+                <li><Link to="/playbooks" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>AI Playbooks</Link></li>
+              </MobileNavSection>
+
+              <MobileNavSection title="Company">
+                <li><Link to="/about" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>About Us</Link></li>
+                <li><Link to="/advantage" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>The Macklemore Advantage</Link></li>
+                <li><Link to="/careers" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Careers</Link></li>
+                <li><Link to="/partners" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Partner With Us</Link></li>
+                <li><Link to="/contact" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Contact</Link></li>
+                <li><Link to="/privacy-policy" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Privacy Policy</Link></li>
+              </MobileNavSection>
             </div>
 
             <div className="mt-12 w-full">

@@ -120,7 +120,7 @@ export default function Home() {
                 </Link>
                 <Link
                   to="/"
-                  className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-lg bg-brand-blue/5 border border-brand-blue/20 text-slate-800 font-semibold hover:bg-brand-blue/10 transition-colors text-[16px] w-[260px]"
+                  className="inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-lg bg-brand-blue/5 border border-brand-blue/20 text-slate-800 font-semibold hover:bg-brand-blue/10 transition-colors text-[16px] w-[200px]"
                 >
                   Book a Call
                   <span className="relative flex h-3 w-3 ml-1">
@@ -144,7 +144,7 @@ export default function Home() {
                 <img key={partner.id} src={partner.logo_url} alt={partner.name} className="h-8 md:h-12 object-contain" />
               ))
             ) : (
-              <div className="text-slate-500 text-sm italic">Loading partners...</div>
+              <div className="text-slate-500 text-sm italic"></div>
             )}
           </div>
         </div>
@@ -318,82 +318,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-24 bg-white border-t border-slate-100">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-brand-blue font-semibold tracking-wider uppercase text-sm mb-4 block">Our Team</span>
-            <h2 className="text-3xl md:text-4xl font-display font-bold mb-6 text-slate-900">
-              Meet the Experts Behind Macklemore Solutions
-            </h2>
-            <p className="text-slate-600 text-lg">
-              Our leadership team brings together decades of experience in technology, strategy, and enterprise operations to deliver scalable solutions.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.length > 0 ? (
-              team.map((member, i) => (
-                <motion.div
-                  key={member.id || i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="group flex flex-col bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl hover:border-brand-blue/30 transition-all duration-300"
-                >
-                  {/* Image Container */}
-                  <div className="w-full aspect-square bg-slate-200 relative overflow-hidden">
-                    {member.image_url ? (
-                      <img
-                        src={member.image_url}
-                        alt={member.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      />
-                    ) : (
-                      <div className="w-full h-full flex flex-col items-center justify-center bg-slate-100 text-slate-400 group-hover:bg-slate-200 transition-colors">
-                        <svg className="w-12 h-12 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
-                        </svg>
-                        <span className="text-xs font-medium uppercase tracking-wider"></span>
-                      </div>
-                    )}
-                    {/* Subtle gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-6 flex flex-col flex-1 relative bg-white">
-                    <div className="flex justify-between items-start mb-2">
-                      <h3 className="text-lg font-display font-bold text-slate-900 group-hover:text-brand-blue transition-colors">
-                        {member.name}
-                      </h3>
-                      {member.linkedin && (
-                        <a
-                          href={member.linkedin}
-                          target={member.linkedin !== "#" ? "_blank" : "_self"}
-                          rel={member.linkedin !== "#" ? "noopener noreferrer" : ""}
-                          className="text-slate-400 hover:text-[#0077b5] transition-colors"
-                          aria-label={`${member.name}'s LinkedIn profile`}
-                        >
-                          <Linkedin className="w-5 h-5" />
-                        </a>
-                      )}
-                    </div>
-                    <p className="text-brand-blue font-medium text-sm leading-snug">
-                      {member.role}
-                    </p>
-                  </div>
-                </motion.div>
-              ))
-            ) : (
-              <div className="col-span-full text-center text-slate-500 py-12">
-                {loading ? 'Loading team members...' : 'No team members found.'}
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
 
       {/* Case Studies Preview Section */}
       <section className="py-24 bg-slate-50 border-t border-slate-100">
@@ -404,10 +328,10 @@ export default function Home() {
                 Recent Impact
               </h2>
               <p className="text-slate-600 text-lg max-w-xl">
-                See how we transform operational capacity through precision implementation.
+                See how we tranform operational capacity through precision implementation.
               </p>
             </div>
-            <Link to="/case-studies" className="hidden md:flex items-center gap-2 text-brand-blue font-medium hover:text-brand-blue-hover transition-colors">
+            <Link to="/case-stuies" className="hidden md:flex items-center gap-2 text-brand-blue font-medium hover:text-brand-blue-hover transition-colors">
               View all cases <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
