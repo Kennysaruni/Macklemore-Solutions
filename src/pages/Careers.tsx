@@ -16,7 +16,15 @@ export default function Careers() {
               Careers
             </h1>
             <p className="text-xl text-slate-600 leading-relaxed">
-              Macklemore Solutions is an AI and Automation Infrastructure Company delivering intelligent operational systems and enterprise-grade security frameworks. We cultivate talent through structured programs for students, interns, and professionals, equipping them with skills in AI, automation, and cybersecurity to contribute to real-world institutional impact.
+
+
+Build your future with real projects, real mentorship, and real impact.
+
+
+At Macklemore Solutions, we create opportunities for students, interns, and professionals to grow through hands on experience in AI, automation, cybersecurity, software, and digital operations.
+
+
+Our career programs are designed to help emerging talent build practical skills, work on real business challenges, and develop the confidence needed to contribute in modern technology environments.
             </p>
           </motion.div>
 

@@ -66,14 +66,14 @@ export default function Contact() {
 
         <div className="grid lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="lg:col-span-1 space-y-8"
           >
             <motion.div whileHover={{ y: -5 }} className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm h-full transition-shadow hover:shadow-md">
               <h3 className="text-2xl font-display font-bold text-slate-900 mb-8">Contact Information</h3>
-              
+
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-brand-blue/10 flex items-center justify-center shrink-0">
@@ -87,12 +87,14 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4">
+                <div className="flex items-start gap-4 items-center justify-center">
                   <div className="w-12 h-12 rounded-xl bg-brand-cyan/10 flex items-center justify-center shrink-0">
                     <Phone className="w-6 h-6 text-brand-cyan" />
+
                   </div>
                   <div>
                     <p className="font-medium text-slate-900 mb-1">Call Us</p>
+                    <a href="tel:+14374316340" className="hover:text-slate-900 transition-colors">+1 (437) 431-6340</a>
                     <p className="text-slate-600">
                       Available Mon-Fri, 9am-6pm EST
                     </p>
@@ -115,20 +117,20 @@ export default function Contact() {
           </motion.div>
 
           {/* Contact Form */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             className="lg:col-span-2"
           >
             <div className="bg-white p-8 md:p-12 rounded-3xl border border-slate-200 shadow-sm">
               <h2 className="text-2xl font-display font-bold text-slate-900 mb-6">Send us a Message</h2>
-              
+
               {status === 'success' && (
                 <div className="mb-8 p-4 bg-green-50 text-green-800 rounded-xl border border-green-200 flex items-center justify-center">
                   Thank you! Your message has been sent successfully. We will be in touch soon.
                 </div>
               )}
-              
+
               {status === 'error' && (
                 <div className="mb-8 p-4 bg-red-50 text-red-800 rounded-xl border border-red-200 flex items-center justify-center">
                   There was an error sending your message. Please try again later.

@@ -5,21 +5,6 @@ import { ArrowRight, CheckCircle2, TrendingUp, Shield, Truck, ShoppingCart, Grad
 export default function Industries() {
   const industries = [
     {
-      id: "logistics",
-      title: "Logistics & Transportation",
-      icon: <Truck className="w-6 h-6" />,
-      content: "We support logistics and transportation companies in optimizing operations through intelligent routing, automation, and real-time visibility systems. Our solutions help improve delivery efficiency, reduce costs, and enhance operational control.",
-      capabilities: [
-        "Route optimization and dispatch automation",
-        "Fleet performance monitoring",
-        "Driver performance insights",
-        "Last-mile delivery optimization",
-        "Operations dashboards and reporting"
-      ],
-      outcome: "Improved delivery timelines, reduced operational costs, and enhanced visibility across operations.",
-      image: "https://images.unsplash.com/photo-1492168732976-2676c584c675?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dHJ1Y2tzfGVufDB8fDB8fHww"
-    },
-    {
       id: "finance",
       title: "Financial Services",
       icon: <TrendingUp className="w-6 h-6" />,
@@ -160,8 +145,8 @@ export default function Industries() {
       {/* INDUSTRIES SECTION (ALTERNATING LAYOUT) */}
       <section className="py-12 bg-slate-50 overflow-hidden">
         {industries.map((industry, index) => (
-          <motion.div 
-            key={industry.id} 
+          <motion.div
+            key={industry.id}
             initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-10%" }}
@@ -219,8 +204,8 @@ export default function Industries() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, i) => (
-              <motion.div 
-                key={i} 
+              <motion.div
+                key={i}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
