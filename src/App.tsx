@@ -25,6 +25,7 @@ import EGuides from "./pages/EGuides";
 import EGuideView from "./pages/EGuideView";
 import Playbooks from "./pages/Playbooks";
 import PlaybookView from "./pages/PlaybookView";
+import NotFound from "./pages/NotFound";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminLayout from "./components/AdminLayout";
@@ -66,6 +67,7 @@ export default function App() {
             <Route path="eguides/:id" element={<EGuideView />} />
             <Route path="playbooks" element={<Playbooks />} />
             <Route path="playbooks/:id" element={<PlaybookView />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
           
           <Route path="/admin/login" element={<Login />} />
