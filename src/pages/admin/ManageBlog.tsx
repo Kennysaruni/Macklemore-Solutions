@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { supabase } from '../../lib/supabase';
-import { useData } from '../../context/DataContext';
+import { useBlogs, useData } from '../../context/DataContext';
 import { Trash2, Plus, Loader2 } from 'lucide-react';
 
 export default function ManageBlog() {
-  const { blogs, refreshData } = useData();
+  const { blogs, loading: blogsLoading } = useBlogs();
+  const { refreshData } = useData();
   const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState('');
   const [slug, setSlug] = useState('');

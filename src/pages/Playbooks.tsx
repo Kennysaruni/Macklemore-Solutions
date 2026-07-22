@@ -1,10 +1,10 @@
 import { motion } from "motion/react";
 import { BookOpen, CheckCircle2, ArrowRight, Settings, Users, LineChart, Truck, Workflow, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useData } from "../context/DataContext";
+import { usePlaybooks } from "../context/DataContext";
 
 export default function Playbooks() {
-  const { playbooks, loading } = useData();
+  const { playbooks, loading } = usePlaybooks();
 
   const whatYouFind = [
     "Clear problem definition and use cases",

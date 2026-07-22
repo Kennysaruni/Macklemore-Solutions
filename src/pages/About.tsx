@@ -1,11 +1,13 @@
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2, Linkedin } from "lucide-react";
-import { useData } from "../context/DataContext";
+import { useTeam, usePartners } from "../context/DataContext";
 
 
 export default function About() {
-  const { team, partners, loading } = useData();
+  const { team, loading: loadingTeam } = useTeam();
+  const { partners, loading: loadingPartners } = usePartners();
+  const loading = loadingTeam || loadingPartners;
   return (
     <div className="flex flex-col pt-32 pb-24 bg-white">
       <div className="max-w-[1440px] mx-auto px-6 w-full">
@@ -31,7 +33,7 @@ export default function About() {
             className="flex-1 w-full relative"
           >
             <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl relative">
-              <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop" alt="Corporate office team working on infrastructure" className="w-full h-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=75" alt="Corporate office team working on infrastructure" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-brand-blue/10 mix-blend-multiply pointer-events-none"></div>
             </div>
             <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-brand-cyan/20 rounded-full blur-2xl pointer-events-none"></div>

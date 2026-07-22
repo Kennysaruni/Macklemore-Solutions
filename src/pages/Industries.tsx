@@ -17,7 +17,7 @@ export default function Industries() {
         "Secure infrastructure and data management"
       ],
       outcome: "Faster service delivery, improved security, and more efficient internal processes.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=75"
     },
     {
       id: "healthcare",
@@ -32,7 +32,7 @@ export default function Industries() {
         "Security and compliance systems"
       ],
       outcome: "Improved patient experience, reduced administrative workload, and more efficient operations.",
-      image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=75"
     },
     {
       id: "retail",
@@ -47,7 +47,7 @@ export default function Industries() {
         "Marketing automation and optimization"
       ],
       outcome: "Higher conversion rates, improved customer experience, and scalable business growth.",
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=75"
     },
     {
       id: "education",
@@ -62,7 +62,7 @@ export default function Industries() {
         "Performance analytics"
       ],
       outcome: "Improved learning outcomes, scalable program delivery, and efficient management.",
-      image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=75"
     },
     {
       id: "enterprises",
@@ -77,7 +77,7 @@ export default function Industries() {
         "AI-driven decision support tools"
       ],
       outcome: "Greater operational efficiency, better decision-making, and scalable infrastructure.",
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=75"
     }
   ];
 
@@ -119,7 +119,7 @@ export default function Industries() {
               className="flex-1 w-full relative hidden md:block"
             >
               <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl relative">
-                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop" alt="Abstract modern business building" className="w-full h-full object-cover" />
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=75" alt="Abstract modern business building" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-brand-blue/20 mix-blend-multiply pointer-events-none"></div>
               </div>
               <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-brand-cyan/30 rounded-full blur-2xl pointer-events-none"></div>
@@ -245,7 +245,7 @@ export default function Industries() {
 
       {/* CALL TO ACTION */}
       <section className="py-24 bg-brand-blue text-white text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] opacity-10 object-cover mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=75')] opacity-10 object-cover mix-blend-overlay"></div>
         <div className="max-w-4xl mx-auto px-6 relative z-10">
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white">Let’s Build the Right System for Your Industry</h2>
           <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">

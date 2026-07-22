@@ -1,9 +1,9 @@
 import { motion } from "motion/react";
 import { ArrowRight, BarChart3, ShieldCheck, BookOpen, Calculator, Activity, Loader2 } from "lucide-react";
-import { useData } from "../context/DataContext";
+import { useCaseStudies } from "../context/DataContext";
 
 export default function CaseStudies() {
-  const { caseStudies, loading } = useData();
+  const { caseStudies, loading } = useCaseStudies();
 
   const getIcon = (iconName?: string) => {
     const props = { className: "w-6 h-6 text-brand-cyan" };

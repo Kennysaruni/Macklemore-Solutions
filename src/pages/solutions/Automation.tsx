@@ -122,37 +122,37 @@ export default function Automation() {
                 icon: <Users className="w-6 h-6 text-brand-cyan" />,
                 title: "HR Automation Systems",
                 desc: "Streamline hiring workflows, onboarding processes, employee record management, and payroll coordination through intelligent automation that reduces administrative burden and improves team performance.",
-                image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2069&auto=format&fit=crop"
+                image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=600&q=75"
               },
               {
                 icon: <Building2 className="w-6 h-6 text-brand-blue" />,
                 title: "Accounting and Finance Workflow Automation",
                 desc: "Automate invoice processing, expense tracking, financial reporting, and approval cycles to increase accuracy, reduce processing time, and give your finance team real-time visibility into business performance.",
-                image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop"
+                image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=75"
               },
               {
                 icon: <Workflow className="w-6 h-6 text-indigo-500" />,
                 title: "CRM and Sales Automation",
                 desc: "Build automated pipelines that capture, qualify, and nurture leads while your sales team focuses on closing. We integrate CRM workflows that keep your customer data clean, current, and actionable.",
-                image: "https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=2070&auto=format&fit=crop"
+                image: "https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=600&q=75"
               },
               {
                 icon: <ShoppingCart className="w-6 h-6 text-emerald-500" />,
                 title: "E-Commerce Process Automation",
                 desc: "From order management and inventory tracking to customer communications and fulfilment workflows, we automate the backend operations that keep your e-commerce business running at scale.",
-                image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2070&auto=format&fit=crop"
+                image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=600&q=75"
               },
               {
                 icon: <Cpu className="w-6 h-6 text-purple-500" />,
                 title: "Custom AI-Powered Operational Systems",
                 desc: "For enterprises with complex, non-standard workflows, we build bespoke AI-powered systems that learn from your data, surface actionable insights, and execute repetitive tasks with precision and speed.",
-                image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
+                image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=75"
               },
               {
                 icon: <Smartphone className="w-6 h-6 text-pink-500" />,
                 title: "Custom Web and Mobile Platforms Built for Automation",
                 desc: "We develop web and mobile applications with automation at their core; platforms that don't just display data, but actively process it, trigger workflows, and reduce human intervention at every stage.",
-                image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2070&auto=format&fit=crop"
+                image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=75"
               }
             ].map((service, i) => (
               <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} key={i} whileHover={{ y: -8 }}>

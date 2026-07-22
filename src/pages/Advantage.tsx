@@ -65,7 +65,7 @@ export default function Advantage() {
               className="relative rounded-2xl overflow-hidden shadow-2xl border border-slate-200"
             >
               <img
-                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=75"
                 alt="Technology systems"
                 className="w-full h-[300px] md:h-[400px] lg:h-[500px] object-cover"
               />
@@ -86,7 +86,7 @@ export default function Advantage() {
               className="relative rounded-2xl overflow-hidden shadow-2xl aspect-[4/3]"
             >
               <img
-                src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=75"
                 alt="Technology network"
                 className="w-full h-full object-cover"
               />
@@ -195,7 +195,7 @@ export default function Advantage() {
               className="hidden lg:block relative rounded-2xl overflow-hidden aspect-[3/4] shadow-2xl border border-slate-200"
             >
               <img
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=800&q=75"
                 alt="Team collaborating on operations strategy"
                 className="w-full h-full object-cover"
               />

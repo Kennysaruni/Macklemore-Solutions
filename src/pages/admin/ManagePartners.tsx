@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { supabase } from '../../lib/supabase';
-import { useData } from '../../context/DataContext';
+import { usePartners, useData } from '../../context/DataContext';
 import { Trash2, Plus, Loader2 } from 'lucide-react';
 
 export default function ManagePartners() {
-  const { partners, refreshData } = useData();
+  const { partners, loading: partnersLoading } = usePartners();
+  const { refreshData } = useData();
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState('');
   const [file, setFile] = useState<File | null>(null);

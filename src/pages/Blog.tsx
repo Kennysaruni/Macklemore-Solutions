@@ -2,10 +2,10 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { useData } from "../context/DataContext";
+import { useBlogs } from "../context/DataContext";
 
 export default function Blog() {
-  const { blogs, loading } = useData();
+  const { blogs, loading } = useBlogs();
   const [activeFilter, setActiveFilter] = useState("All Resources");
 
   const filteredBlogs = activeFilter === "All Resources"
@@ -154,7 +154,7 @@ export default function Blog() {
 
       {/* CTA SECTION */}
       <section className="py-24 bg-brand-blue text-white text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] opacity-10 object-cover mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=75')] opacity-10 object-cover mix-blend-overlay"></div>
         <div className="max-w-3xl mx-auto px-6 relative z-10">
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white">Stay Informed</h2>
           <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">

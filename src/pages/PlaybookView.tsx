@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowLeft, Download, BookOpen } from 'lucide-react';
-import { useData } from '../context/DataContext';
+import { usePlaybooks } from '../context/DataContext';
 
 export default function PlaybookView() {
   const { id } = useParams<{ id: string }>();
-  const { playbooks, loading } = useData();
+  const { playbooks, loading } = usePlaybooks();
   const [playbook, setPlaybook] = useState<any>(null);
 
   useEffect(() => {

@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowLeft, Calendar } from 'lucide-react';
-import { useData } from '../context/DataContext';
+import { useBlogs } from '../context/DataContext';
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
-  const { blogs, loading } = useData();
+  const { blogs, loading } = useBlogs();
   const [post, setPost] = useState<any>(null);
 
   useEffect(() => {

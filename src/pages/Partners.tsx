@@ -27,7 +27,7 @@ export default function Partners() {
             className="flex-1 w-full relative"
           >
             <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl relative">
-              <img src="https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=2070&auto=format&fit=crop" alt="Business partners shaking hands" className="w-full h-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1552581234-26160f608093?auto=format&fit=crop&w=800&q=75" alt="Business partners shaking hands" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-brand-blue/10 mix-blend-multiply pointer-events-none"></div>
             </div>
             <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-brand-cyan/20 rounded-full blur-2xl pointer-events-none"></div>

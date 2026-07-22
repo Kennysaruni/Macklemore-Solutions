@@ -2,11 +2,11 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowLeft, Download, FileText } from 'lucide-react';
-import { useData } from '../context/DataContext';
+import { useEGuides } from '../context/DataContext';
 
 export default function EGuideView() {
   const { id } = useParams<{ id: string }>();
-  const { eguides, loading } = useData();
+  const { eguides, loading } = useEGuides();
   const [resource, setResource] = useState<any>(null);
 
   useEffect(() => {

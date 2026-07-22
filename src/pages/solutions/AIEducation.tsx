@@ -109,25 +109,25 @@ export default function AIEducation() {
                 icon: <BookOpen className="w-6 h-6 text-brand-cyan" />,
                 title: "AI Curriculum Development for Institutions",
                 desc: "We design structured, institution-specific AI curricula that align with your organizational goals, existing skill levels, and compliance requirements. Every program is built for measurable learning outcomes, not general awareness.",
-                image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop"
+                image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=75"
               },
               {
                 icon: <GraduationCap className="w-6 h-6 text-brand-blue" />,
                 title: "AI Integration into Learning Environments",
                 desc: "For academic institutions and corporate training departments, we integrate AI tools directly into existing learning management systems and workflows, creating adaptive, data-informed learning environments that improve outcomes at scale.",
-                image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070&auto=format&fit=crop"
+                image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=75"
               },
               {
                 icon: <Lightbulb className="w-6 h-6 text-indigo-500" />,
                 title: "Institutional Digital Transformation Advisory",
                 desc: "We advise institutional leadership on AI strategy, technology selection, governance frameworks, and change management, providing the structured guidance needed to make sound decisions and execute transformation with confidence.",
-                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop"
+                image: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=75"
               },
               {
                 icon: <TrendingUp className="w-6 h-6 text-purple-500" />,
                 title: "Certification and Structured AI Training Programs",
                 desc: "We deliver structured training programs across key AI domains including machine learning fundamentals, AI governance and ethics, automation strategy, and practical tool implementation, with certification pathways designed for professional credibility.",
-                image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2070&auto=format&fit=crop"
+                image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=75"
               }
             ].map((service, i) => (
               <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} key={i} whileHover={{ y: -8 }}>

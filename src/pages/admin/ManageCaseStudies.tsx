@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { supabase } from '../../lib/supabase';
-import { useData } from '../../context/DataContext';
+import { useCaseStudies, useData } from '../../context/DataContext';
 import { Trash2, Plus, Loader2, BarChart3, ShieldCheck, BookOpen, Calculator, Activity } from 'lucide-react';
 
 export default function ManageCaseStudies() {
-  const { caseStudies, refreshData } = useData();
+  const { caseStudies, loading: caseStudiesLoading } = useCaseStudies();
+  const { refreshData } = useData();
   const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState('');
   const [client, setClient] = useState('');

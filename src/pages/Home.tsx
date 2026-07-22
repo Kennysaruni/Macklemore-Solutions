@@ -3,7 +3,7 @@ import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import { PlayCircle, ArrowRight, Linkedin } from "lucide-react";
 import { cn } from "@/src/lib/utils";
-import { useData } from "../context/DataContext";
+import { usePartners } from "../context/DataContext";
 
 function AdvantageTimeline() {
   const [activeStep, setActiveStep] = useState(0);
@@ -69,7 +69,7 @@ function AdvantageTimeline() {
 }
 
 export default function Home() {
-  const { team, partners, loading } = useData();
+  const { partners, loading } = usePartners();
 
   return (
     <div className="flex flex-col w-full overflow-hidden">
@@ -87,7 +87,7 @@ export default function Home() {
             <path d="M0,800 C300,800 600,600 1200,600" strokeWidth="16" strokeLinecap="round" />
           </svg> */}
           <img
-            src="https://images.pexels.com/photos/1181408/pexels-photo-1181408.jpeg"
+            src="https://images.pexels.com/photos/1181408/pexels-photo-1181408.jpeg?auto=compress&cs=tinysrgb&w=1200&q=75"
             alt="Hero Background"
             className="absolute inset-0 w-full h-full object-cover opacity-45 mix-blend-luminosity pointer-events-none"
           />
@@ -252,19 +252,19 @@ export default function Home() {
             {[
               {
                 title: "Automation",
-                image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?q=80&w=2070&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?auto=format&fit=crop&w=600&q=75",
                 desc: "AI driven systems that streamline operations, eliminate fragmented workflows, and improve enterprise efficiency.",
                 link: "/solutions/automation"
               },
               {
                 title: "Cybersecurity",
-                image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=75",
                 desc: "Enterprise cybersecurity and risk management infrastructure tailored to secure and harden modern operational models.",
                 link: "/solutions/security"
               },
               {
                 title: "AI Training",
-                image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=75",
                 desc: "Institutional training and AI integration for workforce transformation from corporate seminars to certified programs.",
                 link: "/solutions/ai-education"
               }
@@ -361,21 +361,21 @@ export default function Home() {
               {
                 title: "Automation Projects",
                 link: "/case-studies#case-01",
-                image: "https://images.unsplash.com/photo-1647427060118-4911c9821b82?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                image: "https://images.unsplash.com/photo-1647427060118-4911c9821b82?auto=format&fit=crop&w=600&q=75",
                 desc: "Scaling supply chain operations with intelligent workflow integration, eliminating data silos by 80%.",
                 category: "Logistics"
               },
               {
                 title: "Cybersecurity Implementations",
                 link: "/case-studies#case-02",
-                image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=75",
                 desc: "Enterprise hardening against zero-day threats in regulated data environments with automated monitoring.",
                 category: "Finance"
               },
               {
                 title: "AI Marketing Results",
                 link: "/case-studies#case-04",
-                image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop",
+                image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=600&q=75",
                 desc: "Deploying predictive analytics and AI-driven campaign automation, multiplying lead qualification rates.",
                 category: "E-Commerce"
               }

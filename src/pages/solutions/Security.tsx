@@ -109,31 +109,31 @@ export default function Security() {
                 icon: <Shield className="w-6 h-6 text-brand-cyan" />,
                 title: "Managed IT Security",
                 desc: "We provide ongoing management of your security infrastructure, monitoring threats, responding to incidents, and keeping your systems hardened against evolving attack vectors, without the overhead of building an in-house security operations team.",
-                image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop"
+                image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=75"
               },
               {
                 icon: <Server className="w-6 h-6 text-brand-blue" />,
                 title: "Infrastructure and Cloud Protection",
                 desc: "From on-premise server environments to multi-cloud deployments, we secure your infrastructure at every layer - network, application, endpoint, and data with policies and controls designed for enterprise-level resilience.",
-                image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
+                image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=600&q=75"
               },
               {
                 icon: <FileCheck className="w-6 h-6 text-indigo-500" />,
                 title: "Compliance and Governance Systems",
                 desc: "We help your organization achieve and maintain compliance with relevant regulatory frameworks including GDPR, NDPR, SOC 2, ISO 27001, and industry-specific standards, building governance structures that satisfy auditors and protect your business.",
-                image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070&auto=format&fit=crop"
+                image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=600&q=75"
               },
               {
                 icon: <Activity className="w-6 h-6 text-purple-500" />,
                 title: "Security Automation Frameworks",
                 desc: "Manual security processes introduce delays and human error at the worst possible moments. We automate threat detection, incident response workflows, access control management, and compliance reporting so your security posture remains strong without depending on constant manual intervention.",
-                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2034&auto=format&fit=crop"
+                image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=75"
               },
               {
                 icon: <Lock className="w-6 h-6 text-pink-500" />,
                 title: "Enterprise-Level Risk Mitigation",
                 desc: "We conduct structured risk assessments to identify your most critical vulnerabilities, prioritize remediation, and build mitigation strategies that protect your highest-value assets - people, data, systems, and reputation.",
-                image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop"
+                image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=75"
               }
             ].map((service, i) => (
               <motion.div variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} key={i} whileHover={{ y: -8 }}>

@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { supabase } from '../../lib/supabase';
-import { useData } from '../../context/DataContext';
+import { useTeam, useData } from '../../context/DataContext';
 import { Trash2, Plus, Loader2 } from 'lucide-react';
 
 export default function ManageTeam() {
-  const { team, refreshData } = useData();
+  const { team, loading: teamLoading } = useTeam();
+  const { refreshData } = useData();
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState('');
   const [role, setRole] = useState('');
