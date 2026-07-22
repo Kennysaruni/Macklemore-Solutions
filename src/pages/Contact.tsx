@@ -1,6 +1,7 @@
+/// <reference types="vite/client" />
+import React, { useState } from "react";
 import { motion } from "motion/react";
 import { ArrowRight, Loader2, Mail, MapPin, Phone } from "lucide-react";
-import { useState } from "react";
 import { supabase } from "../lib/supabase";
 import emailjs from '@emailjs/browser';
 
@@ -140,8 +141,9 @@ export default function Contact() {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Name</label>
+                    <label htmlFor="contact-name" className="block text-sm font-medium text-slate-700 mb-2">Name</label>
                     <input
+                      id="contact-name"
                       type="text"
                       required
                       value={formData.name}
@@ -151,8 +153,9 @@ export default function Contact() {
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Email</label>
+                    <label htmlFor="contact-email" className="block text-sm font-medium text-slate-700 mb-2">Email</label>
                     <input
+                      id="contact-email"
                       type="email"
                       required
                       value={formData.email}
@@ -163,8 +166,9 @@ export default function Contact() {
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Company / Organization</label>
+                  <label htmlFor="contact-company" className="block text-sm font-medium text-slate-700 mb-2">Company / Organization</label>
                   <input
+                    id="contact-company"
                     type="text"
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
@@ -173,8 +177,9 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-slate-700 mb-2">Message</label>
+                  <label htmlFor="contact-message" className="block text-sm font-medium text-slate-700 mb-2">Message</label>
                   <textarea
+                    id="contact-message"
                     required
                     rows={6}
                     value={formData.message}

@@ -1,6 +1,7 @@
+/// <reference types="vite/client" />
+import React, { useState } from "react";
 import { motion } from "motion/react";
 import { ArrowRight, CheckCircle2, Zap, Settings, BookOpen, Loader2 } from "lucide-react";
-import { useState } from "react";
 import { supabase } from "../lib/supabase";
 import emailjs from '@emailjs/browser';
 
@@ -165,8 +166,9 @@ export default function DealRoom() {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">Name</label>
+                <label htmlFor="deal-name" className="block text-sm font-medium text-slate-700 mb-1">Name</label>
                 <input
+                  id="deal-name"
                   type="text"
                   required
                   value={formData.name}
@@ -176,8 +178,9 @@ export default function DealRoom() {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-1">Email</label>
+                <label htmlFor="deal-email" className="block text-sm font-medium text-slate-700 mb-1">Email</label>
                 <input
+                  id="deal-email"
                   type="email"
                   required
                   value={formData.email}
@@ -188,8 +191,9 @@ export default function DealRoom() {
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Company / Organization</label>
+              <label htmlFor="deal-company" className="block text-sm font-medium text-slate-700 mb-1">Company / Organization</label>
               <input
+                id="deal-company"
                 type="text"
                 value={formData.company}
                 onChange={(e) => setFormData({ ...formData, company: e.target.value })}
@@ -198,8 +202,9 @@ export default function DealRoom() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Message</label>
+              <label htmlFor="deal-message" className="block text-sm font-medium text-slate-700 mb-1">Message</label>
               <textarea
+                id="deal-message"
                 required
                 rows={5}
                 value={formData.message}

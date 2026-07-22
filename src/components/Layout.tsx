@@ -76,6 +76,12 @@ export default function Layout() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:bg-white focus:text-brand-blue focus:px-4 focus:py-2 focus:rounded-lg focus:shadow-lg focus:border focus:border-slate-200 focus:font-medium"
+      >
+        Skip to main content
+      </a>
       {/* Top Banner */}
       {/* <AnimatePresence>
         {bannerVisible && (
@@ -110,7 +116,11 @@ export default function Layout() {
           <nav className="hidden lg:flex items-center gap-8 xl:gap-12 flex-wrap justify-center">
             {/* Services Dropdown */}
             <div className="relative group py-4">
-              <button className="text-[15px] font-medium text-slate-600 hover:text-brand-blue transition-colors flex items-center gap-1">
+              <button 
+                aria-haspopup="true" 
+                aria-expanded="false" 
+                className="text-[15px] font-medium text-slate-600 hover:text-brand-blue transition-colors flex items-center gap-1"
+              >
                 Services <svg className="w-4 h-4 ml-0.5 text-slate-400 group-hover:text-brand-blue transition-transform group-hover:-rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6" /></svg>
               </button>
               <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[240px] bg-white rounded-2xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 p-3 transform origin-top scale-95 group-hover:scale-100">
@@ -138,7 +148,11 @@ export default function Layout() {
 
             {/* Resources */}
             <div className="relative group py-4">
-              <button className="text-[15px] font-medium text-slate-600 hover:text-brand-blue transition-colors flex items-center gap-1">
+              <button 
+                aria-haspopup="true" 
+                aria-expanded="false" 
+                className="text-[15px] font-medium text-slate-600 hover:text-brand-blue transition-colors flex items-center gap-1"
+              >
                 Resources <svg className="w-4 h-4 ml-0.5 text-slate-400 group-hover:text-brand-blue transition-transform group-hover:-rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6" /></svg>
               </button>
               <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[240px] bg-white rounded-2xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 p-3 transform origin-top scale-95 group-hover:scale-100">
@@ -153,7 +167,11 @@ export default function Layout() {
 
             {/* Company */}
             <div className="relative group py-4">
-              <button className="text-[15px] font-medium text-slate-600 hover:text-brand-blue transition-colors flex items-center gap-1">
+              <button 
+                aria-haspopup="true" 
+                aria-expanded="false" 
+                className="text-[15px] font-medium text-slate-600 hover:text-brand-blue transition-colors flex items-center gap-1"
+              >
                 Company <svg className="w-4 h-4 ml-0.5 text-slate-400 group-hover:text-brand-blue transition-transform group-hover:-rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6" /></svg>
               </button>
               <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[240px] bg-white rounded-2xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 p-3 transform origin-top scale-95 group-hover:scale-100">
@@ -180,6 +198,8 @@ export default function Layout() {
           <button
             className="md:hidden text-slate-800 hover:text-brand-blue z-50 flex items-center p-2 -mr-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-expanded={mobileMenuOpen}
+            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
           >
             {mobileMenuOpen ? (
               <X strokeWidth={1} className="w-9 h-9" />
@@ -239,7 +259,7 @@ export default function Layout() {
         )}
       </AnimatePresence>
 
-      <main className={cn("flex-1 flex flex-col", !["/", "/advantage"].includes(location.pathname) && "pt-[100px]")}>
+      <main id="main-content" className={cn("flex-1 flex flex-col", !["/", "/advantage"].includes(location.pathname) && "pt-[100px]")}>
         <AnimatePresence mode="wait">
           <motion.div
             key={location.pathname}

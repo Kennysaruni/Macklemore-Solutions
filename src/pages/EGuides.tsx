@@ -111,6 +111,7 @@ export default function EGuides() {
               <input
                 type="email"
                 placeholder="Enter your work email"
+                aria-label="Work Email Address"
                 className="px-5 py-3.5 rounded-xl text-slate-900 bg-white focus:outline-none focus:ring-2 focus:ring-brand-cyan w-full text-sm font-medium"
               />
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
