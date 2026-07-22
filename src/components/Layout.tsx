@@ -355,9 +355,9 @@ export default function Layout() {
                   <span className="hidden sm:inline">|</span>
                   <a href="tel:+14374316340" className="hover:text-slate-900 transition-colors">+1 (437) 431-6340</a>
                 </div>
-                <div className="text-[12px] text-slate-500">
+                {/* <div className="text-[12px] text-slate-500">
                   Developed & Designed by <a href='https://latimore.vercel.app' className='text-red-500 underline font-semibold '>Kenny Latimore</a>
-                </div>
+                </div> */}
               </div>
               <div>
                 <Link to="/privacy-policy" className="hover:text-slate-900 transition-colors">Privacy Policy</Link>
