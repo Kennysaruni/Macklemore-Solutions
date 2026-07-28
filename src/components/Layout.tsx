@@ -116,9 +116,9 @@ export default function Layout() {
           <nav className="hidden lg:flex items-center gap-8 xl:gap-12 flex-wrap justify-center">
             {/* Services Dropdown */}
             <div className="relative group py-4">
-              <button 
-                aria-haspopup="true" 
-                aria-expanded="false" 
+              <button
+                aria-haspopup="true"
+                aria-expanded="false"
                 className="text-[15px] font-medium text-slate-600 hover:text-brand-blue transition-colors flex items-center gap-1"
               >
                 Services <svg className="w-4 h-4 ml-0.5 text-slate-400 group-hover:text-brand-blue transition-transform group-hover:-rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6" /></svg>
@@ -148,9 +148,9 @@ export default function Layout() {
 
             {/* Resources */}
             <div className="relative group py-4">
-              <button 
-                aria-haspopup="true" 
-                aria-expanded="false" 
+              <button
+                aria-haspopup="true"
+                aria-expanded="false"
                 className="text-[15px] font-medium text-slate-600 hover:text-brand-blue transition-colors flex items-center gap-1"
               >
                 Resources <svg className="w-4 h-4 ml-0.5 text-slate-400 group-hover:text-brand-blue transition-transform group-hover:-rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6" /></svg>
@@ -167,9 +167,9 @@ export default function Layout() {
 
             {/* Company */}
             <div className="relative group py-4">
-              <button 
-                aria-haspopup="true" 
-                aria-expanded="false" 
+              <button
+                aria-haspopup="true"
+                aria-expanded="false"
                 className="text-[15px] font-medium text-slate-600 hover:text-brand-blue transition-colors flex items-center gap-1"
               >
                 Company <svg className="w-4 h-4 ml-0.5 text-slate-400 group-hover:text-brand-blue transition-transform group-hover:-rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6" /></svg>
@@ -375,9 +375,9 @@ export default function Layout() {
                   <span className="hidden sm:inline">|</span>
                   <a href="tel:+14374316340" className="hover:text-slate-900 transition-colors">+1 (437) 431-6340</a>
                 </div>
-                {/* <div className="text-[12px] text-slate-500">
-                  Developed & Designed by <a href='https://latimore.vercel.app' className='text-red-500 underline font-semibold '>Kenny Latimore</a>
-                </div> */}
+                <div className="text-[12px] text-slate-500">
+                  102 Bradstone Square, Scarborough, Ontario(ON), Canada
+                </div>
               </div>
               <div>
                 <Link to="/privacy-policy" className="hover:text-slate-900 transition-colors">Privacy Policy</Link>
