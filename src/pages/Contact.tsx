@@ -88,15 +88,17 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-4 items-center justify-center">
+                <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-xl bg-brand-cyan/10 flex items-center justify-center shrink-0">
                     <Phone className="w-6 h-6 text-brand-cyan" />
-
                   </div>
                   <div>
                     <p className="font-medium text-slate-900 mb-1">Call Us</p>
-                    <a href="tel:+14374316340" className="hover:text-slate-900 transition-colors">+1 (437) 431-6340</a>
-                    <p className="text-slate-600">
+                    <div className="space-y-1">
+                      <a href="tel:+14374316340" className="block text-slate-600 hover:text-brand-blue transition-colors">+1 (437) 431-6340 <span className="text-slate-400 text-xs">(Canada)</span></a>
+                      <a href="tel:+2348140758237" className="block text-slate-600 hover:text-brand-blue transition-colors">+234 8140758237 <span className="text-slate-400 text-xs">(Nigeria)</span></a>
+                    </div>
+                    <p className="text-slate-500 text-xs mt-2">
                       Available Mon-Fri, 9am-6pm EST
                     </p>
                   </div>
@@ -107,10 +109,17 @@ export default function Contact() {
                     <MapPin className="w-6 h-6 text-purple-500" />
                   </div>
                   <div>
-                    <p className="font-medium text-slate-900 mb-1">Office</p>
-                    <p className="text-slate-600 leading-relaxed">
-                      Global Operations Center
-                    </p>
+                    <p className="font-medium text-slate-900 mb-2">Office & Mailing Addresses</p>
+                    <div className="space-y-2 text-sm text-slate-600">
+                      <div>
+                        <p className="font-semibold text-slate-800 text-xs uppercase tracking-wider text-slate-500 mb-0.5">Canada Office</p>
+                        <p>102 Bradstone Square, Scarborough, Ontario (ON), Canada</p>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-slate-800 text-xs uppercase tracking-wider text-slate-500 mb-0.5">Nigeria Office</p>
+                        <p>Horizon II Estate, Meadow Hallway, Ikate, Lagos, Nigeria</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
