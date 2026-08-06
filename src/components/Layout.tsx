@@ -319,7 +319,7 @@ export default function Layout() {
                         <span className="font-semibold text-slate-800">Canada:</span> 102 Bradstone Square, Scarborough, ON, Canada
                       </div>
                       <div>
-                        <span className="font-semibold text-slate-800">Nigeria:</span> Horizon II Estate, Meadow Hallway, Ikate, Lagos, Nigeria
+                        <span className="font-semibold text-slate-800">Nigeria:</span> Horizon II Estate, Meadow Hallway, Ikate, Lagos, Nigeria, <span className='text-slate-900 font-medium'>(Office by appointment only)</span>
                       </div>
                     </div>
                   </div>
