@@ -117,7 +117,7 @@ export default function Contact() {
                       </div>
                       <div>
                         <p className="font-semibold text-slate-800 text-xs uppercase tracking-wider text-slate-500 mb-0.5">Nigeria Office</p>
-                        <p>Horizon II Estate, Meadow Hallway, Ikate, Lagos, Nigeria</p>
+                        <p>Horizon II Estate, Meadow Hallway, Ikate, Lagos, Nigeria <span className="text-slate-500 text-xs">(Office by appointment only)</span></p>
                       </div>
                     </div>
                   </div>
