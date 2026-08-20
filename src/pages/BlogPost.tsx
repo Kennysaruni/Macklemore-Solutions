@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowLeft, Calendar } from 'lucide-react';
 import { useBlogs } from '../context/DataContext';
+import MarkdownRenderer from '../components/MarkdownRenderer';
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -72,15 +73,7 @@ export default function BlogPost() {
             </div>
           )}
 
-          <div className="prose prose-lg max-w-none prose-slate">
-            {post.content.split('\n').map((paragraph: string, index: number) => (
-              paragraph.trim() ? (
-                <p key={index} className="mb-6 text-slate-700 leading-relaxed text-lg">
-                  {paragraph}
-                </p>
-              ) : null
-            ))}
-          </div>
+          <MarkdownRenderer content={post.content} />
         </motion.div>
       </article>
     </div>

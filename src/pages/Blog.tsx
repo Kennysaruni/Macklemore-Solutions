@@ -93,7 +93,7 @@ export default function Blog() {
                       </div>
                     )}
                     <h3 className="text-xl font-display font-bold text-slate-900 mb-3 group-hover:text-brand-blue transition-colors leading-snug">{post.title}</h3>
-                    <p className="text-slate-600 text-[15px] leading-relaxed mb-4 flex-1">{post.content.substring(0, 120)}...</p>
+                    <p className="text-slate-600 text-[15px] leading-relaxed mb-4 flex-1">{post.content.replace(/^[#*>\-\s]+/gm, '').substring(0, 120)}...</p>
                     <div className="flex items-center text-sm font-bold text-slate-900 group-hover:text-brand-blue transition-colors mt-auto">
                       Read more <span className="ml-1 text-lg leading-none">&rsaquo;</span>
                     </div>
