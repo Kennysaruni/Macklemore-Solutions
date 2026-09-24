@@ -96,7 +96,7 @@ export default function Contact() {
                     <p className="font-medium text-slate-900 mb-1">Call Us</p>
                     <div className="space-y-1">
                       <a href="tel:+14374316340" className="block text-slate-600 hover:text-brand-blue transition-colors">+1 (437) 431-6340 <span className="text-slate-400 text-xs">(Canada)</span></a>
-                      <a href="tel:+2348140758237" className="block text-slate-600 hover:text-brand-blue transition-colors">+234 8140758237 <span className="text-slate-400 text-xs">(Nigeria)</span></a>
+                      <a href="tel:+2348162698778" className="block text-slate-600 hover:text-brand-blue transition-colors">+234 816 269 8778 <span className="text-slate-400 text-xs">(Nigeria)</span></a>
                     </div>
                     <p className="text-slate-500 text-xs mt-2">
                       Available Mon-Fri, 9am-6pm EST
@@ -111,6 +111,10 @@ export default function Contact() {
                   <div>
                     <p className="font-medium text-slate-900 mb-2">Office & Mailing Addresses</p>
                     <div className="space-y-2 text-sm text-slate-600">
+                      <div>
+                        <p className="font-semibold text-slate-800 text-xs uppercase tracking-wider text-slate-500 mb-0.5">USA Office</p>
+                        <p>3912 Claybrook Dr, Wesley Chapel, FL 33544, United States</p>
+                      </div>
                       <div>
                         <p className="font-semibold text-slate-800 text-xs uppercase tracking-wider text-slate-500 mb-0.5">Canada Office</p>
                         <p>102 Bradstone Square, Scarborough, Ontario (ON), Canada</p>

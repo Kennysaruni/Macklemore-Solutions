@@ -316,6 +316,9 @@ export default function Layout() {
                     <MapPin className="w-4 h-4 text-brand-blue shrink-0 mt-0.5" />
                     <div className="space-y-1.5 leading-relaxed">
                       <div>
+                        <span className="font-semibold text-slate-800">USA:</span> 3912 Claybrook Dr, Wesley Chapel, FL 33544, United States
+                      </div>
+                      <div>
                         <span className="font-semibold text-slate-800">Canada:</span> 102 Bradstone Square, Scarborough, ON, Canada
                       </div>
                       <div>
@@ -328,7 +331,7 @@ export default function Layout() {
                     <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
                       <a href="tel:+14374316340" className="hover:text-brand-blue transition-colors">+1 (437) 431-6340 <span className="text-slate-400 font-medium">(CA)</span></a>
                       <span className="hidden sm:inline text-slate-300">|</span>
-                      <a href="tel:+2348140758237" className="hover:text-brand-blue transition-colors">+234 8140758237 <span className="text-slate-400 font-medium">(NG)</span></a>
+                      <a href="tel:+2348162698778" className="hover:text-brand-blue transition-colors">+234 816 269 8778 <span className="text-slate-400 font-medium">(NG)</span></a>
                     </div>
                   </div>
                   <div className="flex items-center gap-2.5">
