@@ -3,19 +3,12 @@ import { motion } from "motion/react";
 import { Link } from "react-router-dom";
 import {
   Shield,
-  Lock,
   FileText,
-  Building,
   Mail,
-  Phone,
   MapPin,
   ArrowUp,
-  AlertCircle,
-  ExternalLink,
   CheckCircle2,
-  ChevronRight,
-  Server,
-  Cpu
+  ChevronRight
 } from "lucide-react";
 
 export default function PrivacyPolicy() {
@@ -54,7 +47,7 @@ export default function PrivacyPolicy() {
           transition={{ duration: 0.3 }}
         >
           {/* Header & Meta */}
-          <div className="border-b border-slate-100 pb-6 mb-6">
+          <div className="border-b border-slate-100 pb-6 mb-8">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-xs font-semibold uppercase tracking-wider mb-3">
               <Shield className="w-3.5 h-3.5" />
               Legal & Privacy Governance
@@ -66,23 +59,6 @@ export default function PrivacyPolicy() {
               <span><strong>Effective Date:</strong> November 11, 2026</span>
               <span className="hidden sm:inline text-slate-300">•</span>
               <span><strong>Last Updated:</strong> November 11, 2026</span>
-              <span className="hidden sm:inline text-slate-300">•</span>
-              <span className="text-emerald-700 font-medium bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/50">
-                Staging Draft for Review
-              </span>
-            </div>
-          </div>
-
-          {/* Staging Review Banner */}
-          <div className="mb-8 p-4 rounded-xl bg-amber-50/80 border border-amber-200/80 text-amber-900 text-xs sm:text-sm flex items-start gap-3">
-            <AlertCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
-            <div className="space-y-1 leading-relaxed">
-              <span className="font-semibold block text-amber-950">
-                Staging Policy Review Notice
-              </span>
-              <p>
-                This document is staged for executive and legal review prior to final publishing. Operational details awaiting final client confirmation are marked with <code className="bg-amber-100 px-1 py-0.5 rounded text-amber-950 font-mono text-[11px]">[Awaiting Confirmation]</code> tags.
-              </p>
             </div>
           </div>
 
@@ -119,16 +95,10 @@ export default function PrivacyPolicy() {
                 1. Scope & Covered Activities
               </h2>
               <p className="mb-3">
-                Macklemore Solutions ("Macklemore", "we", "us", or "our") is an enterprise technology provider operating across North America and West Africa, with corporate presence in the United States, Canada, and Nigeria.
+                This Privacy Policy applies to <strong>Macklemore Solutions</strong> ("Macklemore", "we", "us", or "our"), an enterprise technology and intelligent automation consultancy operating across North America and West Africa, with corporate presence in the United States, Canada, and Nigeria.
               </p>
-              <div className="p-3.5 bg-slate-50 border border-slate-200/60 rounded-xl mb-3 text-xs sm:text-sm">
-                <span className="font-semibold text-slate-800 block mb-1">Corporate Entities Covered:</span>
-                <p className="text-slate-600">
-                  This policy applies to Macklemore Solutions and its affiliated operating entities <span className="text-amber-800 bg-amber-100/60 px-1 py-0.5 rounded font-mono text-[11px]">[Awaiting Confirmation: Exact registered corporate names as incorporated in Delaware/Florida, Ontario, and CAC Nigeria]</span>.
-                </p>
-              </div>
               <p className="mb-3">
-                This Privacy Policy describes how we collect, process, retain, and safeguard personal information collected through:
+                This policy describes how we collect, process, retain, and safeguard personal information collected through:
               </p>
               <ul className="list-disc pl-5 space-y-1.5 text-slate-600 mb-3 text-xs sm:text-sm">
                 <li>Our public website at <a href="https://www.macklemoresolutions.com" className="text-brand-blue hover:underline">macklemoresolutions.com</a></li>
@@ -253,8 +223,8 @@ export default function PrivacyPolicy() {
                   </tbody>
                 </table>
               </div>
-              <p className="text-xs text-slate-400 mt-2 italic">
-                [Awaiting Confirmation: Additional auxiliary SaaS tools currently evaluated or deployed by the Macklemore team.]
+              <p className="text-xs text-slate-500 mt-3 leading-relaxed">
+                All third-party service providers are contractually bound by rigorous Data Processing Agreements (DPAs) that mandate confidentiality, robust technical security controls, and strict compliance with applicable privacy statutes. Providers are prohibited from using personal data for any purpose other than providing contracted services.
               </p>
             </section>
 
