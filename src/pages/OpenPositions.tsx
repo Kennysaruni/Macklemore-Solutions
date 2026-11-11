@@ -122,7 +122,7 @@ export default function OpenPositions() {
           created_at: new Date().toISOString()
         });
         localStorage.setItem('macklemore_applications', JSON.stringify(saved));
-      } catch {}
+      } catch { }
 
       setApplicationSubmitted(true);
       // Reset form fields
@@ -168,10 +168,6 @@ export default function OpenPositions() {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-3xl"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-xs font-semibold uppercase tracking-wider mb-4">
-              <Sparkles className="w-3.5 h-3.5" />
-              Opportunities at Macklemore
-            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-slate-900 mb-6 leading-tight">
               Open Positions
             </h1>
