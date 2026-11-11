@@ -95,6 +95,7 @@ export default function Contact() {
                   <div>
                     <p className="font-medium text-slate-900 mb-1">Call Us</p>
                     <div className="space-y-1">
+                      <a href="tel:+19016082508" className="block text-slate-600 hover:text-brand-blue transition-colors">+1 (901) 608-2508 <span className="text-slate-400 text-xs">(USA)</span></a>
                       <a href="tel:+14374316340" className="block text-slate-600 hover:text-brand-blue transition-colors">+1 (437) 431-6340 <span className="text-slate-400 text-xs">(Canada)</span></a>
                       <a href="tel:+2348162698778" className="block text-slate-600 hover:text-brand-blue transition-colors">+234 816 269 8778 <span className="text-slate-400 text-xs">(Nigeria)</span></a>
                     </div>

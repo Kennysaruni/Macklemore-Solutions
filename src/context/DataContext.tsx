@@ -63,6 +63,22 @@ export interface Playbook {
   created_at: string;
 }
 
+export interface JobOpening {
+  id: string;
+  title: string;
+  department: string;
+  location: string;
+  type: string; // e.g. Full-time, Part-time, Contract, Internship
+  experience_level: string; // e.g. Student / Intern, Entry-level, Mid-level, Senior, Lead
+  salary_range?: string;
+  description: string;
+  responsibilities: string[];
+  requirements: string[];
+  benefits?: string[];
+  is_active: boolean;
+  created_at: string;
+}
+
 interface DataContextType {
   team: TeamMember[];
   partners: Partner[];
@@ -70,6 +86,7 @@ interface DataContextType {
   caseStudies: CaseStudy[];
   eguides: EGuide[];
   playbooks: Playbook[];
+  jobs: JobOpening[];
   loading: boolean;
   refreshData: () => Promise<void>;
   
@@ -80,6 +97,7 @@ interface DataContextType {
     caseStudies: boolean;
     eguides: boolean;
     playbooks: boolean;
+    jobs: boolean;
   };
   fetchedStates: {
     team: boolean;
@@ -88,6 +106,7 @@ interface DataContextType {
     caseStudies: boolean;
     eguides: boolean;
     playbooks: boolean;
+    jobs: boolean;
   };
   fetchTeam: (force?: boolean) => Promise<void>;
   fetchPartners: (force?: boolean) => Promise<void>;
@@ -95,6 +114,10 @@ interface DataContextType {
   fetchCaseStudies: (force?: boolean) => Promise<void>;
   fetchEGuides: (force?: boolean) => Promise<void>;
   fetchPlaybooks: (force?: boolean) => Promise<void>;
+  fetchJobs: (force?: boolean) => Promise<void>;
+  addJob: (job: Omit<JobOpening, 'id' | 'created_at'>) => Promise<{ success: boolean; error?: string; usedStorage?: 'supabase' | 'local' }>;
+  updateJob: (id: string, updates: Partial<JobOpening>) => Promise<{ success: boolean; error?: string }>;
+  deleteJob: (id: string) => Promise<{ success: boolean; error?: string }>;
 }
 
 const DataContext = createContext<DataContextType>({
@@ -104,16 +127,21 @@ const DataContext = createContext<DataContextType>({
   caseStudies: [],
   eguides: [],
   playbooks: [],
+  jobs: [],
   loading: false,
   refreshData: async () => {},
-  loadingStates: { team: false, partners: false, blogs: false, caseStudies: false, eguides: false, playbooks: false },
-  fetchedStates: { team: false, partners: false, blogs: false, caseStudies: false, eguides: false, playbooks: false },
+  loadingStates: { team: false, partners: false, blogs: false, caseStudies: false, eguides: false, playbooks: false, jobs: false },
+  fetchedStates: { team: false, partners: false, blogs: false, caseStudies: false, eguides: false, playbooks: false, jobs: false },
   fetchTeam: async () => {},
   fetchPartners: async () => {},
   fetchBlogs: async () => {},
   fetchCaseStudies: async () => {},
   fetchEGuides: async () => {},
   fetchPlaybooks: async () => {},
+  fetchJobs: async () => {},
+  addJob: async () => ({ success: false }),
+  updateJob: async () => ({ success: false }),
+  deleteJob: async () => ({ success: false }),
 });
 
 export const useData = () => useContext(DataContext);
@@ -179,6 +207,16 @@ export const usePlaybooks = () => {
   return { playbooks, loading: loadingStates.playbooks };
 };
 
+export const useJobs = () => {
+  const { jobs, loadingStates, fetchedStates, fetchJobs, addJob, updateJob, deleteJob } = useContext(DataContext);
+  useEffect(() => {
+    if (!fetchedStates.jobs && !loadingStates.jobs) {
+      fetchJobs();
+    }
+  }, [fetchedStates.jobs, loadingStates.jobs, fetchJobs]);
+  return { jobs, loading: loadingStates.jobs, fetchJobs, addJob, updateJob, deleteJob };
+};
+
 export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [team, setTeam] = useState<TeamMember[]>([]);
   const [partners, setPartners] = useState<Partner[]>([]);
@@ -186,6 +224,7 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [caseStudies, setCaseStudies] = useState<CaseStudy[]>([]);
   const [eguides, setEguides] = useState<EGuide[]>([]);
   const [playbooks, setPlaybooks] = useState<Playbook[]>([]);
+  const [jobs, setJobs] = useState<JobOpening[]>([]);
 
   const [loadingStates, setLoadingStates] = useState({
     team: false,
@@ -194,6 +233,7 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
     caseStudies: false,
     eguides: false,
     playbooks: false,
+    jobs: false,
   });
 
   const [fetchedStates, setFetchedStates] = useState({
@@ -203,6 +243,7 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
     caseStudies: false,
     eguides: false,
     playbooks: false,
+    jobs: false,
   });
 
   const fetchTeam = useCallback(async (force = false) => {
@@ -289,6 +330,163 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
   }, [fetchedStates.playbooks]);
 
+  const fetchJobs = useCallback(async (force = false) => {
+    if (fetchedStates.jobs && !force) return;
+    setLoadingStates(prev => ({ ...prev, jobs: true }));
+    try {
+      // 1. Attempt to fetch from Supabase
+      const { data, error } = await supabase
+        .from('jobs')
+        .select('*')
+        .order('created_at', { ascending: false });
+
+      if (!error && data && data.length > 0) {
+        const parsedJobs: JobOpening[] = data.map((item: any) => ({
+          ...item,
+          responsibilities: Array.isArray(item.responsibilities) ? item.responsibilities : (typeof item.responsibilities === 'string' ? JSON.parse(item.responsibilities) : []),
+          requirements: Array.isArray(item.requirements) ? item.requirements : (typeof item.requirements === 'string' ? JSON.parse(item.requirements) : []),
+          benefits: Array.isArray(item.benefits) ? item.benefits : (typeof item.benefits === 'string' ? JSON.parse(item.benefits) : []),
+          is_active: item.is_active ?? true
+        }));
+        setJobs(parsedJobs);
+        try {
+          localStorage.setItem('macklemore_jobs', JSON.stringify(parsedJobs));
+        } catch (e) {
+          // ignore storage quota issues
+        }
+      } else {
+        // Fallback to local storage if Supabase table is not populated or doesn't exist
+        const local = localStorage.getItem('macklemore_jobs');
+        if (local) {
+          try {
+            setJobs(JSON.parse(local));
+          } catch {
+            setJobs([]);
+          }
+        } else if (!error && data) {
+          setJobs([]);
+        }
+      }
+      setFetchedStates(prev => ({ ...prev, jobs: true }));
+    } catch (error) {
+      console.warn("Could not fetch jobs from Supabase, loading from local storage:", error);
+      const local = localStorage.getItem('macklemore_jobs');
+      if (local) {
+        try {
+          setJobs(JSON.parse(local));
+        } catch {
+          setJobs([]);
+        }
+      }
+      setFetchedStates(prev => ({ ...prev, jobs: true }));
+    } finally {
+      setLoadingStates(prev => ({ ...prev, jobs: false }));
+    }
+  }, [fetchedStates.jobs]);
+
+  const addJob = useCallback(async (jobData: Omit<JobOpening, 'id' | 'created_at'>) => {
+    const newId = (typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : `job-${Date.now()}`;
+    const now = new Date().toISOString();
+    const newJob: JobOpening = {
+      ...jobData,
+      id: newId,
+      created_at: now
+    };
+
+    let usedStorage: 'supabase' | 'local' = 'local';
+    let supabaseSuccess = false;
+
+    try {
+      const { data, error } = await supabase.from('jobs').insert([
+        {
+          title: jobData.title,
+          department: jobData.department,
+          location: jobData.location,
+          type: jobData.type,
+          experience_level: jobData.experience_level,
+          salary_range: jobData.salary_range || null,
+          description: jobData.description,
+          responsibilities: jobData.responsibilities,
+          requirements: jobData.requirements,
+          benefits: jobData.benefits || [],
+          is_active: jobData.is_active ?? true
+        }
+      ]).select();
+
+      if (!error && data && data.length > 0) {
+        supabaseSuccess = true;
+        usedStorage = 'supabase';
+        const insertedJob: JobOpening = {
+          ...data[0],
+          responsibilities: Array.isArray(data[0].responsibilities) ? data[0].responsibilities : [],
+          requirements: Array.isArray(data[0].requirements) ? data[0].requirements : [],
+          benefits: Array.isArray(data[0].benefits) ? data[0].benefits : []
+        };
+        setJobs(prev => {
+          const updated = [insertedJob, ...prev.filter(j => j.id !== insertedJob.id)];
+          try {
+            localStorage.setItem('macklemore_jobs', JSON.stringify(updated));
+          } catch {}
+          return updated;
+        });
+      }
+    } catch (err) {
+      console.warn("Could not insert job to Supabase, falling back to local storage:", err);
+    }
+
+    if (!supabaseSuccess) {
+      // Local storage persistence
+      setJobs(prev => {
+        const updated = [newJob, ...prev.filter(j => j.id !== newJob.id)];
+        try {
+          localStorage.setItem('macklemore_jobs', JSON.stringify(updated));
+        } catch {}
+        return updated;
+      });
+    }
+
+    return { success: true, usedStorage };
+  }, []);
+
+  const updateJob = useCallback(async (id: string, updates: Partial<JobOpening>) => {
+    try {
+      await supabase
+        .from('jobs')
+        .update(updates)
+        .eq('id', id);
+    } catch (err) {
+      console.warn("Could not update job in Supabase:", err);
+    }
+
+    setJobs(prev => {
+      const updated = prev.map(job => job.id === id ? { ...job, ...updates } : job);
+      try {
+        localStorage.setItem('macklemore_jobs', JSON.stringify(updated));
+      } catch {}
+      return updated;
+    });
+
+    return { success: true };
+  }, []);
+
+  const deleteJob = useCallback(async (id: string) => {
+    try {
+      await supabase.from('jobs').delete().eq('id', id);
+    } catch (err) {
+      console.warn("Could not delete job in Supabase:", err);
+    }
+
+    setJobs(prev => {
+      const updated = prev.filter(job => job.id !== id);
+      try {
+        localStorage.setItem('macklemore_jobs', JSON.stringify(updated));
+      } catch {}
+      return updated;
+    });
+
+    return { success: true };
+  }, []);
+
   const refreshData = useCallback(async () => {
     const promises = [];
     if (fetchedStates.team) promises.push(fetchTeam(true));
@@ -297,8 +495,9 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
     if (fetchedStates.caseStudies) promises.push(fetchCaseStudies(true));
     if (fetchedStates.eguides) promises.push(fetchEGuides(true));
     if (fetchedStates.playbooks) promises.push(fetchPlaybooks(true));
+    if (fetchedStates.jobs) promises.push(fetchJobs(true));
     await Promise.all(promises);
-  }, [fetchedStates, fetchTeam, fetchPartners, fetchBlogs, fetchCaseStudies, fetchEGuides, fetchPlaybooks]);
+  }, [fetchedStates, fetchTeam, fetchPartners, fetchBlogs, fetchCaseStudies, fetchEGuides, fetchPlaybooks, fetchJobs]);
 
   const loading = Object.values(loadingStates).some(Boolean);
 
@@ -310,6 +509,7 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
       caseStudies,
       eguides,
       playbooks,
+      jobs,
       loading,
       refreshData,
       loadingStates,
@@ -319,7 +519,11 @@ export const DataProvider: React.FC<{ children: React.ReactNode }> = ({ children
       fetchBlogs,
       fetchCaseStudies,
       fetchEGuides,
-      fetchPlaybooks
+      fetchPlaybooks,
+      fetchJobs,
+      addJob,
+      updateJob,
+      deleteJob
     }}>
       {children}
     </DataContext.Provider>

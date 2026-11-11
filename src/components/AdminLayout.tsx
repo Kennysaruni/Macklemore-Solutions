@@ -13,7 +13,8 @@ import {
   LogOut,
   LayoutDashboard,
   Menu,
-  X
+  X,
+  UserPlus
 } from 'lucide-react';
 import { cn } from '../lib/utils';
 import macklemoreLogo from '../assets/macklemorelogo.png';
@@ -31,6 +32,7 @@ export default function AdminLayout() {
     { name: 'Case Studies', href: '/admin/case-studies', icon: Briefcase },
     { name: 'E-Guides', href: '/admin/eguides', icon: BookOpen },
     { name: 'Playbooks', href: '/admin/playbooks', icon: LayoutTemplate },
+    { name: 'Job Openings', href: '/admin/jobs', icon: UserPlus },
     { name: 'Messages', href: '/admin/messages', icon: MessageSquare },
   ];
 

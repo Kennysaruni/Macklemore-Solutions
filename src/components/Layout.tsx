@@ -179,6 +179,7 @@ export default function Layout() {
                   <Link to="/about" className="block px-3 py-2 text-sm text-slate-600 hover:text-brand-blue hover:bg-slate-50 rounded-lg font-medium transition-colors">About Us</Link>
                   <Link to="/advantage" className="block px-3 py-2 text-sm text-slate-600 hover:text-brand-blue hover:bg-slate-50 rounded-lg font-medium transition-colors">The Macklemore Advantage</Link>
                   <Link to="/careers" className="block px-3 py-2 text-sm text-slate-600 hover:text-brand-blue hover:bg-slate-50 rounded-lg font-medium transition-colors">Careers</Link>
+                  <Link to="/careers/positions" className="block px-3 py-2 text-sm text-slate-600 hover:text-brand-blue hover:bg-slate-50 rounded-lg font-medium transition-colors">Open Positions</Link>
                   <Link to="/partners" className="block px-3 py-2 text-sm text-slate-600 hover:text-brand-blue hover:bg-slate-50 rounded-lg font-medium transition-colors">Partner With Us</Link>
                   <Link to="/contact" className="block px-3 py-2 text-sm text-slate-600 hover:text-brand-blue hover:bg-slate-50 rounded-lg font-medium transition-colors">Contact</Link>
                 </div>
@@ -244,6 +245,7 @@ export default function Layout() {
                 <li><Link to="/about" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>About Us</Link></li>
                 <li><Link to="/advantage" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>The Macklemore Advantage</Link></li>
                 <li><Link to="/careers" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Careers</Link></li>
+                <li><Link to="/careers/positions" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Open Positions</Link></li>
                 <li><Link to="/partners" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Partner With Us</Link></li>
                 <li><Link to="/contact" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Contact</Link></li>
                 <li><Link to="/privacy-policy" className="text-[15px] font-medium text-slate-600 hover:text-brand-blue block" onClick={() => setMobileMenuOpen(false)}>Privacy Policy</Link></li>
@@ -328,10 +330,12 @@ export default function Layout() {
                   </div>
                   <div className="flex items-start gap-2.5">
                     <Phone className="w-4 h-4 text-brand-blue shrink-0 mt-0.5" />
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-3">
-                      <a href="tel:+14374316340" className="hover:text-brand-blue transition-colors">+1 (437) 431-6340 <span className="text-slate-400 font-medium">(CA)</span></a>
+                    <div className="flex flex-wrap sm:items-center gap-1 sm:gap-2.5">
+                      <a href="tel:+19016082508" className="hover:text-brand-blue transition-colors whitespace-nowrap">+1 (901) 608-2508 <span className="text-slate-400 font-medium">(US)</span></a>
                       <span className="hidden sm:inline text-slate-300">|</span>
-                      <a href="tel:+2348162698778" className="hover:text-brand-blue transition-colors">+234 816 269 8778 <span className="text-slate-400 font-medium">(NG)</span></a>
+                      <a href="tel:+14374316340" className="hover:text-brand-blue transition-colors whitespace-nowrap">+1 (437) 431-6340 <span className="text-slate-400 font-medium">(CA)</span></a>
+                      <span className="hidden sm:inline text-slate-300">|</span>
+                      <a href="tel:+2348162698778" className="hover:text-brand-blue transition-colors whitespace-nowrap">+234 816 269 8778 <span className="text-slate-400 font-medium">(NG)</span></a>
                     </div>
                   </div>
                   <div className="flex items-center gap-2.5">
@@ -402,7 +406,7 @@ export default function Layout() {
 
       {/* Scroll to top button */}
       <AnimatePresence>
-        {isScrolled && (
+        {isScrolled && location.pathname !== '/privacy-policy' && (
           <motion.button
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}

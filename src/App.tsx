@@ -18,6 +18,7 @@ const About = lazy(() => import("./pages/About"));
 const Advantage = lazy(() => import("./pages/Advantage"));
 const Partners = lazy(() => import("./pages/Partners"));
 const Careers = lazy(() => import("./pages/Careers"));
+const OpenPositions = lazy(() => import("./pages/OpenPositions"));
 const CaseStudies = lazy(() => import("./pages/CaseStudies"));
 const Industries = lazy(() => import("./pages/Industries"));
 const DealRoom = lazy(() => import("./pages/DealRoom"));
@@ -45,6 +46,7 @@ const ManageCaseStudies = lazy(() => import("./pages/admin/ManageCaseStudies"));
 const ManageEGuides = lazy(() => import("./pages/admin/ManageEGuides"));
 const ManagePlaybooks = lazy(() => import("./pages/admin/ManagePlaybooks"));
 const ManageMessages = lazy(() => import("./pages/admin/ManageMessages"));
+const ManageJobs = lazy(() => import("./pages/admin/ManageJobs"));
 
 export default function App() {
   return (
@@ -59,6 +61,8 @@ export default function App() {
                 <Route path="advantage" element={<Advantage />} />
                 <Route path="partners" element={<Partners />} />
                 <Route path="careers" element={<Careers />} />
+                <Route path="careers/positions" element={<OpenPositions />} />
+                <Route path="careers/jobs" element={<OpenPositions />} />
                 <Route path="industries" element={<Industries />} />
                 <Route path="case-studies" element={<CaseStudies />} />
                 <Route path="deal-room" element={<DealRoom />} />
@@ -88,6 +92,7 @@ export default function App() {
                   <Route path="eguides" element={<ManageEGuides />} />
                   <Route path="playbooks" element={<ManagePlaybooks />} />
                   <Route path="messages" element={<ManageMessages />} />
+                  <Route path="jobs" element={<ManageJobs />} />
                 </Route>
               </Route>
             </Routes>

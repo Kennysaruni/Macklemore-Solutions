@@ -12,20 +12,34 @@ export default function Careers() {
             animate={{ opacity: 1, y: 0 }}
             className="flex-1"
           >
-            <h1 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6">
-              Careers
+            <div className="text-brand-blue font-semibold uppercase tracking-wider text-sm mb-3">
+              Careers at Macklemore
+            </div>
+            <h1 className="text-4xl md:text-5xl font-display font-bold text-slate-900 mb-6 leading-tight">
+              Build Your Future With Real Projects, Real Mentorship, and Real Impact.
             </h1>
-            <p className="text-xl text-slate-600 leading-relaxed">
-
-
-Build your future with real projects, real mentorship, and real impact.
-
-
-At Macklemore Solutions, we create opportunities for students, interns, and professionals to grow through hands on experience in AI, automation, cybersecurity, software, and digital operations.
-
-
-Our career programs are designed to help emerging talent build practical skills, work on real business challenges, and develop the confidence needed to contribute in modern technology environments.
-            </p>
+            <div className="text-lg text-slate-600 leading-relaxed space-y-4 mb-8">
+              <p>
+                At Macklemore Solutions, we create high-impact opportunities for students, interns, and seasoned professionals to excel through hands-on experience in AI, enterprise automation, cybersecurity, cloud architecture, and digital operations.
+              </p>
+              <p>
+                Our career programs are designed to help emerging talent build practical skills, work on real business challenges for institutional clients, and develop the technical confidence needed to lead in modern technology environments.
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-4">
+              <Link
+                to="/careers/positions"
+                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-brand-blue text-white font-medium hover:bg-brand-blue-hover shadow-md shadow-brand-blue/20 transition-all text-base"
+              >
+                View Open Positions <ArrowRight className="w-4 h-4" />
+              </Link>
+              <Link
+                to="/about"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-slate-100 text-slate-700 font-medium hover:bg-slate-200 transition-all text-base"
+              >
+                About Our Culture
+              </Link>
+            </div>
           </motion.div>
 
           <motion.div
@@ -118,12 +132,34 @@ Our career programs are designed to help emerging talent build practical skills,
           </motion.div>
         </div>
 
-        <div className="text-center">
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
-            <button className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-blue text-white font-medium hover:bg-brand-blue-hover shadow-md shadow-brand-blue/20 transition-all text-lg">
-              View Open Positions <ArrowRight className="w-5 h-5" />
-            </button>
-          </motion.div>
+        <div className="bg-slate-50 border border-slate-200 rounded-3xl p-10 md:p-14 text-center max-w-4xl mx-auto shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue/10 text-brand-blue text-xs font-semibold uppercase tracking-wider mb-4">
+            Join Our Global Team
+          </div>
+          <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4">
+            Ready to Take the Next Step in Your Career?
+          </h2>
+          <p className="text-slate-600 max-w-2xl mx-auto text-lg mb-8 leading-relaxed">
+            Whether you are looking for an internship, entry-level opportunity, or senior technical leadership role, explore our open positions or register for upcoming vacancies.
+          </p>
+          <div className="flex flex-wrap justify-center items-center gap-4">
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} className="inline-block">
+              <Link
+                to="/careers/positions"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-blue text-white font-medium hover:bg-brand-blue-hover shadow-md shadow-brand-blue/20 transition-all text-lg"
+              >
+                View Open Positions <ArrowRight className="w-5 h-5" />
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }} className="inline-block">
+              <Link
+                to="/contact"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-slate-700 font-medium hover:bg-slate-100 border border-slate-200 transition-all text-lg"
+              >
+                Contact Recruitment
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </div>
     </div>
